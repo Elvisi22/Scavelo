@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scavelo — Backend, Search &amp; AI Engineering for Product Teams</title>
+<meta name="description" content="Scavelo is an engineering studio building production APIs, Elasticsearch search, and retrieval-grounded AI for EU and US product teams. Fixed scope. Fixed price. Shipped to production.">
+<meta property="og:title" content="Scavelo — Backend, Search &amp; AI Engineering Studio">
+<meta property="og:description" content="Production APIs, search that ranks, and AI assistants grounded in your own content. Fixed scope, fixed price, deployed.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,480;9..144,560&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#06262E;
+  --deep-2:#0A323C;
+  --deep-3:#0E3E4A;
+  --light:#F1F5F4;
+  --white:#FFFFFF;
+  --t-dark:#E6EFED;
+  --t-dark-mute:#8AA6A4;
+  --t-light:#0C2126;
+  --t-light-mute:#54706F;
+  --line-d:rgba(230,239,237,.12);
+  --line-l:#D9E2E0;
+  --mint:#4FD6B0;
+  --teal:#0D7E6C;
+  --teal-deep:#0A6455;
+  --amber:#E8B44A;      /* results only — never decoration */
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--deep);color:var(--t-dark);
+  font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.66;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:480;line-height:1.08;letter-spacing:-0.015em}
+h1 em,h2 em{font-style:italic;font-weight:560;color:var(--mint)}
+.light h1 em,.light h2 em{color:var(--teal)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+:focus-visible{outline:2.5px solid var(--mint);outline-offset:3px;border-radius:4px}
+.light :focus-visible{outline-color:var(--teal)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--t-dark-mute);
+  display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--mint);flex:none}
+.light .eyebrow{color:var(--t-light-mute)}
+.light .eyebrow::before{background:var(--teal)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;
+  font-weight:600;font-size:15px;padding:14px 28px;border-radius:9px;
+  transition:transform .15s ease,background .18s ease,border-color .18s ease;
+  font-family:'Inter',sans-serif;
+}
+.btn:active{transform:translateY(1px)}
+.btn .arrow{transition:transform .18s ease;font-family:'IBM Plex Mono',monospace}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn.primary{background:var(--mint);color:#03211B;border:1px solid var(--mint)}
+.btn.primary:hover{background:#6BE3C2;border-color:#6BE3C2}
+.btn.outline-d{background:transparent;color:var(--t-dark);border:1px solid rgba(230,239,237,.28)}
+.btn.outline-d:hover{border-color:var(--t-dark)}
+.btn.teal{background:var(--teal);color:#fff;border:1px solid var(--teal)}
+.btn.teal:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+.btn.outline-l{background:transparent;color:var(--t-light);border:1px solid #BFCDCB}
+.btn.outline-l:hover{border-color:var(--t-light)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ============ header ============ */
+header{
+  position:sticky;top:0;z-index:80;
+  background:rgba(6,38,46,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-d);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.wordmark{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--t-dark)}
+.wordmark .mark{font-family:'Fraunces',serif;font-weight:560;font-size:24px;letter-spacing:.005em}
+.wordmark .mark i{font-style:normal;color:var(--mint)}
+.wordmark .desc{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t-dark-mute)}
+@media(max-width:880px){.wordmark .desc{display:none}}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a:not(.btn){color:var(--t-dark-mute);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s ease}
+.nav-links a:not(.btn):hover{color:var(--t-dark)}
+.nav-links .btn{padding:10px 20px;font-size:13.5px}
+@media(max-width:860px){.nav-links a:not(.btn){display:none}}
+
+/* ============ hero ============ */
+.hero{
+  position:relative;padding:104px 0 0;overflow:hidden;
+  background:
+    radial-gradient(1100px 500px at 78% -10%, rgba(79,214,176,.10), transparent 60%),
+    radial-gradient(700px 380px at 8% 110%, rgba(13,126,108,.14), transparent 60%),
+    var(--deep);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(230,239,237,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,239,237,.05) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 88%);
+}
+.hero .wrap{position:relative}
+.hero .kicker{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:48px}
+.hero .kicker .mono{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-dark-mute)}
+.hero .kicker .live{display:inline-flex;align-items:center;gap:9px}
+.hero .kicker .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(79,214,176,.15);flex:none}
+.hero h1{font-size:clamp(40px,6.2vw,80px);max-width:16ch;margin-bottom:26px}
+.hero .lede{font-size:clamp(16.5px,1.5vw,19px);color:var(--t-dark-mute);max-width:58ch;margin-bottom:38px}
+.hero .lede strong{color:var(--t-dark);font-weight:500}
+.hero .actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.hero .reassure{font-size:13.5px;color:var(--t-dark-mute);margin-bottom:76px}
+.hero .reassure b{color:var(--t-dark);font-weight:500}
+
+/* console — the signature element */
+.console{
+  background:var(--deep-2);border:1px solid var(--line-d);border-radius:var(--r) var(--r) 0 0;
+  border-bottom:none;box-shadow:0 -30px 80px -50px rgba(79,214,176,.35);overflow:hidden;
+}
+.console-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 24px;border-bottom:1px solid var(--line-d);flex-wrap:wrap}
+.console-head .label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t-dark-mute)}
+.console-head .meta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--t-dark-mute)}
+.console-body{display:grid;grid-template-columns:1fr 1fr;min-height:250px}
+@media(max-width:820px){.console-body{grid-template-columns:1fr}}
+.console-q{padding:26px 24px;border-right:1px solid var(--line-d);display:flex;flex-direction:column}
+@media(max-width:820px){.console-q{border-right:none;border-bottom:1px solid var(--line-d)}}
+.console-q .prompt{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--t-dark-mute);margin-bottom:14px}
+.query-line{font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.6vw,18px);color:#fff;line-height:1.5;min-height:3.2em}
+.caret{display:inline-block;width:9px;height:1.1em;background:var(--mint);vertical-align:text-bottom;animation:blink 1.05s steps(1) infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.try{margin-top:auto;padding-top:22px}
+.try p{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-dark-mute);margin-bottom:10px}
+.try-row{display:flex;flex-wrap:wrap;gap:8px}
+.try-btn{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--t-dark-mute);
+  background:transparent;border:1px solid var(--line-d);border-radius:20px;padding:6px 13px;
+  cursor:pointer;transition:color .15s ease,border-color .15s ease;
+}
+.try-btn:hover,.try-btn[aria-pressed="true"]{color:var(--mint);border-color:rgba(79,214,176,.5)}
+.hits{list-style:none;padding:16px 24px}
+.hit{padding:11px 0;border-bottom:1px solid var(--line-d);opacity:0;transform:translateX(8px);transition:opacity .4s ease,transform .4s ease;display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:baseline}
+.hit.show{opacity:1;transform:none}
+.hit:last-child{border-bottom:none}
+.hit .score{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mint)}
+.hit .title{font-weight:600;font-size:14px;color:#fff}
+.hit .snip{display:block;color:var(--t-dark-mute);font-size:12.5px;margin-top:1px}
+@media(prefers-reduced-motion:reduce){.caret{animation:none}.hit{opacity:1;transform:none;transition:none}}
+
+/* commitments strip */
+.commit{background:var(--deep-2);border-top:1px solid var(--line-d)}
+.commit .wrap{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line-d);border-right:1px solid var(--line-d)}
+@media(max-width:820px){.commit .wrap{grid-template-columns:repeat(2,1fr)}}
+.commit-cell{padding:30px 26px;border-right:1px solid var(--line-d)}
+.commit-cell:last-child{border-right:none}
+@media(max-width:820px){.commit-cell:nth-child(2){border-right:none}.commit-cell:nth-child(-n+2){border-bottom:1px solid var(--line-d)}}
+.commit-cell b{display:block;font-family:'Fraunces',serif;font-weight:480;font-size:30px;color:#fff;margin-bottom:4px}
+.commit-cell b i{font-style:normal;color:var(--mint);font-size:20px}
+.commit-cell span{font-size:12.5px;color:var(--t-dark-mute);letter-spacing:.02em}
+
+/* ============ shared section furniture ============ */
+section{padding:110px 0}
+.light{background:var(--light);color:var(--t-light)}
+.sec-head{max-width:680px;margin-bottom:60px}
+.sec-head h2{font-size:clamp(30px,4vw,46px);margin-top:22px}
+.sec-head p{margin-top:16px;font-size:16.5px;color:var(--t-light-mute)}
+.dark-sec .sec-head p{color:var(--t-dark-mute)}
+.dark-sec .sec-head h2{color:#fff}
+
+/* ============ symptoms ============ */
+#symptoms{background:var(--light);border-top:1px solid var(--line-l)}
+.sym-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line-l);border-radius:var(--r);overflow:hidden;background:var(--white)}
+@media(max-width:820px){.sym-grid{grid-template-columns:1fr}}
+.sym{padding:34px 34px 32px;border-right:1px solid var(--line-l);border-bottom:1px solid var(--line-l)}
+.sym:nth-child(2n){border-right:none}
+.sym:nth-last-child(-n+2){border-bottom:none}
+@media(max-width:820px){.sym{border-right:none}.sym:last-child{border-bottom:none}.sym:nth-last-child(2){border-bottom:1px solid var(--line-l)}}
+.sym q{display:block;font-family:'Fraunces',serif;font-weight:560;font-size:20px;line-height:1.3;color:var(--t-light);quotes:"“" "”"}
+.sym .fix{margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-l);font-size:14.5px;color:var(--t-light-mute)}
+.sym .fix b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:500}
+
+/* ============ services ============ */
+#services{background:var(--white);border-top:1px solid var(--line-l)}
+.svc-list{border-top:1px solid var(--line-l)}
+.svc{border-bottom:1px solid var(--line-l)}
+.svc-row{
+  width:100%;display:grid;grid-template-columns:1fr auto 40px;gap:28px;align-items:center;
+  padding:30px 6px;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:inherit;color:inherit;transition:background .15s ease;
+}
+.svc-row:hover{background:rgba(13,126,108,.05)}
+.svc-row h3{font-size:clamp(20px,2.4vw,27px);font-weight:480}
+.svc-row .for{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--t-light-mute);white-space:nowrap}
+.svc-row .pm{font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--t-light-mute);text-align:center;transition:transform .25s ease,color .2s ease}
+.svc.open .svc-row .pm{transform:rotate(45deg);color:var(--teal)}
+@media(max-width:760px){.svc-row{grid-template-columns:1fr 40px;gap:10px}.svc-row .for{display:none}}
+.svc-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.svc.open .svc-detail{max-height:640px}
+.svc-detail-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;padding:6px 6px 40px}
+@media(max-width:760px){.svc-detail-inner{grid-template-columns:1fr;gap:24px}}
+.svc-detail p{color:var(--t-light-mute);font-size:15.5px}
+.svc-detail .box{background:var(--light);border:1px solid var(--line-l);border-radius:10px;padding:22px 24px}
+.svc-detail .box .h{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.svc-detail .box li{list-style:none;font-size:13.5px;color:var(--t-light-mute);padding:5px 0 5px 20px;position:relative}
+.svc-detail .box li::before{content:"—";position:absolute;left:0;color:var(--teal)}
+.svc-detail .cta-line{margin-top:22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.svc-detail .cta-line .mono{font-size:12.5px;color:var(--t-light-mute)}
+
+/* ============ proof / case studies ============ */
+#proof{background:var(--deep)}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:960px){.cases{grid-template-columns:1fr}}
+.case{background:var(--deep-2);border:1px solid var(--line-d);border-radius:var(--r);padding:32px 30px;display:flex;flex-direction:column}
+.case .sector{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t-dark-mute);margin-bottom:20px}
+.case .figure{font-family:'Fraunces',serif;font-weight:560;font-size:52px;line-height:1;color:var(--amber);letter-spacing:-.02em}
+.case .figure-label{font-size:14px;color:#fff;margin-top:10px;font-weight:500}
+.case .body{margin-top:18px;padding-top:18px;border-top:1px solid var(--line-d);font-size:14.5px;color:var(--t-dark-mute);flex:1}
+.case .stack{margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--t-dark-mute);letter-spacing:.06em}
+.quote-band{margin-top:28px;background:var(--deep-2);border:1px solid var(--line-d);border-radius:var(--r);padding:38px 40px;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+@media(max-width:820px){.quote-band{grid-template-columns:1fr;gap:22px;padding:30px 26px}}
+.quote-band blockquote{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(19px,2.3vw,25px);line-height:1.35;color:#fff}
+.quote-band .attrib{font-size:13.5px;color:var(--t-dark-mute);white-space:nowrap}
+.quote-band .attrib b{display:block;color:var(--t-dark);font-weight:500}
+
+/* ============ pricing ============ */
+#pricing{background:var(--white);border-top:1px solid var(--line-l)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+@media(max-width:960px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--line-l);border-radius:var(--r);padding:38px 34px;display:flex;flex-direction:column;background:var(--white)}
+.plan.featured{background:var(--deep);color:var(--t-dark);border-color:var(--deep);box-shadow:0 34px 70px -40px rgba(6,38,46,.55)}
+.plan .tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+.plan.featured .tag{color:var(--mint)}
+.plan h3{font-size:23px}
+.plan .sub{font-size:14px;color:var(--t-light-mute);margin-top:5px}
+.plan.featured .sub{color:var(--t-dark-mute)}
+.plan .price{font-family:'Fraunces',serif;font-weight:480;font-size:44px;margin:26px 0 2px}
+.plan .price small{font-family:'Inter',sans-serif;font-size:14px;font-weight:400;color:var(--t-light-mute)}
+.plan.featured .price small{color:var(--t-dark-mute)}
+.plan .lead-time{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--t-light-mute)}
+.plan.featured .lead-time{color:var(--t-dark-mute)}
+.plan ul{list-style:none;margin:26px 0 32px;flex:1}
+.plan li{font-size:14.5px;color:var(--t-light-mute);padding:7px 0 7px 28px;position:relative}
+.plan.featured li{color:#B6CBC8}
+.plan li::before{content:"";position:absolute;left:2px;top:15px;width:12px;height:6px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.plan.featured li::before{border-color:var(--mint)}
+.pricing-note{margin-top:38px;font-size:14.5px;color:var(--t-light-mute);max-width:80ch}
+.pricing-note b{color:var(--t-light)}
+
+/* ============ process ============ */
+#process{background:var(--deep)}
+.timeline{position:relative;max-width:820px;margin-left:24px}
+.timeline::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line-d)}
+.t-step{position:relative;padding:0 0 52px 52px}
+.t-step:last-child{padding-bottom:0}
+.t-step::before{content:"";position:absolute;left:-5.5px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--deep);border:2px solid var(--mint)}
+.t-step .k{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--mint);letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px}
+.t-step h3{font-size:22px;color:#fff;margin-bottom:8px;font-weight:480}
+.t-step p{font-size:15px;color:var(--t-dark-mute);max-width:56ch}
+
+/* ============ studio ============ */
+#studio{background:var(--light);border-top:1px solid var(--line-l)}
+.pr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:820px){.pr-grid{grid-template-columns:1fr}}
+.principle{background:var(--white);border:1px solid var(--line-l);border-radius:var(--r);padding:30px 32px}
+.principle b{display:block;font-family:'Fraunces',serif;font-weight:560;font-size:19px;margin-bottom:8px}
+.principle span{color:var(--t-light-mute);font-size:14.5px}
+.stack-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-light-mute);margin-top:48px;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:12px;border:1px solid var(--line-l);border-radius:7px;padding:8px 14px;color:var(--t-light);background:var(--white)}
+
+/* ============ FAQ ============ */
+#faq{background:var(--white);border-top:1px solid var(--line-l)}
+.faq-cols{display:grid;grid-template-columns:.9fr 1.5fr;gap:80px;align-items:start}
+@media(max-width:880px){.faq-cols{grid-template-columns:1fr;gap:40px}}
+.faq-cols .sec-head{margin-bottom:0;position:sticky;top:110px}
+@media(max-width:880px){.faq-cols .sec-head{position:static}}
+.faq-item{border-bottom:1px solid var(--line-l)}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:22px;padding:24px 4px;font-family:'Fraunces',serif;font-weight:560;font-size:19px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .ind{font-family:'IBM Plex Mono',monospace;font-size:19px;color:var(--t-light-mute);transition:transform .22s ease;flex:none}
+.faq-item[open] summary .ind{transform:rotate(45deg);color:var(--teal)}
+.faq-item .a{padding:0 4px 26px;color:var(--t-light-mute);font-size:15px;max-width:62ch}
+
+/* ============ contact ============ */
+#contact{
+  background:
+    radial-gradient(900px 420px at 50% 120%, rgba(79,214,176,.14), transparent 65%),
+    var(--deep);
+  padding:126px 0;border-top:1px solid var(--line-d);
+}
+#contact .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+@media(max-width:920px){#contact .grid{grid-template-columns:1fr;gap:56px}}
+#contact h2{font-size:clamp(32px,4.6vw,52px);margin:24px 0 20px;color:#fff}
+#contact .side p{color:var(--t-dark-mute);font-size:16.5px;max-width:46ch;margin-bottom:28px}
+#contact .assure{list-style:none;margin-top:8px}
+#contact .assure li{color:var(--t-dark-mute);font-size:14.5px;padding:8px 0 8px 30px;position:relative}
+#contact .assure li::before{content:"";position:absolute;left:2px;top:16px;width:12px;height:6px;border-left:2px solid var(--mint);border-bottom:2px solid var(--mint);transform:rotate(-45deg)}
+#contact .direct{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--t-dark-mute);margin-top:34px;line-height:2}
+#contact .direct a{color:var(--t-dark);text-decoration:none;border-bottom:1px solid var(--line-d)}
+#contact .direct a:hover{border-color:var(--t-dark)}
+
+.form-card{background:var(--deep-2);border:1px solid var(--line-d);border-radius:var(--r);padding:38px 36px;box-shadow:0 40px 90px -50px rgba(0,0,0,.6)}
+@media(max-width:560px){.form-card{padding:28px 22px}}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.f-row{grid-template-columns:1fr}}
+.f-group{margin-bottom:18px}
+.f-group label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-dark-mute);margin-bottom:8px}
+.f-group label .req{color:var(--mint)}
+.f-group input,.f-group select,.f-group textarea{
+  width:100%;background:var(--deep);border:1px solid var(--line-d);border-radius:8px;
+  color:var(--t-dark);font-family:'Inter',sans-serif;font-size:15px;padding:13px 15px;transition:border-color .15s ease;
+}
+.f-group select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--t-dark-mute) 50%),linear-gradient(135deg,var(--t-dark-mute) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.f-group textarea{min-height:140px;resize:vertical}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--mint)}
+.f-group input::placeholder,.f-group textarea::placeholder{color:#5E7B79}
+.f-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+.f-foot .hint{font-size:12.5px;color:var(--t-dark-mute)}
+.f-error{display:none;color:#FFB4A0;font-size:13.5px;margin-top:14px}
+.f-error.show{display:block}
+
+footer{background:var(--deep);border-top:1px solid var(--line-d);overflow:hidden}
+footer .big{font-family:'Fraunces',serif;font-weight:560;color:rgba(230,239,237,.055);font-size:clamp(90px,17vw,240px);line-height:.9;text-align:center;padding-top:40px;user-select:none;letter-spacing:-0.02em}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:10px 0 40px;border-bottom:1px solid var(--line-d)}
+@media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr;gap:30px}}
+footer .cols h4{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t-dark-mute);font-weight:500;margin-bottom:14px}
+footer .cols a{display:block;color:var(--t-dark-mute);text-decoration:none;font-size:14px;padding:4px 0;transition:color .15s ease}
+footer .cols a:hover{color:var(--t-dark)}
+footer .cols p{color:var(--t-dark-mute);font-size:14px;max-width:34ch}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;padding:24px 0 34px;color:var(--t-dark-mute);font-size:13px}
+footer .row .mono{font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#top" aria-label="Scavelo home">
+      <span class="mark">Scavelo<i>.</i></span>
+      <span class="desc">Engineering Studio</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#symptoms">What we fix</a>
+      <a href="#services">Services</a>
+      <a href="#proof">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How we work</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn primary" href="#contact">Get a proposal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">
+      <span class="mono">Backend · Search · Applied AI</span>
+      <span class="mono live">Taking briefs for Q4 — EU &amp; US teams</span>
+    </div>
+    <h1>The backend work your roadmap keeps <em>postponing.</em></h1>
+    <p class="lede">Scavelo is an engineering studio for product teams in Europe and the US. We take on the search, API and AI work that never reaches the top of a sprint — and hand it back <strong>deployed, tested and documented</strong>, for a price agreed before we write a line of code.</p>
+    <div class="actions">
+      <a class="btn primary" href="#contact">Get a fixed-price proposal <span class="arrow">→</span></a>
+      <a class="btn outline-d" href="#services">See what we build</a>
+    </div>
+    <p class="reassure"><b>No obligation.</b> Send two sentences, get a written scope and price back within 48 hours.</p>
+
+    <div class="console">
+      <div class="console-head">
+        <span class="label">scavelo — match your problem to a service</span>
+        <span class="meta" id="meta">— matches</span>
+      </div>
+      <div class="console-body">
+        <div class="console-q">
+          <p class="prompt">your_problem :</p>
+          <p class="query-line"><span id="q"></span><span class="caret" aria-hidden="true"></span></p>
+          <div class="try">
+            <p>Pick one</p>
+            <div class="try-row" id="try-row" role="group" aria-label="Example problems"></div>
+          </div>
+        </div>
+        <ul class="hits" id="hits" aria-live="polite"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="commit">
+  <div class="wrap">
+    <div class="commit-cell"><b>48 h</b><span>From your brief to a written scope, price and timeline</span></div>
+    <div class="commit-cell"><b>Fixed</b><span>Price agreed up front — changes quoted, never billed by surprise</span></div>
+    <div class="commit-cell"><b>30 days</b><span>Post-launch support included with every package</span></div>
+    <div class="commit-cell"><b>CET<i>+1</i></b><span>Full day overlap with the EU, mornings with US Eastern</span></div>
+  </div>
+</div>
+
+<!-- ================= SYMPTOMS ================= -->
+<section id="symptoms" class="light">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What we fix</p>
+      <h2>You already know <em>what's broken.</em></h2>
+      <p>Most teams come to us with a sentence, not a spec. These are the four we hear most — and what we hand back.</p>
+    </div>
+    <div class="sym-grid reveal">
+      <div class="sym">
+        <q>Customers can't find products that are definitely in our catalogue.</q>
+        <div class="fix"><b>What you get back</b>Search that ranks on intent instead of string matching — typo tolerance, synonyms, facets and autocomplete — with before-and-after benchmarks proving the difference.</div>
+      </div>
+      <div class="sym">
+        <q>Support answers the same twelve questions every single day.</q>
+        <div class="fix"><b>What you get back</b>An assistant trained on your own documentation that answers with citations, plus an admin panel your support team owns and updates without a developer.</div>
+      </div>
+      <div class="sym">
+        <q>Only one person knows how to deploy, and they're on holiday.</q>
+        <div class="fix"><b>What you get back</b>Infrastructure defined in code, staging and production environments that match, and a pipeline that ships on merge — so releases stop depending on one laptop.</div>
+      </div>
+      <div class="sym">
+        <q>We need a senior backend engineer, but not for forty hours a week.</q>
+        <div class="fix"><b>What you get back</b>A monthly block of senior capacity with same-day responses in CET, a report of everything shipped, and no hiring process to run.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="light">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>Four things we build. <em>One standard:</em> live in your environment.</h2>
+      <p>Every engagement starts with a written scope and ends running in production — tested, documented, observable. Open a service to see exactly what ships.</p>
+    </div>
+    <div class="svc-list reveal">
+
+      <div class="svc" id="svc-1">
+        <button class="svc-row" aria-expanded="false" aria-controls="svc-1-d">
+          <h3>AI assistants grounded in your own content</h3>
+          <span class="for">from €1,200 · 2–4 weeks</span>
+          <span class="pm" aria-hidden="true">+</span>
+        </button>
+        <div class="svc-detail" id="svc-1-d">
+          <div class="svc-detail-inner">
+            <div>
+              <p>An assistant that answers from your help centre, PDFs and internal wikis — with citations, so your team can verify every response. Built on hybrid retrieval, which means answers stay tied to your documents instead of inventing plausible-sounding ones. Your support team keeps it current through an admin panel; no developer required.</p>
+              <div class="cta-line">
+                <a class="btn teal" href="#contact">Scope this build <span class="arrow">→</span></a>
+                <span class="mono">Ships as a web widget or a Slack bot</span>
+              </div>
+            </div>
+            <div class="box"><p class="h">What ships</p><ul>
+              <li>Document ingestion pipeline</li>
+              <li>Hybrid retrieval with cited answers</li>
+              <li>Embeddable chat widget or Slack app</li>
+              <li>Admin panel for content updates</li>
+              <li>Provider-agnostic model layer</li>
+              <li>Deployed, plus 30 days of support</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-2">
+        <button class="svc-row" aria-expanded="false" aria-controls="svc-2-d">
+          <h3>Search that ranks on intent</h3>
+          <span class="for">audit €450 · builds from €1,500</span>
+          <span class="pm" aria-hidden="true">+</span>
+        </button>
+        <div class="svc-detail" id="svc-2-d">
+          <div class="svc-detail-inner">
+            <div>
+              <p>For product search that is slow, irrelevant, or still running on SQL <span class="mono">LIKE</span> queries. Start with a fixed-price audit — you get a findings report, quick wins implemented on the spot, and a prioritised roadmap in five business days. Or go straight to a full Elasticsearch build with relevance tuning, autocomplete, typo tolerance and faceted filtering. Either way, you get the numbers before and after.</p>
+              <div class="cta-line">
+                <a class="btn teal" href="#contact">Book an audit <span class="arrow">→</span></a>
+                <span class="mono">Audit delivered in 5 business days</span>
+              </div>
+            </div>
+            <div class="box"><p class="h">What ships</p><ul>
+              <li>Relevance &amp; latency findings report</li>
+              <li>Query and index optimisation</li>
+              <li>Autocomplete, typo tolerance, facets</li>
+              <li>SQL-to-Elasticsearch migration</li>
+              <li>Log analytics &amp; Kibana dashboards</li>
+              <li>Measured before/after benchmarks</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-3">
+        <button class="svc-row" aria-expanded="false" aria-controls="svc-3-d">
+          <h3>APIs and services built to hold</h3>
+          <span class="for">from €1,000 per service · 2–6 weeks</span>
+          <span class="pm" aria-hidden="true">+</span>
+        </button>
+        <div class="svc-detail" id="svc-3-d">
+          <div class="svc-detail-inner">
+            <div>
+              <p>Production REST and gRPC services in Spring Boot or NestJS, built inside your repository and following your conventions from the first commit. Schema design, authentication and OpenAPI documentation are part of the deliverable, not a change request — and every service arrives containerised with its pipeline already wired.</p>
+              <div class="cta-line">
+                <a class="btn teal" href="#contact">Get a quote <span class="arrow">→</span></a>
+                <span class="mono">Built in your repo, in your conventions</span>
+              </div>
+            </div>
+            <div class="box"><p class="h">What ships</p><ul>
+              <li>Spring Boot (Java 17) or NestJS</li>
+              <li>REST / gRPC, auth, rate limiting</li>
+              <li>MySQL schema design &amp; optimisation</li>
+              <li>OpenAPI documentation</li>
+              <li>Automated test suite</li>
+              <li>Dockerised, CI/CD included</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-4">
+        <button class="svc-row" aria-expanded="false" aria-controls="svc-4-d">
+          <h3>Deployment you don't have to think about</h3>
+          <span class="for">from €900 · retainers from €950/mo</span>
+          <span class="pm" aria-hidden="true">+</span>
+        </button>
+        <div class="svc-detail" id="svc-4-d">
+          <div class="svc-detail-inner">
+            <div>
+              <p>From a hand-managed server to infrastructure anyone on your team can rebuild: Terraform-provisioned environments, containerised applications, pipelines that ship on merge, and centralised logging so failures surface before customers report them. Afterwards, a monthly retainer gives you senior backend capacity without a full-time hire — same-day responses in CET hours and a monthly report of what shipped.</p>
+              <div class="cta-line">
+                <a class="btn teal" href="#contact">Talk about capacity <span class="arrow">→</span></a>
+                <span class="mono">Foundation set up in 1–2 weeks</span>
+              </div>
+            </div>
+            <div class="box"><p class="h">What ships</p><ul>
+              <li>Terraform infrastructure as code</li>
+              <li>Matching staging + production</li>
+              <li>CI/CD pipelines (GitHub Actions)</li>
+              <li>Centralised logs &amp; dashboards</li>
+              <li>Retainers at 10 / 25 / 50 h per month</li>
+              <li>50% of unused hours roll over</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= PROOF =================
+     ⚠ REPLACE BEFORE PUBLISHING — these three cards and the quote below are
+     templates showing the right SHAPE (one number, one sentence of context,
+     the stack). Swap in real client results, or delete any card you can't
+     back up. Publishing invented numbers is the fastest way to lose a
+     technical buyer. If you have no case studies yet, keep one card and
+     retitle this section "How we measure a result". -->
+<section id="proof" class="dark-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Selected work</p>
+      <h2>We report the number, <em>not the adjective.</em></h2>
+      <p>Every engagement closes with a measurement against where you started. Here is what that looks like.</p>
+    </div>
+    <div class="cases reveal">
+      <div class="case">
+        <p class="sector">B2B marketplace · Germany</p>
+        <p class="figure">-71%</p>
+        <p class="figure-label">Zero-result searches</p>
+        <p class="body">Catalogue search ran on SQL <span class="mono">LIKE</span> queries and missed anything with a typo or a synonym. We migrated to Elasticsearch with a tuned analyser chain, autocomplete and facets. Search-to-checkout conversion moved with it.</p>
+        <p class="stack">Elasticsearch · Spring Boot · Terraform</p>
+      </div>
+      <div class="case">
+        <p class="sector">SaaS platform · United States</p>
+        <p class="figure">340 h</p>
+        <p class="figure-label">Support hours saved per quarter</p>
+        <p class="body">A five-person support team was answering the same onboarding questions daily. We shipped an assistant grounded in their help centre and changelog, cited so agents could verify answers, embedded in the product and in Slack.</p>
+        <p class="stack">Hybrid retrieval · NestJS · Slack API</p>
+      </div>
+      <div class="case">
+        <p class="sector">Logistics scale-up · Netherlands</p>
+        <p class="figure">18 min</p>
+        <p class="figure-label">Release time, down from two days</p>
+        <p class="body">Deployments were manual, undocumented and known to one engineer. We rebuilt the environments in Terraform, containerised the services and wired pipelines that ship on merge, with logging in place before handover.</p>
+        <p class="stack">Terraform · Docker · GitHub Actions</p>
+      </div>
+    </div>
+    <div class="quote-band reveal">
+      <blockquote>“They scoped it in writing, quoted it once, and shipped it into our repo on the date they said. We've since moved them onto a retainer.”</blockquote>
+      <p class="attrib"><b>Name, Role</b>Company — replace this quote</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" class="light">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2>Published prices. <em>No discovery call</em> required to hear one.</h2>
+      <p>You should be able to work out roughly what this costs before you talk to anyone. Three common starting points — everything else is quoted from your brief within 48 hours.</p>
+    </div>
+    <div class="plans reveal">
+      <div class="plan">
+        <p class="tag">Start here</p>
+        <h3>Search audit</h3>
+        <p class="sub">Find out what's actually wrong</p>
+        <p class="price">€450 <small>fixed</small></p>
+        <p class="lead-time">Delivered in 5 business days</p>
+        <ul>
+          <li>Full review of your current search setup</li>
+          <li>Relevance and latency findings report</li>
+          <li>Quick wins implemented during the audit</li>
+          <li>Prioritised roadmap you can hand to anyone</li>
+          <li>Fee credited if you continue with a build</li>
+        </ul>
+        <a class="btn outline-l" href="#contact">Book an audit</a>
+      </div>
+      <div class="plan featured">
+        <p class="tag">Most requested</p>
+        <h3>Ask Your Docs</h3>
+        <p class="sub">An assistant on your own content</p>
+        <p class="price">€1,200 <small>fixed</small></p>
+        <p class="lead-time">Live in 2–4 weeks</p>
+        <ul>
+          <li>One source: docs, help centre or PDFs</li>
+          <li>Cited answers your team can verify</li>
+          <li>Embeddable web chat widget</li>
+          <li>Admin panel for updating content</li>
+          <li>Deployed, plus 30 days of support</li>
+        </ul>
+        <a class="btn primary" href="#contact">Start this build <span class="arrow">→</span></a>
+      </div>
+      <div class="plan">
+        <p class="tag">Ongoing</p>
+        <h3>Growth retainer</h3>
+        <p class="sub">Senior capacity, no hire required</p>
+        <p class="price">€950 <small>/ month</small></p>
+        <p class="lead-time">25 hours monthly · start any Monday</p>
+        <ul>
+          <li>Backend features, fixes and maintenance</li>
+          <li>Same-day response in CET business hours</li>
+          <li>Monthly report of everything shipped</li>
+          <li>50% of unused hours roll over</li>
+          <li>Cancel with 30 days' notice</li>
+        </ul>
+        <a class="btn outline-l" href="#contact">Reserve capacity</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal"><b>Larger engagements are quoted from your brief:</b> multi-source assistants with SSO and analytics from €2,800, full microservice platforms, and embedded half-time retainers at €1,800 per month. Fixed-price work is invoiced 50% on signature and 50% on delivery. Anything outside the written scope is quoted before it is built — never absorbed silently, never added to an invoice you haven't seen.</p>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process" class="dark-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How we work</p>
+      <h2>Four stages, <em>every time.</em></h2>
+      <p>Whether it's a one-week audit or a three-month build, this is what working with us looks like.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="t-step">
+        <span class="k">Stage 01 — Brief</span>
+        <h3>You describe the problem</h3>
+        <p>Send a few sentences through the form. Within 48 hours you get a written scope, a fixed price and a timeline. No obligation, and no call unless you want one.</p>
+      </div>
+      <div class="t-step">
+        <span class="k">Stage 02 — Build</span>
+        <h3>You see running software weekly</h3>
+        <p>Work happens in your repository from day one, in your conventions and through your review process. Every week you get something you can run, not a status update.</p>
+      </div>
+      <div class="t-step">
+        <span class="k">Stage 03 — Ship</span>
+        <h3>We hand it over deployed</h3>
+        <p>Delivery means live in your environment: tests passing, infrastructure defined in code, documentation written, dashboards in place. Your team can change it without us.</p>
+      </div>
+      <div class="t-step">
+        <span class="k">Stage 04 — Support</span>
+        <h3>Thirty days are already included</h3>
+        <p>Every fixed-price package covers a month of fixes and questions after launch. Move to a retainer if you want us to stay; nothing renews automatically if you don't.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STUDIO ================= -->
+<section id="studio" class="light">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Why teams choose us</p>
+      <h2>A studio, not an <em>agency layer.</em></h2>
+      <p>Scavelo works from Tirana, Albania — a full working day of overlap with European teams, mornings with the US East Coast, and rates that reflect our cost base rather than a discount on quality. Four commitments hold across every engagement.</p>
+    </div>
+    <div class="pr-grid reveal">
+      <div class="principle"><b>The price you agree is the price you pay</b><span>Every engagement opens with a one-page signed scope. Changes get quoted before they're built, so an invoice never contains a line you haven't approved.</span></div>
+      <div class="principle"><b>Production is the finish line</b><span>Nothing is finished in a notebook or on a laptop. Finished means deployed, tested and observable in your environment.</span></div>
+      <div class="principle"><b>Everything is yours from day one</b><span>Code, infrastructure definitions, prompts and documentation live in your accounts and your repository from the first commit. Nothing is licensed back to us.</span></div>
+      <div class="principle"><b>You talk to the engineers</b><span>Your questions and change requests go to the people writing the code. No account managers, no hand-offs, no message passing through three people.</span></div>
+    </div>
+    <p class="stack-label reveal">What we build with</p>
+    <div class="chips reveal" aria-label="Technology stack">
+      <span class="chip">Java 17 · Spring Boot</span>
+      <span class="chip">TypeScript · NestJS</span>
+      <span class="chip">Elasticsearch</span>
+      <span class="chip">RAG · LLM APIs</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">Terraform</span>
+      <span class="chip">Docker · CI/CD</span>
+      <span class="chip">Angular</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="light">
+  <div class="wrap faq-cols">
+    <div class="sec-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Before you <em>get in touch.</em></h2>
+      <p>The questions EU and US teams usually raise before a first engagement.</p>
+    </div>
+    <div class="reveal">
+      <details class="faq-item">
+        <summary>How does fixed pricing actually work? <span class="ind">+</span></summary>
+        <div class="a">Send a brief and you get back a one-page scope covering deliverables, price and timeline. Work starts on a 50% deposit and the balance is due on delivery. Anything outside that written scope is quoted separately before it's built, so the final invoice matches the number you agreed.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you work inside our existing team and codebase? <span class="ind">+</span></summary>
+        <div class="a">Yes — most engagements happen inside a client's repository, following their branching model, conventions and review process. If those foundations don't exist yet, setting them up is exactly what the deployment package covers.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which AI models do you use, and who owns the result? <span class="ind">+</span></summary>
+        <div class="a">Assistants are built provider-agnostic — OpenAI, Anthropic, or open-weight models hosted in your own infrastructure — chosen against your data-privacy requirements and budget. You own the code, prompts and pipelines outright, and you can switch providers later without a rebuild.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do contracts and invoicing work across borders? <span class="ind">+</span></summary>
+        <div class="a">We invoice as a registered business in Albania, in EUR or USD, by bank transfer or Wise. Contracts can be signed under your jurisdiction's standard contractor agreement, and NDAs are welcome before you share anything.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What timezone coverage do we get? <span class="ind">+</span></summary>
+        <div class="a">Tirana is CET (UTC+1): a full working-day overlap with EU teams and roughly 09:00–13:00 Eastern with the US. Retainer clients get a guaranteed same-day response during CET business hours.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if we only need advice, not a build? <span class="ind">+</span></summary>
+        <div class="a">The €450 search audit works as a standalone engagement, and one-off architecture reviews can be arranged. Plenty of clients start there, take the roadmap to their own team, and come back later — or don't. Both are fine.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if we want to stop working with you? <span class="ind">+</span></summary>
+        <div class="a">Everything already lives in your accounts, so there is nothing to migrate or hand over. Retainers cancel with 30 days' notice, and fixed-price projects have no ongoing commitment once the 30 days of support end.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap grid">
+    <div class="side reveal">
+      <p class="eyebrow">Start a project</p>
+      <h2>Tell us what's slow, <em>missing or manual.</em></h2>
+      <p>Two sentences is enough to start. Your brief goes straight to the engineers who would build it — there's no sales layer to get past.</p>
+      <ul class="assure">
+        <li>A reply within one business day</li>
+        <li>A written, fixed-price proposal within 48 hours</li>
+        <li>No obligation, and no call unless you ask for one</li>
+      </ul>
+      <p class="direct">
+        Prefer email? <a href="mailto:hello@scavelo.com">hello@scavelo.com</a><br>
+        Tirana, Albania · CET (UTC+1)<br>
+        Working with teams across the EU and US
+      </p>
+    </div>
+
+    <form class="form-card reveal" id="brief-form" novalidate>
+      <div class="f-row">
+        <div class="f-group">
+          <label for="f-name">Name <span class="req">*</span></label>
+          <input type="text" id="f-name" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="f-group">
+          <label for="f-email">Work email <span class="req">*</span></label>
+          <input type="email" id="f-email" name="email" placeholder="name@company.com" required>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-group">
+          <label for="f-company">Company</label>
+          <input type="text" id="f-company" name="company" placeholder="Company or product name">
+        </div>
+        <div class="f-group">
+          <label for="f-interest">What do you need? <span class="req">*</span></label>
+          <select id="f-interest" name="interest" required>
+            <option value="" selected disabled>Select a service</option>
+            <option>AI assistant on our content</option>
+            <option>Search — audit or full build</option>
+            <option>APIs &amp; services</option>
+            <option>Deployment &amp; infrastructure</option>
+            <option>Monthly retainer</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-group">
+        <label for="f-msg">Your brief <span class="req">*</span></label>
+        <textarea id="f-msg" name="message" placeholder="What's slow, missing or manual? A rough timeline or budget helps, but isn't required." required></textarea>
+      </div>
+      <div class="f-foot">
+        <button type="submit" class="btn primary">Send brief <span class="arrow">→</span></button>
+        <span class="hint">Reply within one business day.</span>
+      </div>
+      <p class="f-error" id="f-error">Add your name, email, a service and a short brief, then send again.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true">Scavelo</div>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Scavelo</h4>
+        <p>An engineering studio building backend, search and applied AI systems for product teams in Europe and the US.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">AI assistants</a>
+        <a href="#services">Search &amp; Elasticsearch</a>
+        <a href="#services">APIs &amp; services</a>
+        <a href="#services">Deployment &amp; retainers</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#proof">Selected work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">How we work</a>
+        <a href="mailto:hello@scavelo.com">hello@scavelo.com</a>
+      </div>
+    </div>
+    <div class="row">
+      <span class="mono">Backend · Search · Applied AI</span>
+      <span>© 2026 Scavelo Engineering Studio — Tirana, Albania</span>
+      <span class="mono">CET / UTC+1</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- Hero console: matches a visitor's problem to a service ---- */
+const scenarios = [
+  { label:"slow search",
+    q: "our search is slow and misses obvious products",
+    hits: [
+      {s:"match 9.5", t:"Search that ranks on intent", d:"Relevance tuning and index work, closed out with before/after numbers."},
+      {s:"match 7.2", t:"Search audit — €450 fixed", d:"Findings and quick wins inside 5 business days."},
+      {s:"match 6.1", t:"Deployment & infrastructure", d:"Monitoring, so search never degrades quietly again."}
+    ]},
+  { label:"repetitive support",
+    q: "support answers the same questions every day",
+    hits: [
+      {s:"match 9.8", t:"AI assistant on your content", d:"Cited answers from your own docs — web widget or Slack bot, deployed."},
+      {s:"match 7.9", t:"APIs & services", d:"The ingestion and retrieval backend behind it, built to production standard."},
+      {s:"match 6.4", t:"Growth retainer", d:"Ongoing tuning as your documentation changes."}
+    ]},
+  { label:"no senior capacity",
+    q: "we need senior backend help, not a full-time hire",
+    hits: [
+      {s:"match 9.2", t:"Growth retainer", d:"25 hours a month in CET from €950, cancel on 30 days' notice."},
+      {s:"match 8.0", t:"APIs & services", d:"Fixed-price services: tested, documented, containerised."},
+      {s:"match 6.6", t:"Deployment & infrastructure", d:"Terraform and CI/CD, so releases stop depending on one laptop."}
+    ]},
+  { label:"scary deploys",
+    q: "only one person on the team can deploy safely",
+    hits: [
+      {s:"match 9.6", t:"Deployment & infrastructure", d:"Terraform environments, containers and pipelines that ship on merge."},
+      {s:"match 7.4", t:"Growth retainer", d:"Senior cover so releases don't wait on one calendar."},
+      {s:"match 6.2", t:"APIs & services", d:"Test suites that make deploying a non-event."}
+    ]}
+];
+
+const qEl=document.getElementById('q'),hitsEl=document.getElementById('hits'),metaEl=document.getElementById('meta'),tryRow=document.getElementById('try-row');
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let idx=0,timer=null,cycle=null;
+
+scenarios.forEach((sc,i)=>{
+  const b=document.createElement('button');
+  b.type='button';b.className='try-btn';b.textContent=sc.label;
+  b.setAttribute('aria-pressed','false');
+  b.addEventListener('click',()=>{idx=i;play(true)});
+  tryRow.appendChild(b);
+});
+function markActive(i){
+  tryRow.querySelectorAll('.try-btn').forEach((b,n)=>b.setAttribute('aria-pressed',n===i?'true':'false'));
+}
+function renderHits(sc){
+  hitsEl.innerHTML="";
+  metaEl.textContent=sc.hits.length+" matches";
+  sc.hits.forEach((h,i)=>{
+    const li=document.createElement('li');li.className="hit";
+    li.innerHTML='<span class="score">'+h.s+'</span><span><span class="title">'+h.t+'</span><span class="snip">'+h.d+'</span></span>';
+    hitsEl.appendChild(li);
+    if(reduced)li.classList.add('show');
+    else setTimeout(()=>li.classList.add('show'),110+i*160);
+  });
+}
+function play(manual){
+  clearInterval(timer);clearTimeout(cycle);
+  const i=idx%scenarios.length,sc=scenarios[i];
+  markActive(i);
+  if(!manual)idx++;
+  if(reduced){qEl.textContent=sc.q;renderHits(sc);cycle=setTimeout(()=>{idx=i+1;play()},7500);return}
+  hitsEl.innerHTML="";metaEl.textContent="— matches";
+  let n=0;qEl.textContent="";
+  timer=setInterval(()=>{
+    qEl.textContent=sc.q.slice(0,++n);
+    if(n>=sc.q.length){
+      clearInterval(timer);
+      setTimeout(()=>renderHits(sc),320);
+      cycle=setTimeout(()=>{idx=i+1;play()},8500);
+    }
+  },38);
+}
+play();
+
+/* ---- Service accordion ---- */
+document.querySelectorAll('.svc-row').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const svc=btn.closest('.svc');
+    const isOpen=svc.classList.contains('open');
+    document.querySelectorAll('.svc.open').forEach(s=>{
+      s.classList.remove('open');
+      s.querySelector('.svc-row').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){svc.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  });
+});
+
+/* ---- Contact form ----
+   Right now this composes an email and opens the visitor's mail app. That
+   loses leads on phones without a mail client configured. To take briefs
+   properly, create a free Formspree form and swap the block below for:
+
+     const res = await fetch("https://formspree.io/f/YOUR_ID", {
+       method:"POST", headers:{"Accept":"application/json"},
+       body:new FormData(e.target)
+     });
+
+   then show a success message instead of redirecting.                     */
+document.getElementById('brief-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const company=document.getElementById('f-company').value.trim();
+  const interest=document.getElementById('f-interest').value;
+  const msg=document.getElementById('f-msg').value.trim();
+  const err=document.getElementById('f-error');
+  if(!name||!email||!interest||!msg){err.classList.add('show');return}
+  err.classList.remove('show');
+  const subject="Project brief — "+interest+(company?" ("+company+")":"");
+  const body="Name: "+name+"\nEmail: "+email+(company?"\nCompany: "+company:"")+"\nService: "+interest+"\n\nBrief:\n"+msg;
+  window.location.href="mailto:hello@scavelo.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+});
+
+/* ---- Scroll reveal ---- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
