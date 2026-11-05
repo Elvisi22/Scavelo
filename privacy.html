@@ -4,42 +4,96 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy notice — Scavelo</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306262E'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='38' font-weight='600' text-anchor='middle' fill='%234FD6B0'%3ES%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#FBFBFD">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231D1D1F'/%3E%3Ctext x='29' y='44' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='36' font-weight='600' text-anchor='middle' fill='%23F5F5F7'%3ES%3C/text%3E%3Ccircle cx='45.5' cy='41.5' r='3.6' fill='%237ADBC3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
 <style>
-:root{--deep:#06262E;--paper:#F3F6F5;--ink:#0C2126;--ink-2:#4E6A69;--teal:#0D7E6C;--mint:#4FD6B0;--rule:#D5DFDD}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16.5px;line-height:1.65}
-header{background:var(--deep);border-bottom:1px solid rgba(230,239,237,.14)}
-.nav{max-width:1160px;margin:0 auto;padding:0 24px;height:74px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-family:'Fraunces',serif;font-weight:600;font-size:25px;color:#E6EFED;text-decoration:none}
-.brand span{color:var(--mint)}
-.nav a.back{color:#93ADAB;text-decoration:none;font-size:15px;font-weight:500}
-main{max-width:760px;margin:0 auto;padding:64px 24px 96px}
-h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(32px,4vw,44px);line-height:1.1;margin-bottom:12px}
-.updated{color:var(--ink-2);font-size:14.5px;margin-bottom:40px}
-h2{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin:36px 0 10px}
-p,li{color:var(--ink);max-width:70ch}
-ul{padding-left:22px}
-li{margin:6px 0}
-.todo{background:#FFF4D6;border-left:3px solid #E8B44A;padding:2px 8px;border-radius:3px}
-a{color:var(--teal)}
+:root{
+  --page:#FBFBFD;--mist:#F5F5F7;--ink:#1D1D1F;--ink-2:#424245;--ink-3:#6E6E73;
+  --hair:rgba(0,0,0,.1);--hair-2:rgba(0,0,0,.06);
+  --chalk-2:#A1A1A6;--hair-d:rgba(255,255,255,.1);
+  --accent:#0B7A68;--accent-n:#7ADBC3;
+  --ease:cubic-bezier(.25,.1,.25,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --nav-h:56px;
+  --i-chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14'%3E%3Cpath d='M6.5 1.5L1.5 7l5 5.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--page);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;letter-spacing:-.012em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-optical-sizing:auto}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+::selection{background:rgba(11,122,104,.18)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+@media(max-width:734px){.wrap{padding:0 20px}}
+
+header{position:sticky;top:0;z-index:10;height:var(--nav-h)}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(251,251,253,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hair)}
+.nav{display:flex;align-items:center;gap:16px;height:100%}
+.brand{margin-right:auto;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.035em;color:var(--ink);text-decoration:none}
+.brand i{font-style:normal;color:var(--accent)}
+.back{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);text-decoration:none;transition:color .25s var(--ease)}
+.back::before{content:"";width:7px;height:12px;background:currentColor;-webkit-mask:var(--i-chev) center/contain no-repeat;mask:var(--i-chev) center/contain no-repeat;transition:transform .35s var(--ease-out)}
+.back:hover{color:var(--ink)}
+.back:hover::before{transform:translateX(-3px)}
+.lang{display:inline-flex;flex:none;padding:2px;border-radius:9px;background:rgba(0,0,0,.05)}
+.lang button{min-width:34px;height:30px;padding:0 8px;border:0;border-radius:7px;background:none;font:600 11px/1 var(--sans);letter-spacing:.06em;color:var(--ink-3);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease)}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.06)}
+@media(max-width:600px){.lang button{height:34px;min-width:38px}}
+
+main{max-width:760px;margin:0 auto;padding:clamp(72px,10vw,128px) 24px clamp(96px,12vw,160px)}
+.eyebrow{margin-bottom:20px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+h1{font-family:var(--display);font-weight:650;font-size:clamp(44px,6.4vw,72px);line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.updated{margin-top:20px;padding-bottom:40px;border-bottom:1px solid var(--hair);font-size:15px;color:var(--ink-3)}
+h2{margin:56px 0 14px;font-family:var(--display);font-weight:600;font-size:clamp(22px,2.4vw,28px);line-height:1.2;letter-spacing:-.024em}
+p,li{max-width:68ch;color:var(--ink-2)}
+ul{list-style:none;display:grid;gap:14px}
+li{position:relative;padding-left:22px}
+li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+strong{color:var(--ink);font-weight:600}
+.todo{padding:1px 6px;border-radius:6px;background:#FFF4D6;box-shadow:inset 0 0 0 1px #F0D48A;color:#5C4610}
+
+footer{background:#000;color:var(--chalk-2);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:28px;padding-bottom:28px}
+footer a{color:var(--chalk-2);text-decoration:none;transition:color .25s var(--ease)}
+footer a:hover{color:#fff}
+
+@keyframes rise{from{opacity:0;translate:0 20px}to{opacity:1;translate:none}}
+main>*{animation:rise .9s var(--ease-out) both}
+main>:nth-child(2){animation-delay:.05s}
+main>:nth-child(3){animation-delay:.1s}
+main>:nth-child(n+4){animation-delay:.15s}
+@media(prefers-reduced-motion:reduce){main>*{animation:none}}
 </style>
 </head>
 <body>
-<header><div class="nav"><a class="brand" href="index.html">Scavelo<span>.</span></a><a class="back" href="index.html">Back to site</a></div></header>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">Scavelo<i>.</i></a>
+    <a class="back" href="index.html">Back to site</a>
+    <div class="lang" role="group" aria-label="Language" id="lang">
+      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <button type="button" data-lang="sq" lang="sq" aria-label="Shqip" aria-pressed="false">SQ</button>
+    </div>
+  </div>
+</header>
 <main>
+<p class="eyebrow">Legal</p>
 <h1>Privacy notice</h1>
 <p class="updated">Last updated: <span class="todo">[date]</span></p>
 
 <h2>Who we are</h2>
-<p>Scavelo is an engineering studio based in Tirana, Albania. The data controller for this website is <span class="todo">[legal entity name, registration number]</span>, <span class="todo">[registered address]</span>. You can reach us at <a href="mailto:hello@scavelo.com">hello@scavelo.com</a>.</p>
+<p>Scavelo is an engineering studio based in Tirana, Albania. The data controller for this website is <span class="todo">[legal entity name, registration number]</span>, <span class="todo">[registered address]</span>. You can reach us at <span class="todo">[contact email]</span>.</p>
 
 <h2>What we collect and why</h2>
 <ul>
-  <li><strong>Briefs sent through the contact form</strong>: your name, work email, company and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).</li>
+  <li><strong>Briefs sent through the contact form</strong>: your name, work email, company, phone number if you choose to give one, and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).</li>
   <li><strong>Email you send us</strong>: handled the same way as a form submission.</li>
-  <li><strong>Technical data</strong>: this site sets no cookies and runs no analytics. Our hosting provider may log IP addresses for security purposes under its own terms.</li>
+  <li><strong>Technical data</strong>: this site sets no cookies and runs no analytics. If you switch the site's language, that choice is saved in your browser's local storage so the next page opens in the same language; it never leaves your device. Our hosting provider may log IP addresses for security purposes under its own terms.</li>
 </ul>
 
 <h2>Who processes your data</h2>
@@ -54,7 +108,7 @@ a{color:var(--teal)}
 <p>Briefs that do not lead to an engagement are deleted <span class="todo">[12]</span> months after our last exchange. Data connected to a contract is kept for the retention period required by Albanian accounting law.</p>
 
 <h2>Your rights</h2>
-<p>You can ask us to access, correct, delete or export your personal data, or to stop processing it, by emailing <a href="mailto:hello@scavelo.com">hello@scavelo.com</a>. If you are in the EU or UK you may also complain to your local supervisory authority.</p>
+<p>You can ask us to access, correct, delete or export your personal data, or to stop processing it, by emailing <span class="todo">[contact email]</span>. If you are in the EU or UK you may also complain to your local supervisory authority.</p>
 
 <h2>International transfers</h2>
 <p>Albania is outside the EU/EEA. Where we work with EU clients, transfers are covered by the contractual safeguards in our engagement agreement <span class="todo">[e.g. EU Standard Contractual Clauses]</span>.</p>
@@ -62,5 +116,85 @@ a{color:var(--teal)}
 <h2>Changes</h2>
 <p>We will update this notice when our processing changes and record the date above.</p>
 </main>
+<footer><div class="wrap"><span>© 2026 Scavelo. All rights reserved.</span><a href="index.html">Back to site</a></div></footer>
+
+<script>
+/* Albanian translation: each key is the exact English text of a text node.
+   Have a lawyer review the Albanian legal wording before relying on it. */
+const SQ_TITLE="Njoftimi i privatësisë — Scavelo";
+const SQ={
+  "Back to site":"Kthehu te faqja",
+  "Language":"Gjuha",
+  "Legal":"Ligjore",
+  "Privacy notice":"Njoftimi i privatësisë",
+  "Last updated:":"Përditësuar më:",
+  "[date]":"[data]",
+  "Who we are":"Kush jemi",
+  "Scavelo is an engineering studio based in Tirana, Albania. The data controller for this website is":"Scavelo është një studio inxhinierike me bazë në Tiranë, Shqipëri. Kontrolluesi i të dhënave për këtë faqe është",
+  "[legal entity name, registration number]":"[emri i subjektit ligjor, numri i regjistrimit]",
+  "[registered address]":"[adresa e regjistruar]",
+  "[contact email]":"[email-i i kontaktit]",
+  ". You can reach us at":". Mund të na kontaktoni në",
+  "What we collect and why":"Çfarë mbledhim dhe pse",
+  "Briefs sent through the contact form":"Kërkesat e dërguara përmes formularit të kontaktit",
+  ": your name, work email, company, phone number if you choose to give one, and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).":": emri, email-i i punës, kompania, numri i telefonit nëse zgjidhni ta jepni, dhe teksti i kërkesës suaj. I përdorim vetëm për t'ju përgjigjur dhe për të përgatitur një ofertë. Baza ligjore: interesi ynë legjitim për t'iu përgjigjur një kërkese që e nisët ju (GDPR, neni 6(1)(f)) dhe, kur pason një kontratë, zbatimi i asaj kontrate (neni 6(1)(b)).",
+  "Email you send us":"Email-et që na dërgoni",
+  ": handled the same way as a form submission.":": trajtohen njësoj si kërkesat nga formulari.",
+  "Technical data":"Të dhënat teknike",
+  ": this site sets no cookies and runs no analytics. If you switch the site's language, that choice is saved in your browser's local storage so the next page opens in the same language; it never leaves your device. Our hosting provider may log IP addresses for security purposes under its own terms.":": kjo faqe nuk vendos cookies dhe nuk përdor analitikë. Nëse ndryshoni gjuhën e faqes, zgjedhja ruhet në hapësirën lokale të shfletuesit tuaj, që faqja tjetër të hapet në të njëjtën gjuhë; ajo nuk largohet kurrë nga pajisja juaj. Ofruesi ynë i hostimit mund të regjistrojë adresat IP për qëllime sigurie sipas kushteve të veta.",
+  "Who processes your data":"Kush i përpunon të dhënat tuaja",
+  "— receives form submissions and forwards them to our mailbox.":"— merr kërkesat nga formulari dhe i përcjell në kutinë tonë postare.",
+  "[Email provider]":"[Ofruesi i email-it]",
+  "— stores our correspondence.":"— ruan korrespondencën tonë.",
+  "[Hosting provider, e.g. GitHub Pages / Cloudflare]":"[Ofruesi i hostimit, p.sh. GitHub Pages / Cloudflare]",
+  "— serves this website.":"— shërben këtë faqe.",
+  "Google Fonts — the page loads typefaces from Google's servers, which receive your IP address in the request.":"Google Fonts — faqja ngarkon shkronjat nga serverët e Google-it, të cilët marrin adresën tuaj IP në kërkesë.",
+  "[To avoid this, self-host the fonts and delete this line.]":"[Për ta shmangur këtë, hostoni vetë shkronjat dhe fshini këtë rresht.]",
+  "How long we keep it":"Sa kohë i ruajmë",
+  "Briefs that do not lead to an engagement are deleted":"Kërkesat që nuk çojnë në bashkëpunim fshihen",
+  "months after our last exchange. Data connected to a contract is kept for the retention period required by Albanian accounting law.":"muaj pas komunikimit tonë të fundit. Të dhënat që lidhen me një kontratë ruhen për periudhën e kërkuar nga legjislacioni shqiptar i kontabilitetit.",
+  "Your rights":"Të drejtat tuaja",
+  "You can ask us to access, correct, delete or export your personal data, or to stop processing it, by emailing":"Mund të na kërkoni të aksesoni, korrigjoni, fshini ose eksportoni të dhënat tuaja personale, ose të ndalojmë përpunimin e tyre, duke na shkruar në",
+  ". If you are in the EU or UK you may also complain to your local supervisory authority.":". Nëse jeni në BE ose në Mbretërinë e Bashkuar, mund të ankoheni edhe te autoriteti mbikëqyrës vendor.",
+  "International transfers":"Transferimet ndërkombëtare",
+  "Albania is outside the EU/EEA. Where we work with EU clients, transfers are covered by the contractual safeguards in our engagement agreement":"Shqipëria është jashtë BE-së/ZEE-së. Kur punojmë me klientë nga BE-ja, transferimet mbulohen nga garancitë kontraktuale në marrëveshjen tonë të bashkëpunimit",
+  "[e.g. EU Standard Contractual Clauses]":"[p.sh. Klauzolat Standarde Kontraktuale të BE-së]",
+  "Changes":"Ndryshimet",
+  "We will update this notice when our processing changes and record the date above.":"Do ta përditësojmë këtë njoftim kur të ndryshojë përpunimi ynë dhe do ta shënojmë datën më lart.",
+  "© 2026 Scavelo. All rights reserved.":"© 2026 Scavelo. Të gjitha të drejtat e rezervuara."
+};
+let lang='en';
+const EN_TITLE=document.title,enText=new WeakMap(),enAttr=new WeakMap();
+const t=en=>(lang==='sq'&&SQ[en])||en;
+function translatePage(){
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('script,style,#lang')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+  for(let n=w.nextNode();n;n=w.nextNode()){
+    if(!enText.has(n))enText.set(n,n.nodeValue);
+    const en=enText.get(n),key=en.replace(/\s+/g,' ').trim(),tr=key&&lang==='sq'&&SQ[key];
+    n.nodeValue=tr?en.match(/^\s*/)[0]+tr+en.match(/\s*$/)[0]:en;
+  }
+  document.querySelectorAll('[aria-label]').forEach(el=>{
+    if(!enAttr.has(el))enAttr.set(el,el.getAttribute('aria-label'));
+    el.setAttribute('aria-label',t(enAttr.get(el)));
+  });
+}
+const langBtns=[...document.querySelectorAll('#lang [data-lang]')];
+function setLang(next,persist){
+  lang=next==='sq'?'sq':'en';
+  document.documentElement.lang=lang;
+  translatePage();
+  document.title=lang==='sq'?SQ_TITLE:EN_TITLE;
+  langBtns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+  if(persist){
+    try{localStorage.setItem('scavelo-lang',lang)}catch(e){}
+    try{const u=new URL(location.href);if(lang==='sq')u.searchParams.set('lang','sq');else u.searchParams.delete('lang');history.replaceState(null,'',u)}catch(e){}
+  }
+}
+langBtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang,true)));
+let startLang=null;
+try{startLang=new URLSearchParams(location.search).get('lang')||localStorage.getItem('scavelo-lang')}catch(e){}
+if(!startLang)startLang=(navigator.languages||[navigator.language||'']).some(l=>/^sq\b/i.test(l))?'sq':'en';
+if(startLang==='sq')setLang('sq',false);
+</script>
 </body>
 </html>
