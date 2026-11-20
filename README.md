@@ -17,9 +17,9 @@ English is written directly in the HTML. Albanian (`sq`), Italian (`it`), German
 
 ## Before going live
 1. **Contact form** — the form delivers nothing until this is done. Create a free form at https://formspree.io and paste its endpoint into `FORM_ENDPOINT` in `index.html`. Alternatively, once you have an inbox, put its address in `CONTACT_EMAIL` and the form opens the visitor's email client instead. With neither set, visitors see a "sending is not switched on yet" message and nothing is sent.
-2. **Domain** — update `canonical`, `og:url` and `og:image` if the site is not served from `https://scavelo.com/`.
+2. **Domain** — update `canonical`, `og:url` and `og:image` if the domain changes; the site is served from `https://scavelostudio.co.uk/`.
 3. **Privacy notice** — complete the legal entity, address, contact email and processors.
 4. **Prices** — every price appears in plain text; search for `€` to adjust.
 
 ## Deploy on GitHub Pages
-Settings → Pages → Source: *Deploy from a branch* → `main` / root. For a custom domain add a `CNAME` file containing `scavelo.com` and point DNS at GitHub Pages.
+Settings → Pages → Source: *Deploy from a branch* → `main` / root. The custom domain is set by the `CNAME` file (`scavelostudio.co.uk`); keep it in the repository root, and tick **Enforce HTTPS** under Settings → Pages.
