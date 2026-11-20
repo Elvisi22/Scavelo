@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scavelo — Websites and online stores, built at a fixed price</title>
-<meta name="description" content="Scavelo is a studio in Tirana designing and building fast, modern websites and online stores for businesses in the EU and US, plus the search, APIs and AI behind them. Written scope and fixed price within 48 hours.">
+<meta name="description" content="Scavelo is a studio in Tirana designing logos and building fast, modern websites and online stores for businesses in the EU and US, plus the search, APIs and AI behind them. Written scope and fixed price within 48 hours.">
 <!-- EDIT: set to your live domain once DNS is pointed -->
 <link rel="canonical" href="https://scavelo.com/">
 <meta name="theme-color" content="#FBFBFD">
@@ -25,7 +25,7 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Scavelo",
-  "description": "Studio designing and building websites and online stores, plus search, APIs and AI assistants, for businesses in the EU and US.",
+  "description": "Studio designing logos, websites and online stores, plus search, APIs and AI assistants, for businesses in the EU and US.",
   "url": "https://scavelo.com/",
   "areaServed": ["EU", "US"],
   "address": {"@type": "PostalAddress", "addressLocality": "Tirana", "addressCountry": "AL"},
@@ -76,7 +76,8 @@
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-adjust:100%}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--page);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.53;letter-spacing:-.012em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-optical-sizing:auto}
-h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.022em;text-wrap:balance}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.022em;text-wrap:balance;overflow-wrap:break-word}
+html[lang="de"] h1,html[lang="de"] h2,html[lang="de"] h3,html[lang="de"] h4{hyphens:auto}
 p{text-wrap:pretty}
 a{color:inherit;text-decoration:none}
 svg{display:block}
@@ -150,15 +151,6 @@ svg{display:block}
 .nav-bar.on-dark .menu-btn{color:#fff}
 .nav{display:flex;align-items:center;gap:8px;height:100%}
 .nav>.brand{margin-right:auto}
-.lang{display:inline-flex;flex:none;margin-left:12px;padding:2px;border-radius:9px;background:rgba(0,0,0,.05);transition:background-color .3s var(--ease)}
-.lang button{min-width:34px;height:30px;padding:0 8px;border:0;border-radius:7px;background:none;font:600 11px/1 var(--sans);letter-spacing:.06em;color:var(--ink-3);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease)}
-.lang button:hover{color:var(--ink)}
-.lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.06)}
-.nav-bar.on-dark .lang{background:rgba(255,255,255,.1)}
-.nav-bar.on-dark .lang button{color:var(--chalk-2)}
-.nav-bar.on-dark .lang button:hover{color:#fff}
-.nav-bar.on-dark .lang button[aria-pressed="true"]{background:rgba(255,255,255,.92);color:#000}
-@media(max-width:900px){.lang{margin-left:0}.lang button{height:34px;min-width:38px}}
 .brand{display:inline-flex;align-items:center;gap:12px;color:var(--ink)}
 .brand .mark{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.035em}
 .brand .mark i{font-style:normal;color:var(--accent)}
@@ -207,7 +199,11 @@ svg{display:block}
 .hero-lede{margin:32px auto 0;max-width:36em;font-size:clamp(18px,1.75vw,22px);line-height:1.45;letter-spacing:-.016em;color:var(--ink-3)}
 .hero-lede strong{color:var(--ink);font-weight:600}
 .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:40px}
-.fine{margin:20px auto 0;max-width:40em;font-size:14px;color:var(--ink-3)}
+.fine{margin:14px auto 0;max-width:40em;font-size:14px;color:var(--ink-3)}
+.trust{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:14.5px;font-weight:500;letter-spacing:-.01em;color:var(--ink-2)}
+.trust-ico{display:grid;place-items:center;flex:none;width:20px;height:20px;border-radius:50%;background:rgba(11,122,104,.12);color:var(--accent)}
+.trust-ico svg{width:12px;height:12px}
+[data-theme="color"] .trust-ico{background:linear-gradient(135deg,rgba(20,99,255,.16),rgba(124,77,230,.16));color:#1463FF}
 
 .stage{margin-top:clamp(64px,8vw,112px)}
 .stage-inner{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--r-xl);padding:clamp(32px,5vw,64px) clamp(14px,5vw,72px) clamp(56px,7vw,104px);background:radial-gradient(70% 55% at 50% 0%,rgba(255,255,255,.95),rgba(255,255,255,0) 70%),linear-gradient(180deg,#F1F1F3 0%,#E6E6EA 100%)}
@@ -245,35 +241,64 @@ svg{display:block}
 .doc-total .k{max-width:24ch;font-size:13px;color:var(--ink-3)}
 .doc-total .price{font-family:var(--display);font-weight:600;font-size:clamp(38px,4.8vw,56px);line-height:1;letter-spacing:-.04em}
 
+/* the example on phones: wider stage, swipeable service chips, compact document */
+@media(max-width:600px){
+  .wrap.stage{padding:0 10px}
+  .stage-inner{padding:24px 12px 36px;border-radius:28px}
+  .stage-top{gap:14px;margin-bottom:20px}
+  .seg{display:flex;gap:8px;width:calc(100% + 24px);max-width:none;margin:0 -12px;padding:3px 12px;border-radius:0;background:none;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%)}
+  .seg::-webkit-scrollbar{display:none}
+  .seg-ind{display:none}
+  .doc-tab{flex:none;scroll-snap-align:center;padding:10px 15px;border-radius:10px;background:#fff;box-shadow:0 0 0 1px var(--hair-2),0 1px 3px rgba(0,0,0,.05);color:var(--ink-2);transition:background-color .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease)}
+  .doc-tab[aria-selected="true"]{background:var(--ink);color:#fff;box-shadow:0 6px 16px -8px rgba(0,0,0,.45)}
+  .doc-stack::before{left:5%;right:5%;top:8px;bottom:-8px}
+  .doc-stack::after{left:10%;right:10%;top:16px;bottom:-16px}
+  .doc{padding:20px 18px 18px;border-radius:18px}
+  .doc-head{flex-direction:column-reverse;align-items:flex-start;gap:8px;padding-bottom:16px}
+  .doc-head .t{font-size:20px}
+  .doc-head .ref{font-size:10px}
+  .doc-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px}
+  .doc-row{grid-column:1 / -1;gap:6px;padding:14px 0}
+  .doc-row:nth-child(4),.doc-row:nth-child(5){grid-column:auto}
+  .doc-row .k{padding-top:0;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+  .doc-row ul{gap:8px}
+  .doc-row li{font-size:14.5px;line-height:1.4}
+  .doc-total{grid-column:1 / -1;align-items:center;padding-top:18px}
+  .doc-total .k{max-width:17ch;font-size:12px;line-height:1.4}
+}
+
 /* commitments */
 .specs{background:var(--page);padding:clamp(64px,8vw,104px) 0 clamp(88px,10vw,136px)}
-.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair)}
-.spec{padding:32px 28px 0}
+.specs-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--hair)}
+.spec{padding:32px 22px 0}
 .spec:first-child{padding-left:0}
 .spec+.spec{border-left:1px solid var(--hair-2)}
-.spec b{display:block;margin-bottom:12px;font-family:var(--display);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.04;letter-spacing:-.035em}
+.spec b{display:block;margin-bottom:12px;font-family:var(--display);font-weight:600;font-size:clamp(26px,2.5vw,34px);line-height:1.04;letter-spacing:-.035em;white-space:nowrap}
 .spec span{display:block;max-width:24ch;font-size:14px;line-height:1.45;color:var(--ink-3)}
-@media(max-width:820px){
+@media(max-width:1000px){
+  .spec b{font-size:clamp(28px,6vw,40px)}
   .specs-grid{grid-template-columns:1fr 1fr}
   .spec{padding:28px 0 28px 20px}
-  .spec:nth-child(odd){padding-left:0;padding-right:20px;border-left:0}
-  .spec:nth-child(n+3){border-top:1px solid var(--hair-2)}
+  .spec:first-child{grid-column:1 / -1;padding-right:0}
+  .spec:nth-child(even){padding-left:0;padding-right:20px;border-left:0}
+  .spec:nth-child(n+2){border-top:1px solid var(--hair-2)}
 }
 
 /* =========================================================
    What we fix
    ========================================================= */
-.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.cards-grid>:nth-child(4n+2){--d:.06s}.cards-grid>:nth-child(4n+3){--d:.12s}.cards-grid>:nth-child(4n+4){--d:.18s}
-@media(min-width:1101px){.cards-grid .card{padding:32px 28px 30px}.cards-grid .sym q{font-size:20px}}
-@media(max-width:1100px){.cards-grid{grid-template-columns:repeat(2,1fr)}}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cards-grid>:nth-child(3n+2){--d:.06s}.cards-grid>:nth-child(3n+3){--d:.12s}
+@media(max-width:1100px){.cards-grid{grid-template-columns:repeat(2,1fr)}.cards-grid>:last-child:nth-child(odd){grid-column:1 / -1}}
 @media(max-width:640px){.cards-grid{grid-template-columns:1fr;gap:14px}}
 .card{display:flex;flex-direction:column;background:#fff;border-radius:var(--r);padding:36px 32px 34px;box-shadow:var(--sh-1);transition:transform .6s var(--ease-out),box-shadow .6s var(--ease-out)}
 .card:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
 .ico{display:grid;place-items:center;width:44px;height:44px;margin-bottom:28px;border-radius:12px;background:var(--mist);color:var(--ink)}
 .ico svg{width:22px;height:22px}
 .sym q{display:block;flex:1;font-family:var(--display);font-weight:600;font-size:clamp(20px,1.9vw,23px);line-height:1.25;letter-spacing:-.022em;quotes:"“" "”"}
-html[lang="sq"] .sym q{quotes:"„" "“"}
+html[lang="sq"] .sym q,html[lang="de"] .sym q{quotes:"„" "“"}
+html[lang="fr"] .sym q{quotes:"«\00a0" "\00a0»"}
+html[lang="it"] .sym q,html[lang="es"] .sym q{quotes:"«" "»"}
 .sym .fix{margin-top:28px;padding-top:20px;border-top:1px solid var(--hair-2);font-size:15px;line-height:1.55;color:var(--ink-3)}
 .sym .fix b{display:block;margin-bottom:8px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 
@@ -305,7 +330,6 @@ html[lang="sq"] .sym q{quotes:"„" "“"}
 /* illustrations */
 .viz{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;min-height:clamp(420px,44vw,540px);padding:clamp(52px,5vw,64px) clamp(20px,4vw,48px);border-radius:var(--r-l);background:radial-gradient(80% 60% at 50% 0%,rgba(255,255,255,.9),rgba(255,255,255,0) 70%),linear-gradient(180deg,#F5F5F7 0%,#EAEAEE 100%)}
 .viz::before{content:"";position:absolute;left:50%;bottom:-30%;width:90%;height:70%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(11,122,104,.12),rgba(11,122,104,0));z-index:-1}
-.viz-cap{position:absolute;right:20px;bottom:16px;font-size:11px;letter-spacing:.04em;color:var(--ink-4)}
 .viz-card{width:100%;max-width:420px;padding:20px;border-radius:16px;background:#fff;box-shadow:var(--sh-2);font-size:13px;line-height:1.45;color:var(--ink-2);will-change:transform}
 @media(max-width:560px){.viz{min-height:0;padding:28px 14px 44px}.viz-card{padding:16px}.viz-card.v-browser{padding:0}}
 .v-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--hair-2);font-size:12px;font-weight:600;color:var(--ink)}
@@ -402,7 +426,25 @@ html[lang="sq"] .sym q{quotes:"„" "“"}
 .v-sum{display:flex;justify-content:space-between;padding-top:10px;font-size:12px;color:var(--ink-3)}
 .v-sum.total{font-size:13px;font-weight:600;color:var(--ink)}
 .v-pay{margin-top:14px;padding:12px;border-radius:10px;background:var(--ink);color:#fff;text-align:center;font-size:13px;font-weight:600}
-@media(prefers-reduced-motion:reduce){.v-search .caret,.v-typing span{animation:none}.v-pipe .dot,.v-gate .bar i,.ring .val{transition:none}}
+.v-brand{padding:0;overflow:hidden}
+.v-board{display:grid;place-items:center;gap:2px;padding:20px 20px 16px;background:linear-gradient(180deg,#FAFAFB,#F2F2F4);border-bottom:1px solid var(--hair-2)}
+.v-mark{width:200px;height:120px}
+.v-guides{stroke:rgba(0,0,0,.18)}
+.v-dot{transform-box:fill-box;transform-origin:center;transition:transform 1s var(--ease-out),opacity .6s var(--ease)}
+.v-dot.a{fill:#E11D48}
+.v-dot.b{fill:#FB7185;opacity:.88;mix-blend-mode:multiply;transition-delay:.12s}
+.js .viz:not(.in) .v-dot{opacity:0;transform:scale(.55)}
+.v-word{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-.045em;color:var(--ink)}
+.v-swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:14px 16px 0}
+.v-swatches span{display:flex;align-items:center;gap:8px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:11px;letter-spacing:0;color:var(--ink-2)}
+.v-swatches i{flex:none;width:20px;height:20px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.v-type{display:flex;align-items:center;gap:12px;padding:14px 16px 16px}
+.v-type>b{font-family:var(--display);font-size:30px;font-weight:600;line-height:1;letter-spacing:-.04em;color:var(--ink)}
+.v-type span b{display:block;font-size:12.5px;font-weight:600;color:var(--ink)}
+.v-type span i{font-style:normal;font-size:11.5px;color:var(--ink-3)}
+.v-type .v-files{margin-left:auto;padding:4px 9px;border-radius:7px;background:var(--mist);font-size:11px;font-weight:600;color:var(--ink-2);white-space:nowrap}
+@media(max-width:560px){.v-mark{width:170px;height:102px}.viz-card.v-brand{padding:0}.v-swatches span{font-size:10px;gap:6px}}
+@media(prefers-reduced-motion:reduce){.v-search .caret,.v-typing span{animation:none}.v-pipe .dot,.v-gate .bar i,.ring .val,.v-dot{transition:none}}
 
 /* =========================================================
    Pricing
@@ -572,12 +614,14 @@ footer a:hover{color:#fff}
 [data-theme="color"] [data-tone="ai"]{--accent:#B4369B;--accent-2:#962A80;--tone-rgb:214,72,160;--tone-2:#8B5CF6;--tone-soft:#FDEEF7}
 [data-theme="color"] [data-tone="ops"]{--accent:#1A7F45;--accent-2:#146A39;--tone-rgb:34,170,94;--tone-2:#4ADE80;--tone-soft:#EAF7EF}
 [data-theme="color"] [data-tone="review"]{--accent:#9A5B00;--accent-2:#7E4A00;--tone-rgb:240,160,20;--tone-2:#FBBF24;--tone-soft:#FFF6E5}
+[data-theme="color"] [data-tone="brand"]{--accent:#E11D48;--accent-2:#BE123C;--tone-rgb:244,63,94;--tone-2:#FB7185;--tone-soft:#FFF1F3}
 
 /* hero: colour gradient headline, soft colour light, example tinted by the selected service */
 [data-theme="color"] .hero{background:radial-gradient(55% 45% at 12% 0%,rgba(20,99,255,.08),rgba(20,99,255,0) 70%),radial-gradient(50% 40% at 88% 4%,rgba(240,104,62,.07),rgba(240,104,62,0) 70%),radial-gradient(120% 70% at 50% 0%,#FFFFFF 0%,var(--page) 55%)}
 [data-theme="color"] .hero h1 .soft{background:linear-gradient(90deg,#1463FF 0%,#7C4DE6 55%,#F0683E 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 [data-theme="color"] .stage[data-tone] .stage-inner::before{background:radial-gradient(closest-side,rgba(var(--tone-rgb),.22),rgba(var(--tone-rgb),0))}
 [data-theme="color"] .stage[data-tone] .doc-tab[aria-selected="true"]{color:var(--accent)}
+@media(max-width:600px){[data-theme="color"] .stage[data-tone] .doc-tab[aria-selected="true"]{background:var(--accent);color:#fff;box-shadow:0 8px 18px -8px rgba(var(--tone-rgb),.7)}}
 
 /* what we fix */
 [data-theme="color"] .card[data-tone] .ico{background:rgba(var(--tone-rgb),.12);color:var(--accent)}
@@ -621,10 +665,7 @@ footer a:hover{color:#fff}
       <a href="#faq" style="--i:4">FAQ</a>
       <a class="btn btn-sm" href="#contact" style="--i:5">Get a proposal</a>
     </nav>
-    <div class="lang" role="group" aria-label="Language" id="lang">
-      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
-      <button type="button" data-lang="sq" lang="sq" aria-label="Shqip" aria-pressed="false">SQ</button>
-    </div>
+    <div class="lang" id="lang"></div>
     <button class="menu-btn" id="menu-btn" data-i18n-skip aria-controls="links" aria-expanded="false" aria-label="Open menu"><span class="bars" aria-hidden="true"></span></button>
   </div>
 </header>
@@ -636,12 +677,13 @@ footer a:hover{color:#fff}
   <div class="wrap hero-head">
     <p class="eyebrow reveal">Websites · Online stores · Backend · AI</p>
     <h1 class="reveal" style="--d:.06s">First impressions, <span class="soft">engineered.</span></h1>
-    <p class="hero-lede reveal" style="--d:.14s">Scavelo designs and builds fast, modern websites and online stores for businesses in Europe and the US, plus the search, APIs and AI behind them. Everything ships <strong>deployed, tested and measured</strong>, for a price agreed before the first commit.</p>
+    <p class="hero-lede reveal" style="--d:.14s">Scavelo designs logos and builds fast, modern websites and online stores for businesses in Europe and the US, plus the search, APIs and AI behind them. Everything ships <strong>deployed, tested and measured</strong>, for a price agreed before the first commit.</p>
     <div class="actions reveal" style="--d:.22s">
       <a class="btn" href="#contact">Get a fixed-price proposal</a>
       <a class="btn btn-line" href="#services">See services and prices <span class="chev" aria-hidden="true"></span></a>
     </div>
-    <p class="fine reveal" style="--d:.28s">Send two sentences. A written scope, price and timeline comes back within 48 hours. No call unless you want one.</p>
+    <p class="trust reveal" style="--d:.26s"><span class="trust-ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5l2.5 2.5L12 5"/></svg></span>Trusted by more than 120 businesses</p>
+    <p class="fine reveal" style="--d:.3s">Send two sentences. A written scope, price and timeline comes back within 48 hours. No call unless you want one.</p>
   </div>
 
   <div class="wrap stage reveal" style="--d:.36s">
@@ -669,9 +711,10 @@ footer a:hover{color:#fff}
 
 <div class="specs">
   <div class="wrap specs-grid">
-    <div class="spec reveal"><b>48 hours</b><span>from your brief to a written scope, price and timeline</span></div>
-    <div class="spec reveal" style="--d:.08s"><b>Fixed price</b><span>agreed up front; changes are quoted, never billed by surprise</span></div>
-    <div class="spec reveal" style="--d:.16s"><b>30 days</b><span>of post-launch support included in every package</span></div>
+    <div class="spec reveal"><b>120+</b><span>businesses have worked with us</span></div>
+    <div class="spec reveal" style="--d:.06s"><b>48 hours</b><span>from your brief to a written scope, price and timeline</span></div>
+    <div class="spec reveal" style="--d:.12s"><b>Fixed price</b><span>agreed up front; changes are quoted, never billed by surprise</span></div>
+    <div class="spec reveal" style="--d:.18s"><b>30 days</b><span>of post-launch support included in every package</span></div>
     <div class="spec reveal" style="--d:.24s"><b>CET</b><span>full working-day overlap with the EU, mornings with US Eastern</span></div>
   </div>
 </div>
@@ -689,6 +732,11 @@ footer a:hover{color:#fff}
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9h17M6.8 6.8h.01M9.3 6.8h.01"/></svg></div>
         <q>Our website looks dated and nobody on the team can update it.</q>
         <div class="fix"><b>What you get back</b>A fast, accessible website your team edits through a CMS without filing a ticket, with Lighthouse scores measured on your real pages before and after launch.</div>
+      </div>
+      <div data-tone="brand" class="card sym reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l6.5 7L12 20.5l-6.5-10z"/><circle cx="12" cy="11" r="1.6"/><path d="M12 12.6v7.9"/></svg></div>
+        <q>We don't have a proper logo, or ours looks homemade.</q>
+        <div class="fix"><b>What you get back</b>A distinctive logo with matching colours and typefaces, in every format you need for your website, social media and print.</div>
       </div>
       <div data-tone="shop" class="card sym reveal">
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 4.5h2l2.1 10a1.5 1.5 0 0 0 1.5 1.2h7.8a1.5 1.5 0 0 0 1.5-1.1l1.5-6.4H6.4"/><circle cx="10" cy="19.5" r="1.2"/><circle cx="17" cy="19.5" r="1.2"/></svg></div>
@@ -765,11 +813,35 @@ footer a:hover{color:#fff}
             <div><svg class="ring" viewBox="0 0 36 36"><circle class="trk" cx="18" cy="18" r="15"/><circle class="val" cx="18" cy="18" r="15" style="--p:1;--s:3"/></svg>SEO</div>
           </div>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
 
-    <article data-tone="shop" class="svc flip" id="svc-commerce">
+    <article data-tone="brand" class="svc flip" id="svc-logo">
+      <div class="svc-text reveal">
+        <h4>Logos and brand identity</h4>
+        <p>A logo that works everywhere your business shows up: a phone screen, a shop sign, a business card. We start from your business and your customers, sketch a few directions, then refine one into a finished mark with its colours, typefaces and simple rules for using them. You get every file you need, from the website icon to print, and the rights are yours.</p>
+        <div class="ships"><b>What ships</b><ul class="ck"><li>Two or three logo concepts</li><li>Two rounds of refinement</li><li>Colour, black and white versions</li><li>Colour palette and typefaces</li><li>One-page brand guidelines</li><li>Files for web, social and print</li></ul></div>
+        <div class="svc-price">
+          <div class="p num"><span class="from">from</span>€100<small>logo design, 1–2 weeks</small></div>
+          <a class="link" href="#contact">Start your logo <span class="chev" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <div class="viz reveal" style="--d:.1s" aria-hidden="true">
+        <div class="viz-card v-brand" data-parallax=".05" data-max="12">
+          <div class="v-board">
+            <svg class="v-mark" viewBox="0 0 200 120">
+              <g class="v-guides" fill="none" stroke-width=".75"><line x1="0" y1="60" x2="200" y2="60"/><line x1="100" y1="0" x2="100" y2="120"/><circle cx="86" cy="60" r="32"/><circle cx="114" cy="60" r="32"/><circle cx="100" cy="60" r="54" stroke-dasharray="3 4"/></g>
+              <circle class="v-dot a" cx="86" cy="60" r="26"/><circle class="v-dot b" cx="114" cy="60" r="26"/>
+            </svg>
+            <span class="v-word">lumora</span>
+          </div>
+          <div class="v-swatches"><span><i style="background:#E11D48"></i>#E11D48</span><span><i style="background:#FB7185"></i>#FB7185</span><span><i style="background:#1D1D1F"></i>#1D1D1F</span></div>
+          <div class="v-type"><b>Aa</b><span><b>Inter</b><i>600 · 400</i></span><span class="v-files">SVG · PNG · PDF</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article data-tone="shop" class="svc" id="svc-commerce">
       <div class="svc-text reveal">
         <h4>E-commerce built to sell</h4>
         <p>Online stores that load fast, find the right product and get out of the way at checkout. We build on a hosted platform when it fits your catalogue, or a custom storefront on your own backend when it does not, with product search on Elasticsearch, payment, tax and shipping integrations, and stock kept in sync with the systems you already run. Conversion is measured before and after launch, so you can see exactly what changed.</p>
@@ -788,11 +860,10 @@ footer a:hover{color:#fff}
           <div class="v-sum total"><span>Total</span><span>€113.00</span></div>
           <div class="v-pay">Pay €113.00</div>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
 
-    <article data-tone="search" class="svc">
+    <article data-tone="search" class="svc flip">
       <div class="svc-text reveal">
         <h4>Search that ranks on intent</h4>
         <p>For product search that is slow, irrelevant or still running on SQL LIKE queries. Start with a fixed-price audit: a findings report, quick wins implemented on the spot and a prioritised roadmap within five business days. Or go straight to a full Elasticsearch build with relevance tuning, autocomplete, typo tolerance and faceted filtering. Either way you get the numbers before and after.</p>
@@ -814,11 +885,10 @@ footer a:hover{color:#fff}
             <li><span class="th"></span><span><b>Wired reference headphones</b><i>Over-ear · Passive isolation</i></span><span class="r">3</span></li>
           </ul>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
 
-    <article data-tone="api" class="svc flip">
+    <article data-tone="api" class="svc">
       <div class="svc-text reveal">
         <h4>APIs and services built to hold</h4>
         <p>Production REST and gRPC services in Spring Boot (Java 17) or NestJS, built inside your repository and following your conventions from the first commit. Schema design, authentication and OpenAPI documentation are part of the deliverable, not a change request, and every service arrives containerised with its pipeline wired.</p>
@@ -839,11 +909,10 @@ footer a:hover{color:#fff}
           </ul>
           <div class="v-foot"><span class="pill ok">Auth</span><span class="pill ok">Rate limiting</span><span class="pill ok">Tests passing</span><span class="pill neutral">Docker</span></div>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
 
-    <article data-tone="ai" class="svc">
+    <article data-tone="ai" class="svc flip">
       <div class="svc-text reveal">
         <h4>AI assistants grounded in your own content</h4>
         <p>An assistant that answers from your help centre, PDFs and internal wikis, with citations so your team can verify every response. Keyword and meaning-based retrieval run together, which is how it finds both the exact error code and the customer who described the problem in their own words. Citations are checked against what was retrieved before an answer reaches a user.</p>
@@ -861,11 +930,10 @@ footer a:hover{color:#fff}
           </div>
           <div class="v-typing"><span></span><span></span><span></span></div>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
 
-    <article data-tone="ops" class="svc flip">
+    <article data-tone="ops" class="svc">
       <div class="svc-text reveal">
         <h4>Deployment you don't have to think about</h4>
         <p>From a hand-managed server to infrastructure anyone on your team can rebuild: Terraform environments, containerised applications, pipelines that ship on merge and centralised logging so failures surface before customers report them. For AI services we also handle streaming timeouts, provider quota limits and pinned model versions.</p>
@@ -886,7 +954,6 @@ footer a:hover{color:#fff}
             <li><span class="dot" style="--s:4"></span><b>Production</b><em>Rolling deploy</em></li>
           </ol>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
 
@@ -912,7 +979,6 @@ footer a:hover{color:#fff}
           </ul>
           <p class="v-gate-note">Release held until the quality score is back above its threshold.</p>
         </div>
-        <span class="viz-cap">Illustration</span>
       </div>
     </article>
   </div>
@@ -953,7 +1019,8 @@ footer a:hover{color:#fff}
     <div class="more reveal">
       <p class="more-h">Other starting prices</p>
       <div data-tone="web" class="row"><div><b>Web application</b><span>Customer portals and internal tools in Angular and TypeScript, with a design system, headless CMS and accessibility pass.</span></div><div class="p num"><span class="from">from</span>€3,500</div></div>
-      <div data-tone="search" class="row"><div><b>Search audit</b><span>Relevance and latency findings, quick wins during the audit and a prioritised roadmap. Fee credited if you continue with a build.</span></div><div class="p num">€450</div></div>
+      <div data-tone="brand" class="row"><div><b>Logo and brand identity</b><span>Logo concepts, refinement, colour palette, typefaces and files for web, social and print.</span></div><div class="p num"><span class="from">from</span>€100</div></div>
+      <div data-tone="search" class="row"><div><b>Search audit</b><span>Relevance and latency findings, quick wins during the audit and a prioritised roadmap. Fee credited if you continue with a build.</span></div><div class="p num"><span class="from">from</span>€450</div></div>
       <div data-tone="ai" class="row"><div><b>Ask your docs</b><span>An assistant on one content source with cited answers, a web chat widget, an admin panel and 30 days of support.</span></div><div class="p num"><span class="from">from</span>€2,400</div></div>
       <div data-tone="api" class="row"><div><b>API or microservice</b><span>Spring Boot or NestJS, designed schema, auth, OpenAPI, tests, Docker and CI.</span></div><div class="p num"><span class="from">from</span>€1,500</div></div>
       <div data-tone="ops" class="row"><div><b>Deployment foundation</b><span>Terraform staging and production, pipelines on merge, centralised logs, runbook.</span></div><div class="p num"><span class="from">from</span>€1,200</div></div>
@@ -991,7 +1058,7 @@ footer a:hover{color:#fff}
       <div class="stack">
         <p>What we build with</p>
         <div class="chips">
-          <span class="chip">Java 17 and Spring Boot</span><span class="chip">TypeScript and NestJS</span><span class="chip">Elasticsearch</span><span class="chip">Hybrid retrieval</span><span class="chip">OpenAI, Anthropic and open-weight models</span><span class="chip">Evaluation and guardrails</span><span class="chip">MCP</span><span class="chip">MySQL</span><span class="chip">Terraform</span><span class="chip">Docker and CI/CD</span><span class="chip">Angular</span><span class="chip">Headless CMS</span><span class="chip">Payments and checkout</span>
+          <span class="chip">Java 17 and Spring Boot</span><span class="chip">TypeScript and NestJS</span><span class="chip">Elasticsearch</span><span class="chip">Hybrid retrieval</span><span class="chip">OpenAI, Anthropic and open-weight models</span><span class="chip">Evaluation and guardrails</span><span class="chip">MCP</span><span class="chip">MySQL</span><span class="chip">Terraform</span><span class="chip">Docker and CI/CD</span><span class="chip">Angular</span><span class="chip">Headless CMS</span><span class="chip">Payments and checkout</span><span class="chip">Brand identity</span>
         </div>
       </div>
     </div>
@@ -1055,6 +1122,7 @@ footer a:hover{color:#fff}
             <option value="">Select a service</option>
             <option>Website or web application</option>
             <option>E-commerce store</option>
+            <option>Logo or brand identity</option>
             <option>Search: audit or full build</option>
             <option>API or microservice</option>
             <option>AI assistant on our content</option>
@@ -1083,423 +1151,25 @@ footer a:hover{color:#fff}
         <a class="brand" href="#top"><span class="mark">Scavelo<i>.</i></span></a>
         <p>An engineering studio building websites, online stores, backend, search and applied AI systems for product teams in Europe and the US.</p>
       </div>
-      <div><h4>Build</h4><ul><li><a href="#svc-web">Websites and web apps</a></li><li><a href="#svc-commerce">E-commerce</a></li><li><a href="#services">Search and Elasticsearch</a></li><li><a href="#services">APIs and services</a></li><li><a href="#services">AI assistants</a></li><li><a href="#services">Deployment</a></li></ul></div>
+      <div><h4>Build</h4><ul><li><a href="#svc-web">Websites and web apps</a></li><li><a href="#svc-commerce">E-commerce</a></li><li><a href="#svc-logo">Logo design</a></li><li><a href="#services">Search and Elasticsearch</a></li><li><a href="#services">APIs and services</a></li><li><a href="#services">AI assistants</a></li><li><a href="#services">Deployment</a></li></ul></div>
       <div><h4>Studio</h4><ul><li><a href="#pricing">Pricing</a></li><li><a href="#process">How we work</a></li><li><a href="#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="#contact">Send a brief</a></li><li>Tirana, Albania</li><li>Central European Time</li></ul></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Scavelo. All rights reserved.</span>
+      <span>© 2027 Scavelo. All rights reserved.</span>
       <span><a href="privacy.html">Privacy notice</a></span>
     </div>
   </div>
 </footer>
 
+<script src="i18n/i18n.js"></script>
 <script>
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* =========================================================
-   Albanian translation. English lives in the markup; each key below is the
-   exact English text of a text node or attribute, so if you edit English copy,
-   update its key here too (an unmatched key simply stays in English).
-   ========================================================= */
-const SQ_META={
-  title:"Scavelo — Faqe interneti dhe dyqane online, me çmim fiks",
-  description:"Scavelo është një studio në Tiranë që projekton dhe ndërton faqe interneti dhe dyqane online të shpejta dhe moderne për biznese në BE dhe SHBA, si dhe kërkimin, API-të dhe AI-në pas tyre. Fushëveprim me shkrim dhe çmim fiks brenda 48 orëve."
-};
-const SQ={
-  /* header & hero */
-  "Engineering studio":"Studio inxhinierike",
-  "What we fix":"Çfarë rregullojmë",
-  "Services":"Shërbimet",
-  "Pricing":"Çmimet",
-  "How we work":"Si punojmë",
-  "FAQ":"Pyetje",
-  "Get a proposal":"Kërko ofertë",
-  "Scavelo, back to top":"Scavelo, kthehu në krye",
-  "Main":"Kryesore",
-  "Language":"Gjuha",
-  "Open menu":"Hap menunë",
-  "Close menu":"Mbyll menunë",
-  "Example proposals":"Shembuj ofertash",
-  "Web · E-commerce · Backend · Applied AI":"Web · E-commerce · Backend · AI e aplikuar",
-  "Websites · Online stores · Backend · AI":"Faqe web · Dyqane online · Backend · AI",
-  "First impressions,":"Përshtypja e parë,",
-  "engineered.":"që shet.",
-  "Scavelo designs and builds fast, modern websites and online stores for businesses in Europe and the US, plus the search, APIs and AI behind them. Everything ships":"Scavelo projekton dhe ndërton faqe interneti dhe dyqane online të shpejta dhe moderne për biznese në Evropë dhe në SHBA, si dhe kërkimin, API-të dhe AI-në pas tyre. Gjithçka dorëzohet",
-  "Business website":"Faqe biznesi",
-  "A fast, modern site that brings in customers":"Një faqe e shpejtë dhe moderne që sjell klientë",
-  "Custom design that works on every screen":"Dizajn i personalizuar që funksionon në çdo ekran",
-  "Content you edit yourself, no developer needed":"Përmbajtje që e redaktoni vetë, pa zhvillues",
-  "Accessibility and SEO built in":"Aksesueshmëri dhe SEO të përfshira",
-  "Fast loading, measured with Lighthouse":"Ngarkim i shpejtë, i matur me Lighthouse",
-  "Start your website":"Nis faqen",
-  "Sell online":"Shit online",
-  "Online store":"Dyqan online",
-  "A storefront built to convert":"Një dyqan i ndërtuar për të shitur",
-  "Live in 4–8 weeks":"Gati për 4–8 javë",
-  "Product search, filters and facets":"Kërkim produktesh, filtra dhe kategori",
-  "Checkout with payments, tax and shipping":"Checkout me pagesa, taksa dhe transport",
-  "Inventory and orders synced with your ERP":"Stoku dhe porositë të sinkronizuara me ERP-në tuaj",
-  "Start your store":"Nis dyqanin",
-  "Web application":"Aplikacion web",
-  "Customer portals and internal tools in Angular and TypeScript, with a design system, headless CMS and accessibility pass.":"Portale klientësh dhe mjete të brendshme me Angular dhe TypeScript, me sistem dizajni, CMS headless dhe kontroll aksesueshmërie.",
-  "Relevance and latency findings, quick wins during the audit and a prioritised roadmap. Fee credited if you continue with a build.":"Gjetje për relevancën dhe vonesën, përmirësime të shpejta gjatë auditimit dhe një plan me prioritete. Tarifa zbritet nëse vazhdoni me ndërtimin.",
-  "An assistant on one content source with cited answers, a web chat widget, an admin panel and 30 days of support.":"Një asistent mbi një burim përmbajtjeje, me përgjigje me burime, widget chat-i, panel administrimi dhe 30 ditë mbështetje.",
-  "Scavelo is an engineering studio for product teams in Europe and the US. We build websites, online stores, search, APIs and AI assistants, and we review the AI systems you already run. Everything ships":"Scavelo është një studio inxhinierike për ekipe produkti në Evropë dhe në SHBA. Ndërtojmë faqe interneti, dyqane online, kërkim, API dhe asistentë AI, dhe rishikojmë sistemet AI që tashmë përdorni. Gjithçka dorëzohet",
-  "deployed, tested and measured":"në prodhim, e testuar dhe e matur",
-  ", for a price agreed before the first commit.":", me një çmim të rënë dakord para commit-it të parë.",
-  "Get a fixed-price proposal":"Kërko ofertë me çmim fiks",
-  "See services and prices":"Shiko shërbimet dhe çmimet",
-  "Send two sentences. A written scope, price and timeline comes back within 48 hours. No call unless you want one.":"Na shkruani dy fjali. Brenda 48 orëve merrni me shkrim fushëveprimin, çmimin dhe afatin. Pa telefonata, përveç nëse i kërkoni.",
-  "Example of what you receive within 48 hours":"Shembull i asaj që merrni brenda 48 orëve",
-  "Fixed-price proposal":"Ofertë me çmim fiks",
-  "Scavelo · example":"Scavelo · shembull",
-  "Project":"Projekti",
-  "Problem":"Problemi",
-  "Deliverables":"Rezultatet",
-  "Timeline":"Afati",
-  "Support":"Mbështetja",
-  "30 days after launch, included":"30 ditë pas lançimit, të përfshira",
-  "Fixed price, agreed before work starts":"Çmim fiks, i rënë dakord para fillimit të punës",
-  "48 hours":"48 orë",
-  "from your brief to a written scope, price and timeline":"nga kërkesa juaj te fushëveprimi, çmimi dhe afati me shkrim",
-  "Fixed price":"Çmim fiks",
-  "agreed up front; changes are quoted, never billed by surprise":"i rënë dakord që në fillim; ndryshimet ofertohen, nuk faturohen kurrë papritur",
-  "30 days":"30 ditë",
-  "of post-launch support included in every package":"mbështetje pas lançimit, e përfshirë në çdo paketë",
-  "full working-day overlap with the EU, mornings with US Eastern":"ditë e plotë pune e përbashkët me BE-në, mëngjeset me lindjen e SHBA-së",
-
-  /* what we fix */
-  "You already know what is broken.":"E dini tashmë çfarë nuk funksionon.",
-  "Most teams come to us with a sentence, not a spec. These are the ones we hear most, and what we hand back.":"Shumica e ekipeve vijnë te ne me një fjali, jo me specifikime. Këto janë ato që dëgjojmë më shpesh, dhe çfarë u dorëzojmë.",
-  "Customers can't find products that are definitely in our catalogue.":"Klientët nuk gjejnë produkte që janë patjetër në katalogun tonë.",
-  "What you get back":"Çfarë merrni",
-  "Search that ranks on intent rather than exact strings, with typo tolerance, synonyms, facets and autocomplete, and a before-and-after benchmark that proves the difference.":"Kërkim që rendit sipas qëllimit dhe jo sipas fjalëve të sakta, me tolerancë ndaj gabimeve të shkrimit, sinonime, filtra dhe plotësim automatik, si dhe një krahasim para-dhe-pas që e vërteton ndryshimin.",
-  "Support answers the same twelve questions every single day.":"Ekipi i mbështetjes u përgjigjet të njëjtave dymbëdhjetë pyetje çdo ditë.",
-  "An assistant grounded in your own documentation that answers with citations, plus an admin panel your support team updates without a developer.":"Një asistent i bazuar në dokumentacionin tuaj që përgjigjet duke cituar burimet, plus një panel administrimi që ekipi juaj e përditëson pa zhvillues.",
-  "Only one person on the team can deploy safely.":"Vetëm një person në ekip mund të publikojë pa rrezik.",
-  "Terraform-defined environments, containers and pipelines that ship on merge, so a release stops depending on one laptop and one calendar.":"Mjedise të përcaktuara me Terraform, kontejnerë dhe pipeline që publikojnë me çdo merge, që një version i ri të mos varet më nga një laptop dhe një kalendar.",
-  "We shipped an AI assistant and nobody can say whether it is safe or accurate.":"Lançuam një asistent AI dhe askush nuk mund të thotë nëse është i sigurt apo i saktë.",
-  "A documented attack run against it, a scored test set that blocks a release when quality drops, and a breakdown of where the model spend goes.":"Një sulm i dokumentuar kundër tij, një grup testesh me pikë që bllokon publikimin kur bie cilësia, dhe një ndarje e asaj ku shkojnë shpenzimet për modelin.",
-  "Our API was built fast and now every change breaks something.":"API-ja jonë u ndërtua me nxitim dhe tani çdo ndryshim prish diçka.",
-  "A Spring Boot or NestJS service with a designed schema, authentication, OpenAPI documentation and an automated test suite, built inside your repository.":"Një shërbim Spring Boot ose NestJS me skemë të projektuar, autentikim, dokumentacion OpenAPI dhe teste të automatizuara, i ndërtuar brenda repository-t tuaj.",
-  "We need senior backend capacity, but not a forty-hour hire.":"Na duhet kapacitet backend me përvojë, por jo një punonjës me kohë të plotë.",
-  "A monthly block of engineering hours with same-day responses in CET, a report of everything shipped, and no hiring process to run.":"Një paketë mujore orësh inxhinierike me përgjigje brenda ditës sipas orarit CET, një raport i gjithçkaje të dorëzuar dhe pa proces rekrutimi.",
-  "Our website looks dated and nobody on the team can update it.":"Faqja jonë duket e vjetëruar dhe askush në ekip nuk mund ta përditësojë.",
-  "A fast, accessible website your team edits through a CMS without filing a ticket, with Lighthouse scores measured on your real pages before and after launch.":"Një faqe e shpejtë dhe e aksesueshme që ekipi juaj e redakton përmes një CMS pa hapur kërkesa, me pikët e Lighthouse të matura në faqet tuaja reale para dhe pas lançimit.",
-  "Shoppers add to cart, then leave at checkout.":"Blerësit shtojnë në shportë, pastaj largohen te pagesa.",
-  "A storefront with fast product pages, search that finds what people type and a checkout reworked step by step, with conversion tracked before and after launch.":"Një dyqan me faqe produktesh të shpejta, kërkim që gjen atë që shkruajnë njerëzit dhe një proces pagese i rindërtuar hap pas hapi, me konvertimin të matur para dhe pas lançimit.",
-
-  /* services */
-  "We build it, or we review what you already built.":"E ndërtojmë ne, ose rishikojmë atë që keni ndërtuar.",
-  "Every engagement starts with a written scope and ends with something measurable: a benchmark, a score or a report. Prices are published so you can estimate the cost before you talk to anyone.":"Çdo bashkëpunim nis me një fushëveprim të shkruar dhe mbyllet me diçka të matshme: një krahasim, një pikë ose një raport. Çmimet janë publike, që ta vlerësoni koston para se të flisni me dikë.",
-  "Build":"Ndërtim",
-  "New systems, fixed scope, live in your environment":"Sisteme të reja, fushëveprim fiks, në punë në mjedisin tuaj",
-  "Search that ranks on intent":"Kërkim që rendit sipas qëllimit",
-  "For product search that is slow, irrelevant or still running on SQL LIKE queries. Start with a fixed-price audit: a findings report, quick wins implemented on the spot and a prioritised roadmap within five business days. Or go straight to a full Elasticsearch build with relevance tuning, autocomplete, typo tolerance and faceted filtering. Either way you get the numbers before and after.":"Për kërkim produktesh që është i ngadaltë, i pasaktë ose ende mbështetet në pyetje SQL LIKE. Filloni me një auditim me çmim fiks: raport me gjetjet, përmirësime të shpejta të zbatuara menjëherë dhe një plan me prioritete brenda pesë ditëve pune. Ose kaloni direkt te një ndërtim i plotë me Elasticsearch, me rregullim të relevancës, plotësim automatik, tolerancë ndaj gabimeve dhe filtrim sipas kategorive. Në të dyja rastet merrni shifrat para dhe pas.",
-  "What ships":"Çfarë dorëzohet",
-  "Relevance and latency findings report":"Raport gjetjesh për relevancën dhe vonesën",
-  "Query and index optimisation":"Optimizim i pyetjeve dhe indekseve",
-  "Autocomplete, typo tolerance, facets":"Plotësim automatik, tolerancë gabimesh, filtra",
-  "SQL-to-Elasticsearch migration":"Migrim nga SQL në Elasticsearch",
-  "Log analytics and dashboards":"Analizë logesh dhe panele",
-  "Measured before/after benchmarks":"Krahasime të matura para/pas",
-  "audit, 5 business days":"auditim, 5 ditë pune",
-  "from":"nga",
-  "full build, 2–4 weeks":"ndërtim i plotë, 2–4 javë",
-  "Book an audit":"Rezervo një auditim",
-  "noise cancelling headphnes":"kufje me anulim zhrume",
-  "Showing results for":"Po shfaqen rezultatet për",
-  "noise cancelling headphones":"kufje me anulim zhurme",
-  "Over-ear":"Mbi vesh",
-  "Wireless":"Pa kabllo",
-  "In stock":"Në gjendje",
-  "Under €300":"Nën €300",
-  "Studio ANC over-ear headphones":"Kufje studioje ANC mbi vesh",
-  "Wireless · Active noise cancelling":"Pa kabllo · Anulim aktiv i zhurmës",
-  "Travel ANC headphones, foldable":"Kufje udhëtimi ANC, të palosshme",
-  "Wireless · Carry case":"Pa kabllo · Me këllëf",
-  "Wired reference headphones":"Kufje reference me kabllo",
-  "Over-ear · Passive isolation":"Mbi vesh · Izolim pasiv",
-  "Illustration":"Ilustrim",
-  "APIs and services built to hold":"API dhe shërbime që qëndrojnë",
-  "Production REST and gRPC services in Spring Boot (Java 17) or NestJS, built inside your repository and following your conventions from the first commit. Schema design, authentication and OpenAPI documentation are part of the deliverable, not a change request, and every service arrives containerised with its pipeline wired.":"Shërbime REST dhe gRPC për prodhim në Spring Boot (Java 17) ose NestJS, të ndërtuara brenda repository-t tuaj dhe sipas konventave tuaja që nga commit-i i parë. Projektimi i skemës, autentikimi dhe dokumentacioni OpenAPI janë pjesë e dorëzimit, jo kërkesë ndryshimi, dhe çdo shërbim vjen në kontejner me pipeline-in të lidhur.",
-  "Spring Boot or NestJS service":"Shërbim Spring Boot ose NestJS",
-  "REST / gRPC, auth, rate limiting":"REST / gRPC, autentikim, kufizim kërkesash",
-  "MySQL schema design and optimisation":"Projektim dhe optimizim i skemës MySQL",
-  "OpenAPI documentation":"Dokumentacion OpenAPI",
-  "Automated test suite":"Teste të automatizuara",
-  "Dockerised, CI/CD included":"Me Docker, CI/CD i përfshirë",
-  "per service, 2–6 weeks":"për shërbim, 2–6 javë",
-  "Get a quote":"Kërko ofertë",
-  "Auth":"Autentikim",
-  "Rate limiting":"Kufizim kërkesash",
-  "Tests passing":"Testet kalojnë",
-  "AI assistants grounded in your own content":"Asistentë AI të bazuar në përmbajtjen tuaj",
-  "An assistant that answers from your help centre, PDFs and internal wikis, with citations so your team can verify every response. Keyword and meaning-based retrieval run together, which is how it finds both the exact error code and the customer who described the problem in their own words. Citations are checked against what was retrieved before an answer reaches a user.":"Një asistent që përgjigjet nga qendra juaj e ndihmës, PDF-të dhe wiki-t e brendshme, duke cituar burimet që ekipi juaj të verifikojë çdo përgjigje. Kërkimi me fjalë kyçe dhe ai sipas kuptimit punojnë së bashku, prandaj gjen si kodin e saktë të gabimit, ashtu edhe klientin që e përshkroi problemin me fjalët e veta. Burimet kontrollohen kundrejt asaj që u gjet para se përgjigjja të arrijë te përdoruesi.",
-  "Document ingestion pipeline":"Pipeline për përpunimin e dokumenteve",
-  "Hybrid keyword and semantic retrieval":"Kërkim hibrid me fjalë kyçe dhe semantik",
-  "Verified citations on every answer":"Burime të verifikuara në çdo përgjigje",
-  "Permission filtering per user or team":"Filtrim lejesh për përdorues ose ekip",
-  "Embeddable web widget or Slack app":"Widget për faqen ose aplikacion Slack",
-  "Admin panel, deployed, 30 days support":"Panel administrimi, në prodhim, 30 ditë mbështetje",
-  "one content source, 2–4 weeks":"një burim përmbajtjeje, 2–4 javë",
-  "Scope this build":"Përcakto projektin",
-  "How do I rotate an API key without downtime?":"Si ta ndërroj një çelës API pa ndërprerje?",
-  "Create a second key and deploy it alongside the first, then revoke the old one under":"Krijoni një çelës të dytë dhe vendoseni krahas të parit, pastaj çaktivizoni të vjetrin te",
-  "Settings → Security":"Cilësimet → Siguria",
-  "Both keys stay valid during the overlap.":"Të dy çelësat mbeten të vlefshëm gjatë kalimit.",
-  "Help centre · API keys":"Qendra e ndihmës · Çelësat API",
-  "Changelog · Key rotation":"Ndryshimet · Ndërrimi i çelësave",
-  "Deployment you don't have to think about":"Publikim për të cilin nuk keni pse të mendoni",
-  "From a hand-managed server to infrastructure anyone on your team can rebuild: Terraform environments, containerised applications, pipelines that ship on merge and centralised logging so failures surface before customers report them. For AI services we also handle streaming timeouts, provider quota limits and pinned model versions.":"Nga një server i menaxhuar me dorë te një infrastrukturë që kushdo në ekip mund ta rindërtojë: mjedise Terraform, aplikacione në kontejnerë, pipeline që publikojnë me çdo merge dhe loge të centralizuara, që gabimet të dalin në pah para se t'i raportojnë klientët. Për shërbimet AI trajtojmë edhe skadimet gjatë streaming-ut, kufijtë e kuotave të ofruesve dhe versionet e fiksuara të modeleve.",
-  "Terraform infrastructure as code":"Infrastrukturë si kod me Terraform",
-  "Matching staging and production":"Staging dhe prodhim identikë",
-  "CI/CD pipelines (GitHub Actions)":"Pipeline CI/CD (GitHub Actions)",
-  "Centralised logs and dashboards":"Loge dhe panele të centralizuara",
-  "Model versions pinned, quotas managed":"Versione modelesh të fiksuara, kuota të menaxhuara",
-  "Runbook your team can follow":"Udhëzues operimi që ekipi juaj e ndjek",
-  "foundation, 1–2 weeks":"bazë, 1–2 javë",
-  "Talk about capacity":"Bisedo për kapacitetin",
-  "main · merged":"main · u bashkua",
-  "Live in production":"Në prodhim",
-  "Plan":"Plani",
-  "Terraform · no drift":"Terraform · pa devijime",
-  "Container image":"Imazh kontejneri",
-  "Test":"Testimi",
-  "Unit · integration":"Njësi · integrim",
-  "Smoke checks":"Kontrolle bazë",
-  "Production":"Prodhimi",
-  "Rolling deploy":"Publikim gradual",
-  "Websites and web applications":"Faqe interneti dhe aplikacione web",
-  "Marketing sites, customer portals and internal tools built in Angular and TypeScript, fast on a phone signal and accessible from the first screen. Content lives in a headless CMS your team edits without a developer, every page is checked against WCAG 2.2 AA before launch, and you get Lighthouse scores measured on your real pages, before and after.":"Faqe marketingu, portale klientësh dhe mjete të brendshme të ndërtuara me Angular dhe TypeScript, të shpejta edhe me sinjal celulari dhe të aksesueshme që nga ekrani i parë. Përmbajtja ruhet në një CMS headless që ekipi juaj e redakton pa zhvillues, çdo faqe kontrollohet sipas WCAG 2.2 AA para lançimit, dhe merrni pikët e Lighthouse të matura në faqet tuaja reale, para dhe pas.",
-  "Responsive design system and components":"Sistem dizajni responsiv dhe komponentë",
-  "Angular and TypeScript front end":"Front end me Angular dhe TypeScript",
-  "Headless CMS your team can edit":"CMS headless që ekipi juaj e redakton",
-  "WCAG 2.2 AA accessibility pass":"Kontroll aksesueshmërie WCAG 2.2 AA",
-  "SEO metadata, sitemaps and analytics":"Metadata SEO, sitemap dhe analitikë",
-  "Lighthouse scores before and after":"Pikët e Lighthouse para dhe pas",
-  "marketing site, 2–4 weeks":"faqe marketingu, 2–4 javë",
-  "web application, 4–8 weeks":"aplikacion web, 4–8 javë",
-  "Plan a website":"Planifiko faqen",
-  "Performance":"Performanca",
-  "Accessibility":"Aksesueshmëria",
-  "Best practices":"Praktikat e mira",
-  "E-commerce built to sell":"E-commerce i ndërtuar për të shitur",
-  "Online stores that load fast, find the right product and get out of the way at checkout. We build on a hosted platform when it fits your catalogue, or a custom storefront on your own backend when it does not, with product search on Elasticsearch, payment, tax and shipping integrations, and stock kept in sync with the systems you already run. Conversion is measured before and after launch, so you can see exactly what changed.":"Dyqane online që ngarkohen shpejt, gjejnë produktin e duhur dhe nuk pengojnë në momentin e pagesës. Ndërtojmë mbi një platformë të gatshme kur i përshtatet katalogut tuaj, ose një dyqan të personalizuar mbi backend-in tuaj kur nuk i përshtatet, me kërkim produktesh në Elasticsearch, integrime për pagesat, taksat dhe transportin, dhe stokun të sinkronizuar me sistemet që përdorni tashmë. Konvertimi matet para dhe pas lançimit, që të shihni saktësisht çfarë ndryshoi.",
-  "Storefront and product pages":"Dyqani dhe faqet e produkteve",
-  "Catalogue search, filters and facets":"Kërkim në katalog, filtra dhe kategori",
-  "Cart and checkout flow":"Shporta dhe procesi i pagesës",
-  "Payments, tax and shipping integrations":"Integrime për pagesat, taksat dhe transportin",
-  "Inventory and order sync with your ERP":"Sinkronizim i stokut dhe porosive me ERP-në tuaj",
-  "Conversion tracked before and after":"Konvertimi i matur para dhe pas",
-  "store build, 4–8 weeks":"ndërtim dyqani, 4–8 javë",
-  "Scope your store":"Përcakto dyqanin",
-  "Cart":"Shporta",
-  "Details":"Të dhënat",
-  "Payment":"Pagesa",
-  "Done":"Përfundim",
-  "Linen overshirt":"Këmishë liri",
-  "Sand · M · Qty 1":"Rërë · M · Sasia 1",
-  "Canvas tote":"Çantë pëlhure",
-  "Natural · Qty 1":"Natyrale · Sasia 1",
-  "Shipping":"Transporti",
-  "Free":"Falas",
-  "Total":"Totali",
-  "Pay €113.00":"Paguaj €113.00",
-  "Review":"Rishikim",
-  "For AI you already have in production and cannot yet vouch for":"Për AI që e keni tashmë në prodhim, por ende nuk mund ta garantoni",
-  "AI production review":"Rishikim i AI në prodhim",
-  "Runs against a system built by anyone, including one we have never seen. Choose one module or bundle all three: a security review that attacks the assistant the way an attacker would and ranks the fixes by impact; a quality test set of real questions with known answers, scored automatically and wired to block a bad release; and a cost audit that shows where the model spend goes and quantifies each saving.":"Funksionon mbi një sistem të ndërtuar nga kushdo, edhe mbi një që nuk e kemi parë kurrë. Zgjidhni një modul ose të treja së bashku: një rishikim sigurie që e sulmon asistentin ashtu si do ta bënte një sulmues dhe i rendit rregullimet sipas ndikimit; një grup testesh cilësie me pyetje reale dhe përgjigje të njohura, i vlerësuar automatikisht dhe i lidhur për të bllokuar një publikim të keq; dhe një auditim kostosh që tregon ku shkojnë shpenzimet për modelin dhe sa kurseni me çdo ndryshim.",
-  "40+ documented attack attempts and findings":"40+ përpjekje sulmi dhe gjetje të dokumentuara",
-  "Layered fixes, ranked by impact":"Rregullime në shtresa, të renditura sipas ndikimit",
-  "100–200 case test set with automated grading":"Grup testesh me 100–200 raste dhe vlerësim automatik",
-  "Release gate that fails on a quality drop":"Portë publikimi që ndalet kur bie cilësia",
-  "Spend breakdown and savings per change":"Ndarje shpenzimesh dhe kursime për çdo ndryshim",
-  "Attack suite and gate left running in your CI":"Testet e sulmit dhe porta mbeten aktive në CI-në tuaj",
-  "per module, 1–2 weeks":"për modul, 1–2 javë",
-  "Book a review":"Rezervo një rishikim",
-  "Release gate":"Porta e publikimit",
-  "Blocked":"Bllokuar",
-  "Attack suite":"Testet e sulmit",
-  "Pass":"Kalon",
-  "Answer quality":"Cilësia e përgjigjeve",
-  "Below threshold":"Nën pragun",
-  "Cost per answer":"Kosto për përgjigje",
-  "Within budget":"Brenda buxhetit",
-  "Release held until the quality score is back above its threshold.":"Publikimi mbahet derisa pikët e cilësisë të kthehen mbi pragun.",
-
-  /* pricing */
-  "Published prices. No discovery call required to hear one.":"Çmime publike. Nuk ju duhet asnjë telefonatë për t'i mësuar.",
-  "Three common starting points. Everything else is quoted from your brief within 48 hours.":"Tri pika të zakonshme fillimi. Për gjithçka tjetër ju dërgojmë ofertë brenda 48 orëve nga kërkesa juaj.",
-  "Start here":"Filloni këtu",
-  "Search audit":"Auditim kërkimi",
-  "Find out what is actually wrong":"Zbuloni çfarë nuk shkon në të vërtetë",
-  "Delivered in 5 business days":"Dorëzohet në 5 ditë pune",
-  "Full review of your current search set-up":"Rishikim i plotë i kërkimit tuaj aktual",
-  "Quick wins implemented during the audit":"Përmirësime të shpejta gjatë auditimit",
-  "Prioritised roadmap you can hand to anyone":"Plan me prioritete që mund t'ia jepni kujtdo",
-  "Fee credited if you continue with a build":"Tarifa zbritet nëse vazhdoni me ndërtimin",
-  "Most requested":"Më i kërkuari",
-  "Ask your docs":"Pyet dokumentet",
-  "An assistant on your own content":"Një asistent mbi përmbajtjen tuaj",
-  "Live in 2–4 weeks":"Gati për 2–4 javë",
-  "One source: docs, help centre or PDFs":"Një burim: dokumente, qendër ndihme ose PDF",
-  "Cited answers your team can verify":"Përgjigje me burime që ekipi juaj i verifikon",
-  "Embeddable web chat widget":"Widget chat-i për faqen tuaj",
-  "Admin panel for updating content":"Panel administrimi për përditësimin e përmbajtjes",
-  "Deployed, plus 30 days of support":"Në prodhim, plus 30 ditë mbështetje",
-  "Start this build":"Nis këtë projekt",
-  "Ongoing":"E vazhdueshme",
-  "Engineering retainer":"Abonim inxhinierik",
-  "Senior capacity, no hire required":"Kapacitet me përvojë, pa punësim",
-  "/ month":"/ muaj",
-  "25 hours monthly, start any Monday":"25 orë në muaj, fillon çdo të hënë",
-  "Backend features, fixes and maintenance":"Funksione backend, rregullime dhe mirëmbajtje",
-  "Same-day response in CET business hours":"Përgjigje brenda ditës në orarin e punës CET",
-  "Monthly report of everything shipped":"Raport mujor i gjithçkaje të dorëzuar",
-  "50% of unused hours roll over":"50% e orëve të papërdorura kalojnë në muajin tjetër",
-  "Cancel with 30 days' notice":"Anulim me njoftim 30 ditë përpara",
-  "Reserve capacity":"Rezervo kapacitet",
-  "Other starting prices":"Çmime të tjera fillestare",
-  "API or microservice":"API ose mikroshërbim",
-  "Spring Boot or NestJS, designed schema, auth, OpenAPI, tests, Docker and CI.":"Spring Boot ose NestJS, skemë e projektuar, autentikim, OpenAPI, teste, Docker dhe CI.",
-  "Deployment foundation":"Bazë për publikimin",
-  "Terraform staging and production, pipelines on merge, centralised logs, runbook.":"Staging dhe prodhim me Terraform, pipeline me çdo merge, loge të centralizuara, udhëzues operimi.",
-  "Security testing, quality test set or cost audit, per module. Bundle all three and the third is half price.":"Testim sigurie, grup testesh cilësie ose auditim kostosh, për modul. Merrni të treja dhe i treti kushton gjysmë çmimi.",
-  "Website or web application":"Faqe interneti ose aplikacion web",
-  "Responsive design system, Angular front end, headless CMS, accessibility pass and Lighthouse benchmarks.":"Sistem dizajni responsiv, front end me Angular, CMS headless, kontroll aksesueshmërie dhe matje me Lighthouse.",
-  "E-commerce store":"Dyqan online",
-  "Storefront, product search, checkout, payments, shipping and inventory sync, with conversion measured before and after.":"Dyqan, kërkim produktesh, proces pagese, pagesa, transport dhe sinkronizim stoku, me konvertimin të matur para dhe pas.",
-  "Multi-source assistant":"Asistent me shumë burime",
-  "Several content sources, single sign-on, usage analytics and permission filtering.":"Disa burime përmbajtjeje, hyrje e unifikuar (SSO), analitikë përdorimi dhe filtrim lejesh.",
-  "Fixed-price work is invoiced 50% on signature and 50% on delivery. Anything outside the written scope is quoted before it is built, never absorbed silently and never added to an invoice you have not seen. Retainers are billed monthly in advance.":"Puna me çmim fiks faturohet 50% në nënshkrim dhe 50% në dorëzim. Çdo gjë jashtë fushëveprimit të shkruar ofertohet para se të ndërtohet, nuk përthithet në heshtje dhe nuk shtohet kurrë në një faturë që nuk e keni parë. Abonimet faturohen çdo muaj paraprakisht.",
-
-  /* process */
-  "Four stages, every time.":"Katër faza, çdo herë.",
-  "Whether it is a one-week audit or a three-month build, this is what working with Scavelo looks like.":"Qoftë një auditim njëjavor apo një ndërtim tremujor, kështu duket puna me Scavelo.",
-  "You describe the problem":"Ju përshkruani problemin",
-  "Send a few sentences through the form. Within 48 hours you get a written scope, a fixed price and a timeline. No obligation, and no call unless you ask for one.":"Na dërgoni disa fjali përmes formularit. Brenda 48 orëve merrni një fushëveprim të shkruar, një çmim fiks dhe një afat. Pa detyrim dhe pa telefonata, përveç nëse i kërkoni.",
-  "You see running software weekly":"Shihni softuer që funksionon çdo javë",
-  "Work happens in your repository from day one, in your conventions and through your review process. Every week you get something you can run, not a status update.":"Puna bëhet në repository-n tuaj që nga dita e parë, sipas konventave tuaja dhe përmes procesit tuaj të rishikimit. Çdo javë merrni diçka që mund ta provoni, jo thjesht një përditësim statusi.",
-  "We hand it over deployed":"Jua dorëzojmë në prodhim",
-  "Delivery means live in your environment: tests passing, infrastructure defined in code, documentation written, dashboards in place. Your team can change it without us.":"Dorëzim do të thotë në punë në mjedisin tuaj: testet kalojnë, infrastruktura e përcaktuar në kod, dokumentacioni i shkruar, panelet në vend. Ekipi juaj mund ta ndryshojë pa ne.",
-  "Thirty days are already included":"Tridhjetë ditë janë të përfshira",
-  "Every fixed-price package covers a month of fixes and questions after launch. Move to a retainer if you want us to stay. Nothing renews automatically.":"Çdo paketë me çmim fiks mbulon një muaj rregullimesh dhe pyetjesh pas lançimit. Kaloni në abonim nëse doni të vazhdojmë. Asgjë nuk rinovohet automatikisht.",
-
-  /* studio */
-  "The studio":"Studio",
-  "A studio, not an agency layer.":"Një studio, jo një shtresë agjencie.",
-  "Scavelo is an independent engineering studio based in Tirana, Albania, working with product teams across the EU and US. Tirana is on Central European Time, which gives a full working day of overlap with European teams and mornings with the US East Coast, at rates that reflect our cost base rather than a discount on quality.":"Scavelo është një studio inxhinierike e pavarur me bazë në Tiranë, që punon me ekipe produkti në BE dhe në SHBA. Tirana është në orën e Evropës Qendrore, që do të thotë një ditë e plotë pune e përbashkët me ekipet evropiane dhe mëngjeset me Bregun Lindor të SHBA-së, me tarifa që pasqyrojnë kostot tona dhe jo një zbritje në cilësi.",
-  "What we build with":"Me çfarë ndërtojmë",
-  "Java 17 and Spring Boot":"Java 17 dhe Spring Boot",
-  "TypeScript and NestJS":"TypeScript dhe NestJS",
-  "Hybrid retrieval":"Kërkim hibrid",
-  "OpenAI, Anthropic and open-weight models":"OpenAI, Anthropic dhe modele me pesha të hapura",
-  "Evaluation and guardrails":"Vlerësim dhe masa mbrojtëse",
-  "Docker and CI/CD":"Docker dhe CI/CD",
-  "Headless CMS":"CMS headless",
-  "Payments and checkout":"Pagesa dhe checkout",
-  "The price you agree is the price you pay":"Çmimi për të cilin bini dakord është çmimi që paguani",
-  "Every engagement opens with a one-page signed scope. Changes are quoted before they are built, so an invoice never contains a line you have not approved.":"Çdo bashkëpunim nis me një fushëveprim njëfaqësh të nënshkruar. Ndryshimet ofertohen para se të ndërtohen, kështu që një faturë nuk përmban kurrë një rresht që nuk e keni miratuar.",
-  "Production is the finish line":"Prodhimi është vija e mbërritjes",
-  "Nothing is finished in a notebook or on a laptop. Finished means deployed, tested and observable in your environment.":"Asgjë nuk përfundon në një notebook apo në një laptop. E përfunduar do të thotë në prodhim, e testuar dhe e monitorueshme në mjedisin tuaj.",
-  "Everything is yours from day one":"Gjithçka është e juaja që nga dita e parë",
-  "Code, infrastructure definitions, prompts and documentation live in your accounts and your repository from the first commit. Nothing is licensed back to us.":"Kodi, përkufizimet e infrastrukturës, prompt-et dhe dokumentacioni ndodhen në llogaritë dhe në repository-n tuaj që nga commit-i i parë. Asgjë nuk licencohet te ne.",
-  "You talk to the engineers":"Flisni direkt me inxhinierët",
-  "Briefs, questions and change requests go to the people writing the code. No account managers, no hand-offs.":"Kërkesat, pyetjet dhe ndryshimet shkojnë te njerëzit që shkruajnë kodin. Pa menaxherë llogarish, pa ndërmjetës.",
-
-  /* faq */
-  "Before you get in touch.":"Para se të na kontaktoni.",
-  "The questions EU and US teams usually raise before a first engagement.":"Pyetjet që ekipet në BE dhe në SHBA bëjnë zakonisht para bashkëpunimit të parë.",
-  "How does fixed pricing actually work?":"Si funksionon në fakt çmimi fiks?",
-  "Send a brief and you get back a one-page scope covering deliverables, price and timeline. Work starts on a 50% deposit and the balance is due on delivery. Anything outside that written scope is quoted separately before it is built, so the final invoice matches the number you agreed.":"Na dërgoni një kërkesë dhe merrni një fushëveprim njëfaqësh me rezultatet, çmimin dhe afatin. Puna nis me një parapagim 50% dhe pjesa tjetër paguhet në dorëzim. Çdo gjë jashtë atij fushëveprimi ofertohet veçmas para se të ndërtohet, kështu që fatura përfundimtare përputhet me shumën për të cilën ratë dakord.",
-  "Can you work inside our existing team and codebase?":"A mund të punoni brenda ekipit dhe kodit tonë ekzistues?",
-  "Yes. Most engagements happen inside a client's repository, following their branching model, conventions and review process. If those foundations do not exist yet, setting them up is exactly what the deployment package covers.":"Po. Shumica e bashkëpunimeve zhvillohen brenda repository-t të klientit, sipas modelit të degëve, konventave dhe procesit të rishikimit të tyre. Nëse këto baza nuk ekzistojnë ende, ngritja e tyre është pikërisht ajo që mbulon paketa e publikimit.",
-  "Which AI models do you use, and who owns the result?":"Cilat modele AI përdorni dhe kujt i përket rezultati?",
-  "Assistants are built provider-agnostic: OpenAI, Anthropic or open-weight models hosted in your own infrastructure, chosen against your data-privacy requirements and budget. You own the code, prompts and pipelines outright and can switch providers later without a rebuild.":"Asistentët ndërtohen pa u lidhur me një ofrues: OpenAI, Anthropic ose modele me pesha të hapura në infrastrukturën tuaj, të zgjedhura sipas kërkesave tuaja për privatësinë e të dhënave dhe buxhetit. Kodi, prompt-et dhe pipeline-t janë plotësisht tuajat dhe mund ta ndërroni ofruesin më vonë pa rindërtim.",
-  "How do contracts and invoicing work across borders?":"Si funksionojnë kontratat dhe faturimi ndërkufitar?",
-  "Invoices are issued in EUR or USD and paid by bank transfer or Wise. Contracts can be signed under your jurisdiction's standard contractor agreement, and NDAs are welcome before you share anything.":"Faturat lëshohen në EUR ose USD dhe paguhen me transfertë bankare ose me Wise. Kontratat mund të nënshkruhen sipas marrëveshjes standarde të kontraktorit në juridiksionin tuaj, dhe marrëveshjet e konfidencialitetit (NDA) janë të mirëpritura para se të ndani diçka.",
-  "What time-zone coverage do we get?":"Çfarë mbulimi orari kemi?",
-  "Tirana is on Central European Time (UTC+1, UTC+2 in summer): a full working-day overlap with EU teams and roughly 09:00–13:00 Eastern with the US. Retainer clients get a guaranteed same-day response during CET business hours.":"Tirana është në orën e Evropës Qendrore (UTC+1, UTC+2 në verë): një ditë e plotë pune e përbashkët me ekipet e BE-së dhe afërsisht 09:00–13:00 sipas orës së Lindjes me SHBA-në. Klientët me abonim marrin përgjigje të garantuar brenda ditës gjatë orarit të punës CET.",
-  "Will you review an AI system somebody else built?":"A rishikoni një sistem AI të ndërtuar nga dikush tjetër?",
-  "That is what the review service is for. The security review, the quality test set and the cost audit all run against a system already in production, whoever wrote it. We will not propose a rebuild unless the findings call for one.":"Pikërisht për këtë shërben rishikimi. Rishikimi i sigurisë, grupi i testeve të cilësisë dhe auditimi i kostove funksionojnë mbi një sistem që është tashmë në prodhim, kushdo që ta ketë shkruar. Nuk do të propozojmë rindërtim, përveç nëse gjetjet e kërkojnë.",
-  "How do you handle GDPR?":"Si e trajtoni GDPR-në?",
-  "Personal data is stripped before it reaches any third-party model and before it reaches your logs, which is where most teams leak without realising. You get a data-flow diagram showing exactly what leaves your systems, what is removed first, and how a deletion request reaches every store. We are engineers rather than lawyers, so we produce the evidence your DPO needs and let them make the call.":"Të dhënat personale hiqen para se të arrijnë te çdo model i palëve të treta dhe para se të arrijnë në logot tuaja, aty ku shumica e ekipeve i rrjedhin pa e kuptuar. Merrni një diagram të rrjedhës së të dhënave që tregon saktësisht çfarë del nga sistemet tuaja, çfarë hiqet më parë dhe si arrin një kërkesë fshirjeje në çdo vend ruajtjeje. Jemi inxhinierë, jo juristë, ndaj përgatisim provat që i duhen zyrtarit tuaj të mbrojtjes së të dhënave dhe e lëmë atë të vendosë.",
-  "What happens if we want to stop working with you?":"Çfarë ndodh nëse duam të ndalojmë bashkëpunimin?",
-  "Everything already lives in your accounts, so there is nothing to migrate or hand over. Retainers cancel with 30 days' notice, and fixed-price projects have no ongoing commitment once the 30 days of support end.":"Gjithçka ndodhet tashmë në llogaritë tuaja, ndaj nuk ka asgjë për të migruar apo dorëzuar. Abonimet anulohen me njoftim 30 ditë përpara, dhe projektet me çmim fiks nuk kanë asnjë detyrim të mëtejshëm pasi mbarojnë 30 ditët e mbështetjes.",
-
-  /* contact */
-  "Contact":"Kontakt",
-  "Tell us what is slow, missing or manual.":"Na tregoni çfarë është e ngadaltë, mungon ose bëhet me dorë.",
-  "Two sentences is enough to start. Your brief goes to the engineers who would build it.":"Dy fjali mjaftojnë për të filluar. Kërkesa juaj shkon te inxhinierët që do ta ndërtonin.",
-  "A reply within one business day":"Përgjigje brenda një dite pune",
-  "A written, fixed-price proposal within 48 hours":"Ofertë me shkrim dhe me çmim fiks brenda 48 orëve",
-  "No obligation, and no call unless you ask for one":"Pa detyrim dhe pa telefonata, përveç nëse i kërkoni",
-  "Tirana, Albania · Central European Time":"Tiranë, Shqipëri · Ora e Evropës Qendrore",
-  "Name":"Emri",
-  "Work email":"Email-i i punës",
-  "Company":"Kompania",
-  "Phone":"Telefoni",
-  "(optional)":"(opsionale)",
-  "What do you need?":"Çfarë ju nevojitet?",
-  "Select a service":"Zgjidhni një shërbim",
-  "Search: audit or full build":"Kërkim: auditim ose ndërtim i plotë",
-  "AI assistant on our content":"Asistent AI mbi përmbajtjen tonë",
-  "Deployment and infrastructure":"Publikim dhe infrastrukturë",
-  "Monthly retainer":"Abonim mujor",
-  "Not sure yet":"Ende nuk e di",
-  "Your brief":"Kërkesa juaj",
-  "What is slow, missing or manual? Two sentences is fine.":"Çfarë është e ngadaltë, mungon ose bëhet me dorë? Mjaftojnë dy fjali.",
-  "I agree that Scavelo may store this brief to reply to it, as described in the":"Pranoj që Scavelo ta ruajë këtë kërkesë për t'iu përgjigjur, siç përshkruhet në",
-  "privacy notice":"njoftimin e privatësisë",
-  "Send brief":"Dërgo kërkesën",
-  "Sending…":"Po dërgohet…",
-  "Reply within one business day.":"Përgjigje brenda një dite pune.",
-  "Add your name, work email, a service, a short brief and tick the consent box, then send again.":"Shkruani emrin, email-in e punës, zgjidhni një shërbim, shtoni një përshkrim të shkurtër dhe shënoni kutinë e pëlqimit, pastaj dërgojeni përsëri.",
-  "Check the phone number, or leave it empty. It is optional.":"Kontrolloni numrin e telefonit ose lëreni bosh. Është opsional.",
-  "Use digits only, with an optional + and country code at the start.":"Përdorni vetëm shifra, me + dhe prefiksin e shtetit në fillim nëse doni.",
-  "This number looks too short. Include the area or mobile prefix.":"Ky numër duket shumë i shkurtër. Shtoni prefiksin e zonës ose të celularit.",
-  "This number is too long. Phone numbers have at most 15 digits.":"Ky numër është shumë i gjatë. Një numër telefoni ka deri në 15 shifra.",
-  "Your email client should open with the brief prepared.":"Programi juaj i email-it duhet të hapet me kërkesën të përgatitur.",
-  "Brief sent. You will hear from us within one business day.":"Kërkesa u dërgua. Do t'ju përgjigjemi brenda një dite pune.",
-  "The brief could not be sent. Please try again in a few minutes.":"Kërkesa nuk u dërgua dot. Ju lutemi provoni përsëri pas pak minutash.",
-  "Sending is not switched on yet, so this brief was not sent. Please try again soon.":"Dërgimi nuk është aktivizuar ende, ndaj kjo kërkesë nuk u dërgua. Ju lutemi provoni përsëri së shpejti.",
-  "Send a brief":"Dërgo një kërkesë",
-
-  /* footer */
-  "An engineering studio building websites, online stores, backend, search and applied AI systems for product teams in Europe and the US.":"Një studio inxhinierike që ndërton faqe interneti, dyqane online, backend, kërkim dhe sisteme AI të aplikuar për ekipe produkti në Evropë dhe në SHBA.",
-  "Search and Elasticsearch":"Kërkim dhe Elasticsearch",
-  "APIs and services":"API dhe shërbime",
-  "AI assistants":"Asistentë AI",
-  "Deployment":"Publikimi",
-  "Websites and web apps":"Faqe dhe aplikacione web",
-  "Tirana, Albania":"Tiranë, Shqipëri",
-  "Central European Time":"Ora e Evropës Qendrore",
-  "© 2026 Scavelo. All rights reserved.":"© 2026 Scavelo. Të gjitha të drejtat e rezervuara.",
-  "Privacy notice":"Njoftimi i privatësisë"
-};
-
-/* ---- Language engine ---- */
-let lang='en';
-const t=en=>(lang==='sq'&&SQ[en])||en;
+/* ---- Languages: English is in the HTML; the others load from i18n/<code>.js on demand (see i18n/i18n.js) ---- */
+let lang='en',dict=null; // dict holds the chosen language's data; null means English
+const t=en=>(dict&&dict.strings[en])||en;
 const I18N_SKIP='script,style,[data-f],#doc-tabs,#msg,#phone-err,#submit-btn,#lang,[data-i18n-skip]';
-const enText=new WeakMap(),enAttr=new WeakMap();
-function translatePage(){
-  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest(I18N_SKIP)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
-  for(let n=w.nextNode();n;n=w.nextNode()){
-    if(!enText.has(n))enText.set(n,n.nodeValue);
-    const en=enText.get(n),key=en.replace(/\s+/g,' ').trim(),tr=key&&lang==='sq'&&SQ[key];
-    n.nodeValue=tr?en.match(/^\s*/)[0]+tr+en.match(/\s*$/)[0]:en;
-  }
-  document.querySelectorAll('[placeholder],[aria-label]').forEach(el=>{
-    if(el.closest('[data-i18n-skip]'))return;
-    if(!enAttr.has(el))enAttr.set(el,{placeholder:el.getAttribute('placeholder'),label:el.getAttribute('aria-label')});
-    const o=enAttr.get(el);
-    if(o.placeholder!==null)el.setAttribute('placeholder',t(o.placeholder));
-    if(o.label!==null)el.setAttribute('aria-label',t(o.label));
-  });
-}
 
 /* ---- Header: hairline once the page scrolls, dark glass over dark sections ---- */
 const nav=document.getElementById('nav'),menuBtn=document.getElementById('menu-btn'),links=document.getElementById('links');
@@ -1555,22 +1225,7 @@ const proposals=[
   {tab:"Deployment",project:"Infrastructure foundation for a Node.js product",problem:"One engineer deploys by hand from a laptop; nobody else can release safely.",
    items:["Terraform for matching staging and production","Containerised application and GitHub Actions pipeline","Deploy on merge with rollback","Centralised logs and a health dashboard","Runbook the whole team can follow"],time:"2 weeks",price:"€1,500"}
 ];
-/* Albanian versions of the example proposals, in the same order (prices are shared) */
-const proposalsSq=[
-  {tab:"Faqe web",project:"Faqe marketingu dhe portal klientësh për një produkt SaaS",problem:"Faqja aktuale është e ngadaltë në celular, nuk kalon kontrollet bazë të aksesueshmërisë dhe kërkon zhvillues për çdo ndryshim teksti.",
-   items:["Sistem dizajni dhe shabllone faqesh responsive","Front end me Angular dhe renderim në server","CMS headless që ekipi i marketingut e redakton vetë","Kontroll aksesueshmërie WCAG 2.2 AA","Pikët e Lighthouse të matura para dhe pas"],time:"4 javë, në punë në domenin tuaj"},
-  {tab:"Dyqan online",project:"Rindërtim dyqani për një shitës veshjesh",problem:"Faqet e produkteve ngarkohen ngadalë në celular, kërkimi humbet gjysmën e katalogut dhe shumica e shportave braktisen te pagesa.",
-   items:["Dyqan dhe faqe produktesh të menduara për celularin","Kërkim produktesh, filtra dhe kategori me Elasticsearch","Pagesë në tre hapa me adresa të ruajtura","Integrime për pagesat, taksat dhe transportin","Stok i sinkronizuar me ERP-në ekzistuese"],time:"6 javë, në punë në domenin tuaj"},
-  {tab:"Kërkimi",project:"Rindërtim i kërkimit të produkteve për një katalog B2B",problem:"Kërkimi mbështetet në pyetje SQL LIKE dhe humbet gjithçka që ka gabim shkrimi, sinonim ose renditje tjetër fjalësh.",
-   items:["Indeks Elasticsearch dhe zinxhir analizuesish i projektuar për katalogun","Plotësim automatik, tolerancë gabimesh dhe filtra sipas kategorive","Migrim nga kërkimi SQL pa asnjë ndërprerje","Panel kërkimi dhe njoftime për pyetjet e ngadalta","Krahasim para-dhe-pas mbi pyetjet tuaja reale"],time:"3 javë, në punë në mjedisin tuaj"},
-  {tab:"API",project:"Shërbim porosish në Spring Boot (Java 17)",problem:"Logjika e porosive është e shpërndarë mes një monoliti dhe një spreadsheet-i; çdo ndryshim rrezikon të prishë procesin e pagesës.",
-   items:["Endpoint-e REST dhe gRPC me autentikim dhe kufizim kërkesash","Skemë MySQL e projektuar dhe e indeksuar sipas mënyrës së aksesit","Dokumentacion OpenAPI dhe klient i gjeneruar","Teste të automatizuara me mbulim 85%+ të rregullave të biznesit","Me Docker, i publikuar përmes CI/CD-së tuaj"],time:"2–3 javë, i ndërtuar në repository-n tuaj"},
-  {tab:"Asistent AI",project:"Asistent mbështetjeje i bazuar në qendrën e ndihmës",problem:"Një ekip mbështetjeje me pesë veta u përgjigjet të njëjtave pyetjeve të fillimit çdo ditë.",
-   items:["Pipeline përpunimi për qendrën e ndihmës dhe listën e ndryshimeve","Kërkim hibrid me fjalë kyçe dhe semantik","Përgjigje me burime të verifikuara kundrejt dokumenteve të gjetura","Widget për faqen dhe aplikacion Slack","Panel administrimi për përmbajtjen, 30 ditë mbështetje"],time:"3 javë, në punë në mjedisin tuaj"},
-  {tab:"Publikimi",project:"Bazë infrastrukture për një produkt Node.js",problem:"Një inxhinier publikon me dorë nga laptopi; askush tjetër nuk mund të publikojë pa rrezik.",
-   items:["Terraform për staging dhe prodhim identikë","Aplikacion në kontejner dhe pipeline GitHub Actions","Publikim me çdo merge, me mundësi kthimi","Loge të centralizuara dhe panel shëndeti","Udhëzues operimi që e ndjek i gjithë ekipi"],time:"2 javë"}
-];
-const P=i=>lang==='sq'?{...proposals[i],...proposalsSq[i]}:proposals[i];
+const P=i=>dict&&dict.proposals?{...proposals[i],...dict.proposals[i]}:proposals[i];
 /* Signature colour of each example, in the same order (used only with data-theme="color") */
 const PROPOSAL_TONES=['web','shop','search','api','ai','ops'],stage=document.querySelector('.stage');
 const doc=document.getElementById('doc'),tabs=document.getElementById('doc-tabs'),ind=tabs.querySelector('.seg-ind');
@@ -1595,6 +1250,8 @@ function render(i){
   doc.setAttribute('aria-labelledby','doc-tab-'+i);
   stage.dataset.tone=PROPOSAL_TONES[i];
   moveIndicator();
+  // on phones the tabs are a swipeable row: bring the chosen one into view
+  if(tabs.scrollWidth>tabs.clientWidth){const b=tabs.querySelectorAll('.doc-tab')[i];tabs.scrollTo({left:b.offsetLeft-(tabs.clientWidth-b.offsetWidth)/2,behavior:first||reduceMotion?'auto':'smooth'})}
   if(first||reduceMotion){fill(P(i));return}
   clearTimeout(swapTimer);doc.classList.add('swap');
   swapTimer=setTimeout(()=>{fill(P(current));doc.classList.remove('swap')},220);
@@ -1717,16 +1374,23 @@ form.addEventListener('submit',async e=>{
   }finally{busy(false)}
 });
 
-/* ---- Language switch: ?lang=sq in the URL, then the saved choice, then the browser language ---- */
-const langBtns=[...document.querySelectorAll('#lang [data-lang]')];
+/* ---- Language menu: ?lang= in the URL, then the saved choice, then the browser language ---- */
 const EN_META={title:document.title,description:document.querySelector('meta[name="description"]').content};
-function setLang(next,persist){
-  lang=next==='sq'?'sq':'en';
+let langRequest=0;
+async function setLang(next,persist){
+  const ticket=++langRequest;let data=null;
+  if(next!=='en'){
+    ScaveloI18n.setLoading(true);
+    try{data=await ScaveloI18n.load(next)}catch(e){console.warn('Scavelo:',e.message);ScaveloI18n.setLoading(false);return}
+    ScaveloI18n.setLoading(false);
+    if(ticket!==langRequest)return; // a newer choice arrived while this one was loading
+  }
+  lang=next;dict=data;
   document.documentElement.lang=lang;
-  translatePage();
-  document.title=lang==='sq'?SQ_META.title:EN_META.title;
-  document.querySelector('meta[name="description"]').content=lang==='sq'?SQ_META.description:EN_META.description;
-  langBtns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+  ScaveloI18n.translate(dict&&dict.strings,I18N_SKIP);
+  document.title=dict?dict.meta.title:EN_META.title;
+  document.querySelector('meta[name="description"]').content=dict?dict.meta.description:EN_META.description;
+  ScaveloI18n.setCurrent(lang);
   menuBtn.setAttribute('aria-label',t(links.classList.contains('open')?'Close menu':'Open menu'));
   tabs.querySelectorAll('.doc-tab').forEach((b,i)=>{b.textContent=P(i).tab});
   if(current>=0)fill(P(current));
@@ -1734,16 +1398,12 @@ function setLang(next,persist){
   if(!submitBtn.disabled)submitBtn.textContent=t('Send brief');
   if(lastMsg)show(lastMsg.kind,lastMsg.en);
   if(phone.closest('.f').classList.contains('has-err')||phone.validationMessage)checkPhone(phone.closest('.f').classList.contains('has-err'));
-  if(persist){
-    try{localStorage.setItem('scavelo-lang',lang)}catch(e){}
-    try{const u=new URL(location.href);if(lang==='sq')u.searchParams.set('lang','sq');else u.searchParams.delete('lang');history.replaceState(null,'',u)}catch(e){}
-  }
+  if(persist)ScaveloI18n.remember(lang);
 }
-langBtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang,true)));
-let startLang=null;
-try{startLang=new URLSearchParams(location.search).get('lang')||localStorage.getItem('scavelo-lang')}catch(e){}
-if(!startLang)startLang=(navigator.languages||[navigator.language||'']).some(l=>/^sq\b/i.test(l))?'sq':'en';
-if(startLang==='sq')setLang('sq',false);
+ScaveloI18n.mountMenu(document.getElementById('lang'),code=>setLang(code,true));
+ScaveloI18n.setCurrent('en');
+const startLang=ScaveloI18n.detect();
+if(startLang!=='en')setLang(startLang,false);
 </script>
 </body>
 </html>
