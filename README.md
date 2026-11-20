@@ -7,6 +7,7 @@ Static site, no build step. Deployable on GitHub Pages, Netlify or Cloudflare Pa
 - `privacy.html` — privacy notice (fill in the yellow `[placeholders]`)
 - `i18n/` — languages: `i18n.js` (the language menu and loader) plus one file per language
 - `og.png` — social preview image (1200×630); replace with a branded one when ready
+- `robots.txt` and `sitemap.xml` — tell search engines what to crawl; update `lastmod` in the sitemap when the page changes
 
 ## Languages
 English is written directly in the HTML. Albanian (`sq`), Italian (`it`), German (`de`), French (`fr`) and Spanish (`es`) each live in `i18n/<code>.js`, which a visitor only downloads when they pick that language. The menu remembers the choice, and a link such as `index.html?lang=de` opens straight in that language.
@@ -20,6 +21,7 @@ English is written directly in the HTML. Albanian (`sq`), Italian (`it`), German
 2. **Domain** — update `canonical`, `og:url` and `og:image` if the domain changes; the site is served from `https://scavelostudio.co.uk/`.
 3. **Privacy notice** — complete the legal entity, address, contact email and processors.
 4. **Prices** — every price appears in plain text; search for `€` to adjust.
+5. **Google** — add the site in Google Search Console (a *Domain* property for `scavelostudio.co.uk`, verified with the DNS record it gives you), submit `https://scavelostudio.co.uk/sitemap.xml`, and request indexing of the home page. The privacy notice is marked `noindex` until its placeholders are filled in.
 
 ## Deploy on GitHub Pages
 Settings → Pages → Source: *Deploy from a branch* → `main` / root. The custom domain is set by the `CNAME` file (`scavelostudio.co.uk`); keep it in the repository root, and tick **Enforce HTTPS** under Settings → Pages.
