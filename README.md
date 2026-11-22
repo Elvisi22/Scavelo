@@ -17,7 +17,7 @@ English is written directly in the HTML. Albanian (`sq`), Italian (`it`), German
 - The translations were written with AI assistance; have a native speaker review each language, and a lawyer review the privacy notice, before relying on them.
 
 ## Before going live
-1. **Contact form** — the form delivers nothing until this is done. Create a free form at https://formspree.io and paste its endpoint into `FORM_ENDPOINT` in `index.html`. Alternatively, once you have an inbox, put its address in `CONTACT_EMAIL` and the form opens the visitor's email client instead. With neither set, visitors see a "sending is not switched on yet" message and nothing is sent.
+1. **Contact form** — briefs are sent in the background by [Web3Forms](https://web3forms.com) to `lordofmyland@proton.me`, the inbox its access key was created for. The key is `FORM_KEY` in `index.html`; it is public by design and can only send to that inbox. To send briefs to another inbox, create a new key at web3forms.com with that address and replace `FORM_KEY`.
 2. **Domain** — update `canonical`, `og:url` and `og:image` if the domain changes; the site is served from `https://scavelostudio.co.uk/`.
 3. **Privacy notice** — complete the legal entity, address, contact email and processors.
 4. **Prices** — every price appears in plain text; search for `€` to adjust.

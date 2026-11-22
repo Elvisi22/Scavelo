@@ -1107,7 +1107,7 @@ footer a:hover{color:#fff}
       <p class="alt">Tirana, Albania · Central European Time</p>
     </div>
 
-    <!-- EDIT: create a free form at formspree.io and paste its endpoint into FORM_ENDPOINT in the script below (or set CONTACT_EMAIL once you have an inbox) -->
+    <!-- EDIT: briefs are sent by Web3Forms to lordofmyland@proton.me; the access key is FORM_KEY in the script below -->
     <form id="brief-form" class="reveal" style="--d:.1s" novalidate>
       <div class="f-row">
         <div class="f"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
@@ -1132,6 +1132,7 @@ footer a:hover{color:#fff}
             <option>Not sure yet</option>
           </select></div>
       <div class="f"><label for="brief">Your brief</label><textarea id="brief" name="brief" placeholder="What is slow, missing or manual? Two sentences is fine." required></textarea></div>
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <label class="consent"><input type="checkbox" id="consent" name="consent" required><span>I agree that Scavelo may store this brief to reply to it, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
       <div class="f-foot">
         <button class="btn btn-light" type="submit" id="submit-btn">Send brief</button>
@@ -1300,11 +1301,13 @@ if(floaters.length&&!reduceMotion){
 }
 
 /* ---- Contact form ----
-   Briefs are delivered by the first of these that is set:
-   1. FORM_ENDPOINT: your Formspree endpoint (https://formspree.io/f/xxxxxxxx), sent in the background.
-   2. CONTACT_EMAIL: opens the visitor's email client with the brief addressed to this inbox.
+   Briefs are sent in the background by Web3Forms (web3forms.com), which emails them to the inbox
+   its access key was created for (lordofmyland@proton.me). The key is public by design: it can only
+   send to that inbox. To change the inbox, create a new key at web3forms.com and paste it into FORM_KEY.
+   If FORM_KEY is empty, CONTACT_EMAIL is used instead: the visitor's email app opens with the brief written out.
    With neither set, the form tells the visitor sending is not switched on yet and keeps what they typed. */
-const FORM_ENDPOINT="https://formspree.io/f/YOUR_FORM_ID";
+const FORM_ENDPOINT="https://api.web3forms.com/submit";
+const FORM_KEY="4f3afe13-179a-42a7-81a6-73c31dad9614";
 const CONTACT_EMAIL="";
 const form=document.getElementById('brief-form'),msg=document.getElementById('msg'),submitBtn=document.getElementById('submit-btn');
 let lastMsg=null;
@@ -1352,24 +1355,32 @@ form.addEventListener('submit',async e=>{
   }
   const data=new FormData(form);
   data.set('phone',phone.value.trim());
-  if(FORM_ENDPOINT.includes('YOUR_FORM_ID')){
+  const subject='Brief: '+data.get('service')+(data.get('company')?' — '+data.get('company'):'');
+  if(!FORM_KEY){
     if(!CONTACT_EMAIL){
-      console.warn('Scavelo: briefs are not delivered anywhere yet. Set FORM_ENDPOINT or CONTACT_EMAIL in index.html.');
+      console.warn('Scavelo: briefs are not delivered anywhere yet. Set FORM_KEY or CONTACT_EMAIL in index.html.');
       show('err','Sending is not switched on yet, so this brief was not sent. Please try again soon.');
       return;
     }
-    const subject='Brief: '+data.get('service')+(data.get('company')?' — '+data.get('company'):'');
     const body=`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nPhone: ${data.get('phone')||'-'}\nCompany: ${data.get('company')||'-'}\nService: ${data.get('service')}\n\n${data.get('brief')}`;
     window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     show('ok','Your email client should open with the brief prepared.');
     return;
   }
+  /* Fields Web3Forms reads: the access key, the email's subject and sender name, and the reply-to,
+     so that pressing reply in the inbox answers the visitor. A ticked botcheck (the hidden honeypot) is rejected as spam. */
+  data.set('access_key',FORM_KEY);
+  data.set('subject',subject);
+  data.set('from_name','Scavelo website');
+  data.set('replyto',data.get('email'));
   busy(true);
   try{
-    const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:data});
-    if(!res.ok)throw new Error('bad status');
+    const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(data))});
+    const out=await res.json().catch(()=>({}));
+    if(!res.ok||out.success===false)throw new Error(out.message||'status '+res.status);
     form.reset();form.classList.remove('checked');show('ok','Brief sent. You will hear from us within one business day.');
   }catch(err){
+    console.warn('Scavelo: the brief was not sent:',err.message);
     show('err','The brief could not be sent. Please try again in a few minutes.');
   }finally{busy(false)}
 });
