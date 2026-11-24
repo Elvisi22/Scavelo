@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scavelo — Websites and online stores, built at a fixed price</title>
-<meta name="description" content="Scavelo is a studio in Tirana designing logos and building fast, modern websites and online stores for businesses in the EU and US, plus the search, APIs and AI behind them. Written scope and fixed price within 48 hours.">
+<meta name="description" content="Scavelo is a studio in Tirana and the UK designing logos and building fast, modern websites and online stores for businesses in the EU and US, plus the search, APIs and AI behind them. Written scope and fixed price within 48 hours.">
 <!-- EDIT: set to your live domain once DNS is pointed -->
 <link rel="canonical" href="https://scavelostudio.co.uk/">
 <meta name="theme-color" content="#FBFBFD">
@@ -27,8 +27,8 @@
   "name": "Scavelo",
   "description": "Studio designing logos, websites and online stores, plus search, APIs and AI assistants, for businesses in the EU and US.",
   "url": "https://scavelostudio.co.uk/",
-  "areaServed": ["EU", "US"],
-  "address": {"@type": "PostalAddress", "addressLocality": "Tirana", "addressCountry": "AL"},
+  "areaServed": ["EU", "GB", "US"],
+  "address": [{"@type": "PostalAddress", "addressLocality": "Tirana", "addressCountry": "AL"}, {"@type": "PostalAddress", "addressCountry": "GB"}],
   "priceRange": "€450 – €5,000"
 }
 </script>
@@ -1054,7 +1054,7 @@ footer a:hover{color:#fff}
     <div class="reveal">
       <p class="eyebrow">The studio</p>
       <h2 class="h-section">A studio, not an agency layer.</h2>
-      <p class="lead">Scavelo is an independent engineering studio based in Tirana, Albania, working with product teams across the EU and US. Tirana is on Central European Time, which gives a full working day of overlap with European teams and mornings with the US East Coast, at rates that reflect our cost base rather than a discount on quality.</p>
+      <p class="lead">Scavelo is an independent engineering studio based in Tirana, Albania, with a second base in the United Kingdom, working with product teams across the EU, UK and US. Tirana is on Central European Time, which gives a full working day of overlap with European teams and mornings with the US East Coast, at rates that reflect our cost base rather than a discount on quality.</p>
       <div class="stack">
         <p>What we build with</p>
         <div class="chips">
@@ -1104,10 +1104,10 @@ footer a:hover{color:#fff}
         <li>A written, fixed-price proposal within 48 hours</li>
         <li>No obligation, and no call unless you ask for one</li>
       </ul>
-      <p class="alt">Tirana, Albania · Central European Time</p>
+      <p class="alt">Tirana, Albania · United Kingdom</p>
     </div>
 
-    <!-- EDIT: briefs are sent by Web3Forms to lordofmyland@proton.me; the access key is FORM_KEY in the script below -->
+    <!-- EDIT: briefs are sent by Web3Forms; the access keys, one per inbox, are FORM_KEYS in the script below -->
     <form id="brief-form" class="reveal" style="--d:.1s" novalidate>
       <div class="f-row">
         <div class="f"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
@@ -1154,7 +1154,7 @@ footer a:hover{color:#fff}
       </div>
       <div><h4>Build</h4><ul><li><a href="#svc-web">Websites and web apps</a></li><li><a href="#svc-commerce">E-commerce</a></li><li><a href="#svc-logo">Logo design</a></li><li><a href="#services">Search and Elasticsearch</a></li><li><a href="#services">APIs and services</a></li><li><a href="#services">AI assistants</a></li><li><a href="#services">Deployment</a></li></ul></div>
       <div><h4>Studio</h4><ul><li><a href="#pricing">Pricing</a></li><li><a href="#process">How we work</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="#contact">Send a brief</a></li><li>Tirana, Albania</li><li>Central European Time</li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="#contact">Send a brief</a></li><li>Tirana, Albania</li><li>United Kingdom</li><li>Central European Time</li></ul></div>
     </div>
     <div class="foot-bottom">
       <span>© 2027 Scavelo. All rights reserved.</span>
@@ -1301,13 +1301,16 @@ if(floaters.length&&!reduceMotion){
 }
 
 /* ---- Contact form ----
-   Briefs are sent in the background by Web3Forms (web3forms.com), which emails them to the inbox
-   its access key was created for (lordofmyland@proton.me). The key is public by design: it can only
-   send to that inbox. To change the inbox, create a new key at web3forms.com and paste it into FORM_KEY.
-   If FORM_KEY is empty, CONTACT_EMAIL is used instead: the visitor's email app opens with the brief written out.
+   Briefs are sent in the background by Web3Forms (web3forms.com). Each access key emails one inbox,
+   the one it was created for, and is public by design: it can only send to that inbox.
+   The form sends a copy for every key in FORM_KEYS, so add a key for each inbox that should get briefs.
+   If FORM_KEYS is empty, CONTACT_EMAIL is used instead: the visitor's email app opens with the brief written out.
    With neither set, the form tells the visitor sending is not switched on yet and keeps what they typed. */
 const FORM_ENDPOINT="https://api.web3forms.com/submit";
-const FORM_KEY="4f3afe13-179a-42a7-81a6-73c31dad9614";
+const FORM_KEYS=[
+  "4f3afe13-179a-42a7-81a6-73c31dad9614", // first inbox
+  ""                                      // second inbox: paste its Web3Forms key here
+].filter(Boolean);
 const CONTACT_EMAIL="";
 const form=document.getElementById('brief-form'),msg=document.getElementById('msg'),submitBtn=document.getElementById('submit-btn');
 let lastMsg=null;
@@ -1356,9 +1359,9 @@ form.addEventListener('submit',async e=>{
   const data=new FormData(form);
   data.set('phone',phone.value.trim());
   const subject='Brief: '+data.get('service')+(data.get('company')?' — '+data.get('company'):'');
-  if(!FORM_KEY){
+  if(!FORM_KEYS.length){
     if(!CONTACT_EMAIL){
-      console.warn('Scavelo: briefs are not delivered anywhere yet. Set FORM_KEY or CONTACT_EMAIL in index.html.');
+      console.warn('Scavelo: briefs are not delivered anywhere yet. Set FORM_KEYS or CONTACT_EMAIL in index.html.');
       show('err','Sending is not switched on yet, so this brief was not sent. Please try again soon.');
       return;
     }
@@ -1369,15 +1372,21 @@ form.addEventListener('submit',async e=>{
   }
   /* Fields Web3Forms reads: the access key, the email's subject and sender name, and the reply-to,
      so that pressing reply in the inbox answers the visitor. A ticked botcheck (the hidden honeypot) is rejected as spam. */
-  data.set('access_key',FORM_KEY);
   data.set('subject',subject);
   data.set('from_name','Scavelo website');
   data.set('replyto',data.get('email'));
-  busy(true);
-  try{
-    const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(data))});
+  const brief=Object.fromEntries(data);
+  async function sendTo(key){
+    const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({...brief,access_key:key})});
     const out=await res.json().catch(()=>({}));
     if(!res.ok||out.success===false)throw new Error(out.message||'status '+res.status);
+  }
+  busy(true);
+  try{
+    /* One copy per inbox. The brief counts as sent when at least one inbox accepted it. */
+    const results=await Promise.allSettled(FORM_KEYS.map(sendTo));
+    results.forEach((r,i)=>{if(r.status==='rejected')console.warn('Scavelo: copy '+(i+1)+' of the brief was not sent:',r.reason.message)});
+    if(!results.some(r=>r.status==='fulfilled'))throw new Error('no inbox accepted the brief');
     form.reset();form.classList.remove('checked');show('ok','Brief sent. You will hear from us within one business day.');
   }catch(err){
     console.warn('Scavelo: the brief was not sent:',err.message);

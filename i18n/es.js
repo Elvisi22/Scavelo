@@ -6,7 +6,7 @@
   "name": "Español",
   "meta": {
     "title": "Scavelo — Sitios web y tiendas online, a precio fijo",
-    "description": "Scavelo es un estudio de Tirana que diseña logotipos y desarrolla sitios web y tiendas online rápidos y modernos para empresas de la UE y EE. UU., además de la búsqueda, las API y la IA que los impulsan. Alcance por escrito y precio fijo en 48 horas."
+    "description": "Scavelo es un estudio con sede en Tirana y el Reino Unido que diseña logotipos y desarrolla sitios web y tiendas online rápidos y modernos para empresas de la UE y EE. UU., además de la búsqueda, las API y la IA que los impulsan. Alcance por escrito y precio fijo en 48 horas."
   },
   "strings": {
     "Engineering studio": "Estudio de ingeniería",
@@ -262,7 +262,7 @@
     "Every fixed-price package covers a month of fixes and questions after launch. Move to a retainer if you want us to stay. Nothing renews automatically.": "Cada paquete a precio fijo incluye un mes de correcciones y consultas tras el lanzamiento. Pasa a un plan mensual si quieres que sigamos contigo. Nada se renueva automáticamente.",
     "The studio": "El estudio",
     "A studio, not an agency layer.": "Un estudio, no una agencia intermediaria.",
-    "Scavelo is an independent engineering studio based in Tirana, Albania, working with product teams across the EU and US. Tirana is on Central European Time, which gives a full working day of overlap with European teams and mornings with the US East Coast, at rates that reflect our cost base rather than a discount on quality.": "Scavelo es un estudio de ingeniería independiente con sede en Tirana (Albania) que trabaja con equipos de producto de toda la UE y EE. UU. Tirana está en la hora de Europa Central: compartimos la jornada laboral completa con los equipos europeos y las mañanas con la costa este de EE. UU., con tarifas que reflejan nuestra estructura de costos, no una rebaja en la calidad.",
+    "Scavelo is an independent engineering studio based in Tirana, Albania, with a second base in the United Kingdom, working with product teams across the EU, UK and US. Tirana is on Central European Time, which gives a full working day of overlap with European teams and mornings with the US East Coast, at rates that reflect our cost base rather than a discount on quality.": "Scavelo es un estudio de ingeniería independiente con sede en Tirana (Albania) y una segunda base en el Reino Unido, que trabaja con equipos de producto de toda la UE, el Reino Unido y EE. UU. Tirana está en la hora de Europa Central: compartimos la jornada laboral completa con los equipos europeos y las mañanas con la costa este de EE. UU., con tarifas que reflejan nuestra estructura de costos, no una rebaja en la calidad.",
     "What we build with": "Con qué construimos",
     "Java 17 and Spring Boot": "Java 17 y Spring Boot",
     "TypeScript and NestJS": "TypeScript y NestJS",
@@ -304,7 +304,7 @@
     "A reply within one business day": "Respuesta en un día hábil",
     "A written, fixed-price proposal within 48 hours": "Propuesta por escrito y a precio fijo en 48 horas",
     "No obligation, and no call unless you ask for one": "Sin compromiso y sin llamadas, salvo que las pidas",
-    "Tirana, Albania · Central European Time": "Tirana, Albania · Hora de Europa Central",
+    "Tirana, Albania · United Kingdom": "Tirana, Albania · Reino Unido",
     "Name": "Nombre",
     "Work email": "Correo de trabajo",
     "Company": "Empresa",
@@ -341,6 +341,7 @@
     "Deployment": "Despliegue",
     "Websites and web apps": "Sitios y apps web",
     "Tirana, Albania": "Tirana, Albania",
+    "United Kingdom": "Reino Unido",
     "Central European Time": "Hora de Europa Central",
     "© 2027 Scavelo. All rights reserved.": "© 2027 Scavelo. Todos los derechos reservados.",
     "Privacy notice": "Aviso de privacidad",

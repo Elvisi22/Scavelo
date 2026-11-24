@@ -17,7 +17,7 @@ English is written directly in the HTML. Albanian (`sq`), Italian (`it`), German
 - The translations were written with AI assistance; have a native speaker review each language, and a lawyer review the privacy notice, before relying on them.
 
 ## Before going live
-1. **Contact form** — briefs are sent in the background by [Web3Forms](https://web3forms.com) to `lordofmyland@proton.me`, the inbox its access key was created for. The key is `FORM_KEY` in `index.html`; it is public by design and can only send to that inbox. To send briefs to another inbox, create a new key at web3forms.com with that address and replace `FORM_KEY`.
+1. **Contact form** — briefs are sent in the background by [Web3Forms](https://web3forms.com). Each access key emails the one inbox it was created for and is public by design. The keys are `FORM_KEYS` in `index.html`, and the form sends a copy for each one; to add an inbox, create a key at web3forms.com with that address and add it to the list. Addresses are deliberately kept out of this repository and the page.
 2. **Domain** — update `canonical`, `og:url` and `og:image` if the domain changes; the site is served from `https://scavelostudio.co.uk/`.
 3. **Privacy notice** — complete the legal entity, address, contact email and processors.
 4. **Prices** — every price appears in plain text; search for `€` to adjust.
