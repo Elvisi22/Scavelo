@@ -6,7 +6,7 @@ Static site, no build step. Deployable on GitHub Pages, Netlify or Cloudflare Pa
 - `index.html` — the site (lower-case name is required for the root URL to resolve)
 - `privacy.html` — privacy notice (fill in the yellow `[placeholders]`)
 - `i18n/` — languages: `i18n.js` (the language menu and loader) plus one file per language
-- `og.png` — social preview image (1200×630); replace with a branded one when ready
+- `og.png` — social preview image (1200×630) shown when the site is shared; if you change its words, update `og:image:alt` and `twitter:image:alt` in `index.html` to match
 - `robots.txt` and `sitemap.xml` — tell search engines what to crawl; update `lastmod` in the sitemap when the page changes
 
 ## Languages
