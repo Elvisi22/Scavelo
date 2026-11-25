@@ -324,8 +324,8 @@
     "Send brief": "Dërgo kërkesën",
     "Sending…": "Po dërgohet…",
     "Reply within one business day.": "Përgjigje brenda një dite pune.",
-    "Add your name, work email, a service, a short brief and tick the consent box, then send again.": "Shkruani emrin, email-in e punës, zgjidhni një shërbim, shtoni një përshkrim të shkurtër dhe shënoni kutinë e pëlqimit, pastaj dërgojeni përsëri.",
-    "Check the phone number, or leave it empty. It is optional.": "Kontrolloni numrin e telefonit ose lëreni bosh. Është opsional.",
+    "Add your name, work email, phone number, a service, a short brief and tick the consent box, then send again.": "Shkruani emrin, email-in e punës dhe numrin e telefonit, zgjidhni një shërbim, shtoni një përshkrim të shkurtër dhe shënoni kutinë e pëlqimit, pastaj dërgojeni përsëri.",
+    "Check the phone number, including the country code.": "Kontrolloni numrin e telefonit, përfshirë prefiksin e shtetit.",
     "Use digits only, with an optional + and country code at the start.": "Përdorni vetëm shifra, me + dhe prefiksin e shtetit në fillim nëse doni.",
     "This number looks too short. Include the area or mobile prefix.": "Ky numër duket shumë i shkurtër. Shtoni prefiksin e zonës ose të celularit.",
     "This number is too long. Phone numbers have at most 15 digits.": "Ky numër është shumë i gjatë. Një numër telefoni ka deri në 15 shifra.",
@@ -365,7 +365,8 @@
     "Logo concepts, refinement, colour palette, typefaces and files for web, social and print.": "Koncepte logoje, përmirësime, paletë ngjyrash, shkronja dhe skedarë për web, rrjete sociale dhe printim.",
     "Logo or brand identity": "Logo ose identitet vizual",
     "Logo design": "Dizajn logoje",
-    "Brand identity": "Identitet vizual"
+    "Brand identity": "Identitet vizual",
+    "Add your phone number, with the country code.": "Shtoni numrin e telefonit, me prefiksin e shtetit."
   },
   "proposals": [
     {
@@ -457,7 +458,7 @@
       "Last updated:": "Përditësuar më:",
       "In short": "Shkurt",
       "Only what you send us": "Vetëm ato që na dërgoni",
-      "Your name, work email, company, optional phone number and brief, used only to reply to you.": "Emri, email-i i punës, kompania, telefoni nëse e jepni dhe kërkesa juaj, të përdorura vetëm për t'ju përgjigjur.",
+      "Your name, work email, company, phone number and brief, used only to reply to you.": "Emri, email-i i punës, kompania, numri i telefonit dhe kërkesa juaj, të përdorura vetëm për t'ju përgjigjur.",
       "No cookies, no analytics": "Pa cookies, pa analitikë",
       "This site does not track you. Your language choice stays in your own browser.": "Kjo faqe nuk ju gjurmon. Zgjedhja e gjuhës mbetet në shfletuesin tuaj.",
       "Yours to delete": "Mund t'i fshini kur të doni",
@@ -468,7 +469,7 @@
       ". You can reach us at": ". Mund të na kontaktoni në",
       "What we collect and why": "Çfarë mbledhim dhe pse",
       "Briefs sent through the contact form": "Kërkesat e dërguara përmes formularit të kontaktit",
-      ": your name, work email, company, phone number if you choose to give one, and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": emri, email-i i punës, kompania, numri i telefonit nëse zgjidhni ta jepni, dhe teksti i kërkesës suaj. I përdorim vetëm për t'ju përgjigjur dhe për të përgatitur një ofertë. Baza ligjore: interesi ynë legjitim për t'iu përgjigjur një kërkese që e nisët ju (GDPR, neni 6(1)(f)) dhe, kur pason një kontratë, zbatimi i asaj kontrate (neni 6(1)(b)).",
+      ": your name, work email, company, phone number and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": emri, email-i i punës, kompania, numri i telefonit dhe teksti i kërkesës suaj. I përdorim vetëm për t'ju përgjigjur dhe për të përgatitur një ofertë. Baza ligjore: interesi ynë legjitim për t'iu përgjigjur një kërkese që e nisët ju (GDPR, neni 6(1)(f)) dhe, kur pason një kontratë, zbatimi i asaj kontrate (neni 6(1)(b)).",
       "Email you send us": "Email-et që na dërgoni",
       ": handled the same way as a form submission.": ": trajtohen njësoj si kërkesat nga formulari.",
       "Technical data": "Të dhënat teknike",
@@ -486,7 +487,7 @@
       "Scavelo is an engineering studio based in Tirana, Albania. It is not yet registered as a company; until it is, the data controller for this website is the person who runs it,": "Scavelo është një studio inxhinierike me bazë në Tiranë, Shqipëri. Ende nuk është e regjistruar si shoqëri; deri atëherë, kontrolluesi i të dhënave për këtë faqe është personi që e drejton,",
       "[your full name]": "[emri i plotë]",
       "What you have to give us": "Çfarë duhet të na jepni",
-      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, the service you are interested in and a short brief; without them we cannot reply. Your company and phone number are optional.": "Për të shfletuar këtë faqe nuk kërkohet asgjë. Për t'iu përgjigjur një kërkese na duhen emri, email-i i punës, shërbimi që ju intereson dhe një përshkrim i shkurtër; pa to nuk mund t'ju përgjigjemi. Kompania dhe numri i telefonit janë opsionale.",
+      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, phone number, the service you are interested in and a short brief; without them we cannot reply. Your company is optional.": "Për të shfletuar këtë faqe nuk kërkohet asgjë. Për t'iu përgjigjur një kërkese na duhen emri, email-i i punës, numri i telefonit, shërbimi që ju intereson dhe një përshkrim i shkurtër; pa to nuk mund t'ju përgjigjemi. Kompania është opsionale.",
       "Web3Forms, run by Web3Creative (India) — receives form submissions and emails them to our mailbox. It screens them for spam with CleanTalk and Akismet, which may receive your IP and email address.": "Web3Forms, e drejtuar nga Web3Creative (Indi) — merr kërkesat nga formulari dhe na i dërgon me email në kutinë tonë postare. I kontrollon për spam me CleanTalk dhe Akismet, të cilët mund të marrin adresën tuaj IP dhe adresën tuaj të email-it.",
       "Our email provider — stores our correspondence.": "Ofruesi ynë i email-it — ruan korrespondencën tonë.",
       "GitHub Pages, run by GitHub, Inc. (United States) — serves this website and may log visitors' IP addresses for security.": "GitHub Pages, e operuar nga GitHub, Inc. (Shtetet e Bashkuara) — shërben këtë faqe dhe mund të regjistrojë adresat IP të vizitorëve për qëllime sigurie.",
@@ -495,7 +496,7 @@
       "Albania is outside the EU/EEA. Where we work with EU clients, transfers are covered by the EU Standard Contractual Clauses in our engagement agreement. GitHub and Google are based in the United States and receive data under the safeguards set out in their own terms, such as the EU–US Data Privacy Framework or Standard Contractual Clauses. Web3Forms operates from India and receives form submissions under the Standard Contractual Clauses in its data processing agreement.": "Shqipëria është jashtë BE-së/ZEE-së. Kur punojmë me klientë nga BE-ja, transferimet mbulohen nga Klauzolat Standarde Kontraktuale të BE-së në marrëveshjen tonë të bashkëpunimit. GitHub dhe Google kanë seli në Shtetet e Bashkuara dhe marrin të dhëna sipas garancive të përcaktuara në kushtet e tyre, si Korniza e Privatësisë së të Dhënave BE–SHBA ose Klauzolat Standarde Kontraktuale. Web3Forms vepron nga India dhe merr kërkesat nga formulari sipas Klauzolave Standarde Kontraktuale në marrëveshjen e saj për përpunimin e të dhënave.",
       "Automated decisions": "Vendimet e automatizuara",
       "We do not make decisions about you by automated means, and we do not build profiles of visitors.": "Nuk marrim vendime për ju me mjete të automatizuara dhe nuk krijojmë profile të vizitorëve.",
-      "20 November 2026": "20 nëntor 2026"
+      "25 November 2026": "25 nëntor 2026"
     }
   }
 };

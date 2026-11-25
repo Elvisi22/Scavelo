@@ -1119,7 +1119,7 @@ footer a:hover{color:#fff}
       </div>
       <div class="f-row">
         <div class="f"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization"></div>
-        <div class="f"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" placeholder="+355 69 123 4567" aria-describedby="phone-err"><p class="f-err" id="phone-err"></p></div>
+        <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" placeholder="+355 69 123 4567" aria-describedby="phone-err" required><p class="f-err" id="phone-err"></p></div>
       </div>
       <div class="f"><label for="service">What do you need?</label>
           <select id="service" name="service" required>
@@ -1326,12 +1326,12 @@ function busy(on){
 /* Submitted values stay in English whichever language the visitor reads */
 document.querySelectorAll('#service option').forEach(o=>{if(!o.hasAttribute('value'))o.value=o.textContent.trim()});
 
-/* Phone: optional, but when filled it must look like a real number:
+/* Phone: required, and it must look like a real number:
    digits with spaces, dots, dashes, slashes or brackets, an optional leading +,
    and 7–15 digits in total (15 is the international maximum). */
 const phone=document.getElementById('phone'),phoneErr=document.getElementById('phone-err');
 function phoneProblem(v){
-  v=v.trim();if(!v)return '';
+  v=v.trim();if(!v)return 'Add your phone number, with the country code.';
   if(!/^\+?[\d\s().\/-]+$/.test(v))return 'Use digits only, with an optional + and country code at the start.';
   const digits=v.replace(/\D/g,'').length;
   if(digits<7)return 'This number looks too short. Include the area or mobile prefix.';
@@ -1357,7 +1357,7 @@ form.addEventListener('submit',async e=>{
   if(!form.checkValidity()){
     form.classList.add('checked');
     const first=form.querySelector(':invalid');
-    show('err',first===phone?'Check the phone number, or leave it empty. It is optional.':'Add your name, work email, a service, a short brief and tick the consent box, then send again.');
+    show('err',first===phone?'Check the phone number, including the country code.':'Add your name, work email, phone number, a service, a short brief and tick the consent box, then send again.');
     first.focus();return;
   }
   const data=new FormData(form);

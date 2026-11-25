@@ -324,8 +324,8 @@
     "Send brief": "Enviar solicitud",
     "Sending…": "Enviando…",
     "Reply within one business day.": "Respuesta en un día hábil.",
-    "Add your name, work email, a service, a short brief and tick the consent box, then send again.": "Indica tu nombre, tu correo de trabajo, un servicio y una breve solicitud, marca la casilla de consentimiento y vuelve a enviarla.",
-    "Check the phone number, or leave it empty. It is optional.": "Revisa el número de teléfono o déjalo en blanco. Es opcional.",
+    "Add your name, work email, phone number, a service, a short brief and tick the consent box, then send again.": "Indica tu nombre, tu correo de trabajo, tu teléfono, un servicio y una breve solicitud, marca la casilla de consentimiento y vuelve a enviarla.",
+    "Check the phone number, including the country code.": "Revisa el número de teléfono, incluido el prefijo del país.",
     "Use digits only, with an optional + and country code at the start.": "Usa solo dígitos; si quieres, añade al principio un + y el prefijo del país.",
     "This number looks too short. Include the area or mobile prefix.": "Este número parece demasiado corto. Incluye el código de área o el prefijo del móvil.",
     "This number is too long. Phone numbers have at most 15 digits.": "Este número es demasiado largo. Un número de teléfono tiene como máximo 15 dígitos.",
@@ -365,7 +365,8 @@
     "Logo concepts, refinement, colour palette, typefaces and files for web, social and print.": "Propuestas de logotipo, ajustes, paleta de colores, tipografías y archivos para web, redes sociales e impresión.",
     "Logo or brand identity": "Logotipo o identidad de marca",
     "Logo design": "Diseño de logotipo",
-    "Brand identity": "Identidad de marca"
+    "Brand identity": "Identidad de marca",
+    "Add your phone number, with the country code.": "Añade tu número de teléfono, con el prefijo del país."
   },
   "proposals": [
     {
@@ -457,7 +458,7 @@
       "Last updated:": "Última actualización:",
       "In short": "En resumen",
       "Only what you send us": "Solo lo que nos envías",
-      "Your name, work email, company, optional phone number and brief, used only to reply to you.": "Tu nombre, correo de trabajo, empresa, teléfono (opcional) y solicitud, que usamos únicamente para responderte.",
+      "Your name, work email, company, phone number and brief, used only to reply to you.": "Tu nombre, correo de trabajo, empresa, teléfono y solicitud, que usamos únicamente para responderte.",
       "No cookies, no analytics": "Sin cookies ni analítica",
       "This site does not track you. Your language choice stays in your own browser.": "Este sitio no te rastrea. Tu elección de idioma se queda en tu propio navegador.",
       "Yours to delete": "Tus datos, bajo tu control",
@@ -468,7 +469,7 @@
       ". You can reach us at": ". Puedes escribirnos a",
       "What we collect and why": "Qué datos recopilamos y para qué",
       "Briefs sent through the contact form": "Solicitudes enviadas mediante el formulario de contacto",
-      ": your name, work email, company, phone number if you choose to give one, and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": tu nombre, correo de trabajo, empresa, número de teléfono si decides facilitarlo y el texto de tu solicitud. Los utilizamos únicamente para responderte y preparar una propuesta. Base jurídica: nuestro interés legítimo en atender una consulta iniciada por ti (art. 6.1.f) del RGPD) y, cuando de ella se derive un contrato, la ejecución de dicho contrato (art. 6.1.b) del RGPD).",
+      ": your name, work email, company, phone number and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": tu nombre, correo de trabajo, empresa, número de teléfono y el texto de tu solicitud. Los utilizamos únicamente para responderte y preparar una propuesta. Base jurídica: nuestro interés legítimo en atender una consulta iniciada por ti (art. 6.1.f) del RGPD) y, cuando de ella se derive un contrato, la ejecución de dicho contrato (art. 6.1.b) del RGPD).",
       "Email you send us": "Correos electrónicos que nos envías",
       ": handled the same way as a form submission.": ": se tratan del mismo modo que los envíos del formulario.",
       "Technical data": "Datos técnicos",
@@ -486,7 +487,7 @@
       "Scavelo is an engineering studio based in Tirana, Albania. It is not yet registered as a company; until it is, the data controller for this website is the person who runs it,": "Scavelo es un estudio de ingeniería con sede en Tirana, Albania. Aún no está registrado como empresa; hasta entonces, el responsable del tratamiento de este sitio es la persona que lo gestiona,",
       "[your full name]": "[nombre completo]",
       "What you have to give us": "Qué tienes que facilitarnos",
-      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, the service you are interested in and a short brief; without them we cannot reply. Your company and phone number are optional.": "No necesitas facilitar nada para navegar por este sitio. Para responder a una solicitud necesitamos tu nombre, tu correo de trabajo, el servicio que te interesa y una breve descripción; sin ellos no podemos responderte. La empresa y el teléfono son opcionales.",
+      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, phone number, the service you are interested in and a short brief; without them we cannot reply. Your company is optional.": "No necesitas facilitar nada para navegar por este sitio. Para responder a una solicitud necesitamos tu nombre, tu correo de trabajo, tu teléfono, el servicio que te interesa y una breve descripción; sin ellos no podemos responderte. La empresa es opcional.",
       "Web3Forms, run by Web3Creative (India) — receives form submissions and emails them to our mailbox. It screens them for spam with CleanTalk and Akismet, which may receive your IP and email address.": "Web3Forms, gestionado por Web3Creative (India) — recibe las solicitudes enviadas desde el formulario y nos las reenvía por correo electrónico. Las filtra contra el spam con CleanTalk y Akismet, que pueden recibir tu dirección IP y tu correo electrónico.",
       "Our email provider — stores our correspondence.": "Nuestro proveedor de correo electrónico — guarda nuestra correspondencia.",
       "GitHub Pages, run by GitHub, Inc. (United States) — serves this website and may log visitors' IP addresses for security.": "GitHub Pages, gestionado por GitHub, Inc. (Estados Unidos) — aloja este sitio y puede registrar las direcciones IP de los visitantes por motivos de seguridad.",
@@ -495,7 +496,7 @@
       "Albania is outside the EU/EEA. Where we work with EU clients, transfers are covered by the EU Standard Contractual Clauses in our engagement agreement. GitHub and Google are based in the United States and receive data under the safeguards set out in their own terms, such as the EU–US Data Privacy Framework or Standard Contractual Clauses. Web3Forms operates from India and receives form submissions under the Standard Contractual Clauses in its data processing agreement.": "Albania está fuera de la UE/EEE. Cuando trabajamos con clientes de la UE, las transferencias están cubiertas por las cláusulas contractuales tipo de la UE incluidas en nuestro acuerdo de colaboración. GitHub y Google tienen su sede en Estados Unidos y reciben datos conforme a las garantías previstas en sus propias condiciones, como el Marco de Privacidad de Datos UE-EE. UU. o las cláusulas contractuales tipo. Web3Forms opera desde la India y recibe las solicitudes del formulario conforme a las cláusulas contractuales tipo de su acuerdo de tratamiento de datos.",
       "Automated decisions": "Decisiones automatizadas",
       "We do not make decisions about you by automated means, and we do not build profiles of visitors.": "No tomamos decisiones sobre ti por medios automatizados ni creamos perfiles de los visitantes.",
-      "20 November 2026": "20 de noviembre de 2026"
+      "25 November 2026": "25 de noviembre de 2026"
     }
   }
 };

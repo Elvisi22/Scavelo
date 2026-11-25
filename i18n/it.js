@@ -324,8 +324,8 @@
     "Send brief": "Invia richiesta",
     "Sending…": "Invio in corso…",
     "Reply within one business day.": "Risposta entro un giorno lavorativo.",
-    "Add your name, work email, a service, a short brief and tick the consent box, then send again.": "Inserisci nome, email aziendale, un servizio e una breve richiesta, spunta la casella del consenso e invia di nuovo.",
-    "Check the phone number, or leave it empty. It is optional.": "Controlla il numero di telefono o lascia il campo vuoto: è facoltativo.",
+    "Add your name, work email, phone number, a service, a short brief and tick the consent box, then send again.": "Inserisci nome, email aziendale, numero di telefono, un servizio e una breve richiesta, spunta la casella del consenso e invia di nuovo.",
+    "Check the phone number, including the country code.": "Controlla il numero di telefono, compreso il prefisso internazionale.",
     "Use digits only, with an optional + and country code at the start.": "Usa solo cifre, con + e prefisso internazionale all'inizio, se vuoi.",
     "This number looks too short. Include the area or mobile prefix.": "Il numero sembra troppo corto. Includi il prefisso locale o del cellulare.",
     "This number is too long. Phone numbers have at most 15 digits.": "Il numero è troppo lungo. Un numero di telefono ha al massimo 15 cifre.",
@@ -365,7 +365,8 @@
     "Logo concepts, refinement, colour palette, typefaces and files for web, social and print.": "Concept di logo, revisioni, palette di colori, caratteri e file per web, social e stampa.",
     "Logo or brand identity": "Logo o identità visiva",
     "Logo design": "Design del logo",
-    "Brand identity": "Identità visiva"
+    "Brand identity": "Identità visiva",
+    "Add your phone number, with the country code.": "Inserisci il tuo numero di telefono, con il prefisso internazionale."
   },
   "proposals": [
     {
@@ -457,7 +458,7 @@
       "Last updated:": "Ultimo aggiornamento:",
       "In short": "In sintesi",
       "Only what you send us": "Solo ciò che ci invii",
-      "Your name, work email, company, optional phone number and brief, used only to reply to you.": "Nome, email aziendale, azienda, numero di telefono facoltativo e richiesta, utilizzati esclusivamente per risponderti.",
+      "Your name, work email, company, phone number and brief, used only to reply to you.": "Nome, email aziendale, azienda, numero di telefono e richiesta, utilizzati esclusivamente per risponderti.",
       "No cookies, no analytics": "Nessun cookie né strumenti di analisi",
       "This site does not track you. Your language choice stays in your own browser.": "Questo sito non ti traccia. La lingua che scegli resta salvata nel tuo browser.",
       "Yours to delete": "Puoi cancellarli quando vuoi",
@@ -468,7 +469,7 @@
       ". You can reach us at": ". Puoi contattarci all'indirizzo",
       "What we collect and why": "Quali dati raccogliamo e perché",
       "Briefs sent through the contact form": "Richieste inviate tramite il modulo di contatto",
-      ": your name, work email, company, phone number if you choose to give one, and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": nome, email aziendale, azienda, numero di telefono se scegli di fornirlo e testo della richiesta. Utilizziamo questi dati esclusivamente per risponderti e preparare una proposta. Base giuridica: il nostro legittimo interesse a dare riscontro a una richiesta da te avviata (art. 6, par. 1, lett. f) GDPR) e, qualora ne segua un contratto, l'esecuzione di tale contratto (art. 6, par. 1, lett. b) GDPR).",
+      ": your name, work email, company, phone number and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": nome, email aziendale, azienda, numero di telefono e testo della richiesta. Utilizziamo questi dati esclusivamente per risponderti e preparare una proposta. Base giuridica: il nostro legittimo interesse a dare riscontro a una richiesta da te avviata (art. 6, par. 1, lett. f) GDPR) e, qualora ne segua un contratto, l'esecuzione di tale contratto (art. 6, par. 1, lett. b) GDPR).",
       "Email you send us": "Email che ci invii",
       ": handled the same way as a form submission.": ": sono trattate allo stesso modo delle richieste inviate tramite il modulo.",
       "Technical data": "Dati tecnici",
@@ -486,7 +487,7 @@
       "Scavelo is an engineering studio based in Tirana, Albania. It is not yet registered as a company; until it is, the data controller for this website is the person who runs it,": "Scavelo è uno studio di ingegneria con sede a Tirana, in Albania. Non è ancora registrato come società; fino ad allora, il titolare del trattamento dei dati di questo sito è la persona che lo gestisce,",
       "[your full name]": "[nome e cognome]",
       "What you have to give us": "Cosa devi fornirci",
-      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, the service you are interested in and a short brief; without them we cannot reply. Your company and phone number are optional.": "Per navigare su questo sito non serve nulla. Per rispondere a una richiesta ci servono il tuo nome, l'email di lavoro, il servizio che ti interessa e una breve descrizione; senza questi dati non possiamo risponderti. Azienda e numero di telefono sono facoltativi.",
+      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, phone number, the service you are interested in and a short brief; without them we cannot reply. Your company is optional.": "Per navigare su questo sito non serve nulla. Per rispondere a una richiesta ci servono il tuo nome, l'email di lavoro, il numero di telefono, il servizio che ti interessa e una breve descrizione; senza questi dati non possiamo risponderti. L'azienda è facoltativa.",
       "Web3Forms, run by Web3Creative (India) — receives form submissions and emails them to our mailbox. It screens them for spam with CleanTalk and Akismet, which may receive your IP and email address.": "Web3Forms, gestito da Web3Creative (India) — riceve i messaggi inviati tramite il modulo e li inoltra via email alla nostra casella di posta. Li controlla contro lo spam con CleanTalk e Akismet, che possono ricevere il tuo indirizzo IP e il tuo indirizzo email.",
       "Our email provider — stores our correspondence.": "Il nostro fornitore di posta elettronica — conserva la nostra corrispondenza.",
       "GitHub Pages, run by GitHub, Inc. (United States) — serves this website and may log visitors' IP addresses for security.": "GitHub Pages, gestito da GitHub, Inc. (Stati Uniti) — ospita questo sito e può registrare gli indirizzi IP dei visitatori per motivi di sicurezza.",
@@ -495,7 +496,7 @@
       "Albania is outside the EU/EEA. Where we work with EU clients, transfers are covered by the EU Standard Contractual Clauses in our engagement agreement. GitHub and Google are based in the United States and receive data under the safeguards set out in their own terms, such as the EU–US Data Privacy Framework or Standard Contractual Clauses. Web3Forms operates from India and receives form submissions under the Standard Contractual Clauses in its data processing agreement.": "L'Albania si trova al di fuori dell'UE/SEE. Quando lavoriamo con clienti dell'UE, i trasferimenti sono coperti dalle clausole contrattuali tipo dell'UE incluse nel nostro accordo di collaborazione. GitHub e Google hanno sede negli Stati Uniti e ricevono i dati in base alle garanzie previste dalle loro condizioni, come il Data Privacy Framework UE-USA o le clausole contrattuali tipo. Web3Forms opera dall'India e riceve i messaggi del modulo in base alle clausole contrattuali tipo previste dal suo accordo sul trattamento dei dati.",
       "Automated decisions": "Decisioni automatizzate",
       "We do not make decisions about you by automated means, and we do not build profiles of visitors.": "Non prendiamo decisioni che ti riguardano con mezzi automatizzati e non creiamo profili dei visitatori.",
-      "20 November 2026": "20 novembre 2026"
+      "25 November 2026": "25 novembre 2026"
     }
   }
 };

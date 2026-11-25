@@ -324,8 +324,8 @@
     "Send brief": "Anfrage senden",
     "Sending…": "Wird gesendet…",
     "Reply within one business day.": "Antwort innerhalb eines Werktags.",
-    "Add your name, work email, a service, a short brief and tick the consent box, then send again.": "Bitte geben Sie Name, geschäftliche E-Mail, eine Leistung und eine kurze Anfrage an, setzen Sie das Häkchen bei der Einwilligung und senden Sie erneut.",
-    "Check the phone number, or leave it empty. It is optional.": "Bitte prüfen Sie die Telefonnummer oder lassen Sie das Feld leer. Die Angabe ist optional.",
+    "Add your name, work email, phone number, a service, a short brief and tick the consent box, then send again.": "Bitte geben Sie Name, geschäftliche E-Mail, Telefonnummer, eine Leistung und eine kurze Anfrage an, setzen Sie das Häkchen bei der Einwilligung und senden Sie erneut.",
+    "Check the phone number, including the country code.": "Bitte prüfen Sie die Telefonnummer einschließlich Ländervorwahl.",
     "Use digits only, with an optional + and country code at the start.": "Bitte nur Ziffern verwenden, optional mit + und Ländervorwahl am Anfang.",
     "This number looks too short. Include the area or mobile prefix.": "Diese Nummer scheint zu kurz. Bitte mit Orts- oder Mobilvorwahl angeben.",
     "This number is too long. Phone numbers have at most 15 digits.": "Diese Nummer ist zu lang. Telefonnummern haben höchstens 15 Ziffern.",
@@ -365,7 +365,8 @@
     "Logo concepts, refinement, colour palette, typefaces and files for web, social and print.": "Logo-Entwürfe, Überarbeitung, Farbpalette, Schriften und Dateien für Web, Social Media und Druck.",
     "Logo or brand identity": "Logo oder Markenauftritt",
     "Logo design": "Logo-Design",
-    "Brand identity": "Markenauftritt"
+    "Brand identity": "Markenauftritt",
+    "Add your phone number, with the country code.": "Bitte geben Sie Ihre Telefonnummer mit Ländervorwahl an."
   },
   "proposals": [
     {
@@ -457,7 +458,7 @@
       "Last updated:": "Stand:",
       "In short": "Auf einen Blick",
       "Only what you send us": "Nur, was Sie uns senden",
-      "Your name, work email, company, optional phone number and brief, used only to reply to you.": "Ihr Name, Ihre geschäftliche E-Mail-Adresse, Ihr Unternehmen, optional Ihre Telefonnummer und Ihre Anfrage – ausschließlich zur Beantwortung verwendet.",
+      "Your name, work email, company, phone number and brief, used only to reply to you.": "Ihr Name, Ihre geschäftliche E-Mail-Adresse, Ihr Unternehmen, Ihre Telefonnummer und Ihre Anfrage – ausschließlich zur Beantwortung verwendet.",
       "No cookies, no analytics": "Keine Cookies, keine Analyse",
       "This site does not track you. Your language choice stays in your own browser.": "Diese Website verfolgt Sie nicht. Ihre Sprachauswahl bleibt in Ihrem eigenen Browser.",
       "Yours to delete": "Jederzeit löschbar",
@@ -468,7 +469,7 @@
       ". You can reach us at": ". Sie erreichen uns unter",
       "What we collect and why": "Welche Daten wir erheben und warum",
       "Briefs sent through the contact form": "Anfragen über das Kontaktformular",
-      ": your name, work email, company, phone number if you choose to give one, and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": Ihr Name, Ihre geschäftliche E-Mail-Adresse, Ihr Unternehmen, Ihre Telefonnummer, sofern Sie diese angeben, sowie der Text Ihrer Anfrage. Wir verwenden diese Daten ausschließlich, um Ihnen zu antworten und ein Angebot zu erstellen. Rechtsgrundlage ist unser berechtigtes Interesse an der Beantwortung einer von Ihnen initiierten Anfrage (Art. 6 Abs. 1 lit. f DSGVO) und, sofern ein Vertrag folgt, die Erfüllung dieses Vertrags (Art. 6 Abs. 1 lit. b DSGVO).",
+      ": your name, work email, company, phone number and the text of your brief. We use these only to reply to you and prepare a proposal. Legal basis: our legitimate interest in responding to an enquiry you initiated (GDPR Art. 6(1)(f)) and, where a contract follows, performance of that contract (Art. 6(1)(b)).": ": Ihr Name, Ihre geschäftliche E-Mail-Adresse, Ihr Unternehmen, Ihre Telefonnummer sowie der Text Ihrer Anfrage. Wir verwenden diese Daten ausschließlich, um Ihnen zu antworten und ein Angebot zu erstellen. Rechtsgrundlage ist unser berechtigtes Interesse an der Beantwortung einer von Ihnen initiierten Anfrage (Art. 6 Abs. 1 lit. f DSGVO) und, sofern ein Vertrag folgt, die Erfüllung dieses Vertrags (Art. 6 Abs. 1 lit. b DSGVO).",
       "Email you send us": "E-Mails, die Sie uns senden",
       ": handled the same way as a form submission.": ": werden genauso behandelt wie Anfragen über das Formular.",
       "Technical data": "Technische Daten",
@@ -486,7 +487,7 @@
       "Scavelo is an engineering studio based in Tirana, Albania. It is not yet registered as a company; until it is, the data controller for this website is the person who runs it,": "Scavelo ist ein Engineering-Studio mit Sitz in Tirana, Albanien. Es ist noch nicht als Unternehmen eingetragen; bis dahin ist verantwortliche Stelle für diese Website die Person, die das Studio betreibt:",
       "[your full name]": "[vollständiger Name]",
       "What you have to give us": "Was Sie angeben müssen",
-      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, the service you are interested in and a short brief; without them we cannot reply. Your company and phone number are optional.": "Zum Besuch dieser Website müssen Sie nichts angeben. Um eine Anfrage zu beantworten, benötigen wir Ihren Namen, Ihre geschäftliche E-Mail-Adresse, die gewünschte Leistung und eine kurze Beschreibung; ohne diese Angaben können wir nicht antworten. Unternehmen und Telefonnummer sind freiwillig.",
+      "Nothing is required to browse this site. To answer an enquiry we need your name, work email, phone number, the service you are interested in and a short brief; without them we cannot reply. Your company is optional.": "Zum Besuch dieser Website müssen Sie nichts angeben. Um eine Anfrage zu beantworten, benötigen wir Ihren Namen, Ihre geschäftliche E-Mail-Adresse, Ihre Telefonnummer, die gewünschte Leistung und eine kurze Beschreibung; ohne diese Angaben können wir nicht antworten. Die Angabe des Unternehmens ist freiwillig.",
       "Web3Forms, run by Web3Creative (India) — receives form submissions and emails them to our mailbox. It screens them for spam with CleanTalk and Akismet, which may receive your IP and email address.": "Web3Forms, betrieben von Web3Creative (Indien) – empfängt Formularanfragen und leitet sie per E-Mail an unser Postfach weiter. Es prüft sie mit CleanTalk und Akismet auf Spam, die dabei Ihre IP-Adresse und E-Mail-Adresse erhalten können.",
       "Our email provider — stores our correspondence.": "Unser E-Mail-Anbieter – speichert unsere Korrespondenz.",
       "GitHub Pages, run by GitHub, Inc. (United States) — serves this website and may log visitors' IP addresses for security.": "GitHub Pages, betrieben von GitHub, Inc. (USA) – stellt diese Website bereit und kann aus Sicherheitsgründen die IP-Adressen der Besucher protokollieren.",
@@ -495,7 +496,7 @@
       "Albania is outside the EU/EEA. Where we work with EU clients, transfers are covered by the EU Standard Contractual Clauses in our engagement agreement. GitHub and Google are based in the United States and receive data under the safeguards set out in their own terms, such as the EU–US Data Privacy Framework or Standard Contractual Clauses. Web3Forms operates from India and receives form submissions under the Standard Contractual Clauses in its data processing agreement.": "Albanien liegt außerhalb der EU bzw. des EWR. Wenn wir mit Kunden aus der EU arbeiten, sind Übermittlungen durch die EU-Standardvertragsklauseln in unserer Vereinbarung abgesichert. GitHub und Google haben ihren Sitz in den USA und erhalten Daten auf Grundlage der in ihren eigenen Bedingungen festgelegten Garantien, etwa des EU-US Data Privacy Framework oder der Standardvertragsklauseln. Web3Forms arbeitet von Indien aus und erhält Formularanfragen auf Grundlage der Standardvertragsklauseln in seinem Auftragsverarbeitungsvertrag.",
       "Automated decisions": "Automatisierte Entscheidungen",
       "We do not make decisions about you by automated means, and we do not build profiles of visitors.": "Wir treffen keine automatisierten Entscheidungen über Sie und erstellen keine Profile von Besuchern.",
-      "20 November 2026": "20. November 2026"
+      "25 November 2026": "25. November 2026"
     }
   }
 };
