@@ -1,3 +1,5 @@
+# Every crawler and AI agent may read the whole site.
+# A plain-language summary for AI agents is at https://scavelostudio.co.uk/llms.txt
 User-agent: *
 Allow: /
 

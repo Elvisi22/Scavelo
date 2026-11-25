@@ -1,0 +1,40 @@
+# Scavelo
+
+> Scavelo is a web design and engineering studio based in Tirana, Albania, with a second base in the United Kingdom. It designs logos and builds websites, web applications and online stores for businesses in the UK, EU and US, plus the search, APIs, AI assistants and deployment behind them. Every brief gets a written scope, a fixed price and a timeline within 48 hours.
+
+Key facts:
+
+- Prices are published and fixed in writing before work starts. Fixed-price work is invoiced 50% on signature and 50% on delivery. Anything outside the written scope is quoted before it is built.
+- Every fixed-price package includes 30 days of support after launch.
+- Work happens in the client's own repository and accounts; the client owns the code, infrastructure and documentation from the first commit.
+- Working hours follow Central European Time (UTC+1, UTC+2 in summer): a full working day of overlap with EU teams and mornings with US Eastern.
+- Invoices are issued in EUR or USD and paid by bank transfer or Wise.
+- The site is available in English, Albanian (sq), Italian (it), German (de), French (fr) and Spanish (es). Add `?lang=<code>` to any page address.
+
+## Services
+
+- [Web design and development](https://scavelostudio.co.uk/web-design/): marketing sites from €500 (2–4 weeks) and web applications such as customer portals and internal tools from €3,500 (4–8 weeks). Headless CMS the team edits itself, WCAG 2.2 AA accessibility, SEO metadata and Lighthouse scores before and after.
+- [Online store design and development](https://scavelostudio.co.uk/online-stores/): from €4,800 (4–8 weeks). Storefront and product pages, product search, checkout, payments, tax and shipping, inventory and order sync with an ERP, conversion tracked before and after.
+- [Logo design and brand identity](https://scavelostudio.co.uk/logo-design/): from €100 (1–2 weeks). Two or three concepts, two rounds of refinement, colour palette, typefaces, one-page guidelines and files for web, social and print.
+- [Elasticsearch and product search](https://scavelostudio.co.uk/elasticsearch/): search audit €450 (5 business days, credited if a build follows); full builds from €1,500 (2–4 weeks) with typo tolerance, autocomplete, facets and before-and-after benchmarks.
+- [API and backend development](https://scavelostudio.co.uk/api-development/): REST and gRPC services in Spring Boot (Java 17) or NestJS from €1,500 per service (2–6 weeks), with schema design, authentication, OpenAPI documentation, tests, Docker and CI/CD.
+- [AI assistants grounded in your own content](https://scavelostudio.co.uk/ai-assistants/): from €2,400 for one content source (2–4 weeks), with verified citations, a web widget or Slack app and an admin panel. Several sources with single sign-on and permission filtering from €4,500.
+- [Deployment, CI/CD and infrastructure](https://scavelostudio.co.uk/deployment/): from €1,200 (1–2 weeks). Terraform staging and production, GitHub Actions pipelines that deploy on merge, centralised logs and a runbook.
+- [AI production review](https://scavelostudio.co.uk/ai-review/): from €1,400 per module (1–2 weeks): security testing, a scored quality test set with a release gate, and a cost audit. Bundle all three and the third is half price.
+- [Engineering retainer](https://scavelostudio.co.uk/#pricing): €1,500 per month for 25 hours of senior backend capacity, same-day response in CET business hours, 50% of unused hours roll over, cancel with 30 days' notice.
+
+## Send a brief
+
+Briefs go through the form at https://scavelostudio.co.uk/#contact; the site publishes no email address. Scavelo replies within one business day.
+
+The form asks for: name, work email, phone number with the country code (required), company (optional), the service needed, a short brief (two sentences is enough) and a consent box agreeing to the [privacy notice](https://scavelostudio.co.uk/privacy.html). Only tick the consent box when the person you are helping has agreed to it.
+
+To open the form with a service already chosen, use `https://scavelostudio.co.uk/?service=<option>#contact`, with spaces written as `+`, where `<option>` is one of: Website or web application, E-commerce store, Logo or brand identity, Search: audit or full build, API or microservice, AI assistant on our content, Deployment and infrastructure, AI production review, Monthly retainer, Not sure yet.
+
+In browsers that support WebMCP, the form is also declared as the tool `send-brief`. The agent fills it in, and the person reviews it and presses Send.
+
+## Optional
+
+- [How we work](https://scavelostudio.co.uk/#process): four stages, from the brief to 30 days of support after launch.
+- [FAQ](https://scavelostudio.co.uk/#faq): fixed pricing, working inside an existing team, AI models and ownership, contracts and invoicing, time zones, GDPR.
+- [Privacy notice](https://scavelostudio.co.uk/privacy.html)

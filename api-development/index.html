@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="color">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Development in Spring Boot and NestJS | Scavelo</title>
+<meta name="description" content="Production REST and gRPC APIs built in your repository, with schema design, authentication, OpenAPI docs and tests. Fixed price from €1,500 per service.">
+<link rel="canonical" href="https://scavelostudio.co.uk/api-development/">
+<meta name="theme-color" content="#FBFBFD">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scavelo">
+<meta property="og:title" content="API Development in Spring Boot and NestJS | Scavelo">
+<meta property="og:description" content="Production REST and gRPC APIs built in your repository, with schema design, authentication, OpenAPI docs and tests. Fixed price from €1,500 per service.">
+<meta property="og:url" content="https://scavelostudio.co.uk/api-development/">
+<meta property="og:image" content="https://scavelostudio.co.uk/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scavelo. Websites, online stores and logo design. Written scope and fixed price within 48 hours. Tirana, Albania, United Kingdom, scavelostudio.co.uk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Scavelo. Websites, online stores and logo design. Written scope and fixed price within 48 hours. Tirana, Albania, United Kingdom, scavelostudio.co.uk">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231D1D1F'/%3E%3Ctext x='29' y='44' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='36' font-weight='600' text-anchor='middle' fill='%23F5F5F7'%3ES%3C/text%3E%3Ccircle cx='45.5' cy='41.5' r='3.6' fill='%237ADBC3'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<!-- Entrance animations are for people only: automated browsers, such as AI agents, get every section in its final state at once -->
+<script>if(!navigator.webdriver)document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://scavelostudio.co.uk/api-development/#service",
+      "name": "API and backend development",
+      "serviceType": "API development",
+      "description": "Production REST and gRPC APIs built in your repository, with schema design, authentication, OpenAPI docs and tests. Fixed price from €1,500 per service.",
+      "url": "https://scavelostudio.co.uk/api-development/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://scavelostudio.co.uk/#organization",
+        "name": "Scavelo",
+        "url": "https://scavelostudio.co.uk/"
+      },
+      "areaServed": [
+        "GB",
+        "EU",
+        "US"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://scavelostudio.co.uk/api-development/",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 1500,
+          "priceCurrency": "EUR"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://scavelostudio.co.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "APIs and services",
+          "item": "https://scavelostudio.co.uk/api-development/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work in our repository?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Work happens in your repository from the first commit, following your branching model, conventions and review process, so your team reviews every change and owns the code outright."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you build in Java or TypeScript?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both. We build in Spring Boot with Java 17 or in NestJS with TypeScript, usually matching what your team already runs so they can maintain it after handover."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if we need ongoing backend help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The engineering retainer gives you 25 hours of senior backend capacity a month for €1,500, with same-day responses in CET business hours and a monthly report of everything shipped."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does fixed pricing actually work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Send a brief and you get back a one-page scope covering deliverables, price and timeline. Work starts on a 50% deposit and the balance is due on delivery. Anything outside that written scope is quoted separately before it is built, so the final invoice matches the number you agreed."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body id="top">
+
+<header class="nav-bar" id="nav">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Scavelo, home page"><span class="mark">Scavelo<i>.</i></span><span class="tag">Engineering studio</span></a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="/#fix" style="--i:0">What we fix</a>
+      <a class="active" href="/#services" style="--i:1">Services</a>
+      <a href="/#pricing" style="--i:2">Pricing</a>
+      <a href="/#process" style="--i:3">How we work</a>
+      <a href="/#faq" style="--i:4">FAQ</a>
+      <a class="btn btn-sm" href="/?service=API+or+microservice#contact" style="--i:5">Get a proposal</a>
+    </nav>
+    <div class="lang" id="lang"></div>
+    <button class="menu-btn" id="menu-btn" data-i18n-skip aria-controls="links" aria-expanded="false" aria-label="Open menu"><span class="bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<main data-tone="api">
+
+<section class="pg-hero">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="/">Home</a></li><li><a href="/#services">Services</a></li><li><span aria-current="page">APIs and services</span></li></ol></nav>
+    <div class="pg-grid">
+      <div>
+        <h1><span class="eyebrow h1-kicker">API and backend development</span> <span class="h1-line">An API you can change without breaking things.</span></h1>
+        <p class="hero-lede">We build production REST and gRPC services in Spring Boot or NestJS, inside your repository and in your conventions. Schema design, authentication, documentation and tests are part of the deliverable, and every service arrives containerised with its pipeline wired.</p>
+        <div class="actions reveal" style="--d:.1s">
+          <a class="btn" href="/?service=API+or+microservice#contact">Get a fixed-price proposal</a>
+          <a class="btn btn-line" href="#process">How we work <span class="chev" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <div class="pg-card reveal" style="--d:.16s">
+        <div class="svc-price">
+          <div class="p num"><span class="from">from</span>€1,500<small>per service, 2–6 weeks</small></div>
+        </div>
+        <ul class="facts">
+          <li><b>48 hours</b><span>from your brief to a written scope, price and timeline</span></li>
+          <li><b>Fixed price</b><span>agreed up front; changes are quoted, never billed by surprise</span></li>
+          <li><b>30 days</b><span>of post-launch support included in every package</span></li>
+        </ul>
+        <a class="btn" href="/?service=API+or+microservice#contact">Send a brief</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white pg-svc">
+  <div class="wrap">
+    <article data-tone="api" class="svc">
+      <div class="svc-text reveal">
+        <h2 class="svc-h">APIs and services built to hold</h2>
+        <p>Production REST and gRPC services in Spring Boot (Java 17) or NestJS, built inside your repository and following your conventions from the first commit. Schema design, authentication and OpenAPI documentation are part of the deliverable, not a change request, and every service arrives containerised with its pipeline wired.</p>
+        <div class="ships"><b>What ships</b><ul class="ck"><li>Spring Boot or NestJS service</li><li>REST / gRPC, auth, rate limiting</li><li>MySQL schema design and optimisation</li><li>OpenAPI documentation</li><li>Automated test suite</li><li>Dockerised, CI/CD included</li></ul></div>
+      </div>
+      <div class="viz reveal" style="--d:.1s" aria-hidden="true">
+        <div class="viz-card" data-parallax=".05" data-max="12">
+          <div class="v-head"><span>orders-service</span><span class="pill neutral">OpenAPI 3.1</span></div>
+          <ul class="v-end">
+            <li><span class="m get">GET</span>/orders/{id}</li>
+            <li><span class="m post">POST</span>/orders</li>
+            <li><span class="m patch">PATCH</span>/orders/{id}/status</li>
+            <li><span class="m del">DELETE</span>/orders/{id}</li>
+          </ul>
+          <div class="v-foot"><span class="pill ok">Auth</span><span class="pill ok">Rate limiting</span><span class="pill ok">Tests passing</span><span class="pill neutral">Docker</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section bg-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Who it is for</p>
+      <h2 class="h-section">Sound familiar?</h2>
+    </div>
+    <div class="who-grid">
+      <ul class="who reveal">
+        <li><span class="n" aria-hidden="true">01</span><span>Teams whose API was built fast and now breaks whenever it changes.</span></li>
+        <li><span class="n" aria-hidden="true">02</span><span>Products whose business logic is spread across a monolith, scripts and spreadsheets.</span></li>
+        <li><span class="n" aria-hidden="true">03</span><span>Teams that need a new service built properly but have no backend engineer free to build it.</span></li>
+      </ul>
+      <div class="who-cards">
+      <div data-tone="api" class="card sym reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 5H8a2 2 0 0 0-2 2v3l-2 2 2 2v3a2 2 0 0 0 2 2h.5M15.5 5h.5a2 2 0 0 1 2 2v3l2 2-2 2v3a2 2 0 0 1-2 2h-.5"/></svg></div>
+        <q>Our API was built fast and now every change breaks something.</q>
+        <div class="fix"><b>What you get back</b>A Spring Boot or NestJS service with a designed schema, authentication, OpenAPI documentation and an automated test suite, built inside your repository.</div>
+      </div>
+<div data-tone="api" class="card sym reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg></div>
+        <q>We need senior backend capacity, but not a forty-hour hire.</q>
+        <div class="fix"><b>What you get back</b>A monthly block of engineering hours with same-day responses in CET, a report of everything shipped, and no hiring process to run.</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white pg-doc">
+  <div class="wrap">
+    <div class="stage reveal" data-tone="api">
+      <div class="stage-inner">
+        <div class="stage-top"><p class="doc-label" id="doc-label">Example of what you receive within 48 hours</p></div>
+        <div class="doc-stack" data-parallax=".035">
+          <article class="doc" data-proposal="3" aria-describedby="doc-label">
+            <div class="doc-head"><span class="t">Fixed-price proposal</span><span class="ref">Scavelo · example</span></div>
+            <div class="doc-body">
+              <div class="doc-row"><span class="k">Project</span><span class="v" data-f="project">Order service in Spring Boot (Java 17)</span></div>
+              <div class="doc-row"><span class="k">Problem</span><span class="v" data-f="problem">Order logic is spread across a monolith and a spreadsheet; every change risks breaking checkout.</span></div>
+              <div class="doc-row"><span class="k">Deliverables</span><span class="v"><ul class="ck" data-f="items"><li>REST and gRPC endpoints with authentication and rate limiting</li><li>MySQL schema designed and indexed for the access patterns</li><li>OpenAPI documentation and generated client</li><li>Automated test suite with 85%+ coverage of business rules</li><li>Dockerised, deployed through your CI/CD</li></ul></span></div>
+              <div class="doc-row"><span class="k">Timeline</span><span class="v" data-f="time">2–3 weeks, built in your repository</span></div>
+              <div class="doc-row"><span class="k">Support</span><span class="v">30 days after launch, included</span></div>
+              <div class="doc-total"><span class="k">Fixed price, agreed before work starts</span><span class="price num" data-f="price">€1,800</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="section bg-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How we work</p>
+      <h2 class="h-section">Four stages, every time.</h2>
+      <p class="lead">Whether it is a one-week audit or a three-month build, this is what working with Scavelo looks like.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n num">01</div><h3>You describe the problem</h3><p>Send a few sentences through the form. Within 48 hours you get a written scope, a fixed price and a timeline. No obligation, and no call unless you ask for one.</p></div>
+      <div class="step reveal" style="--d:.1s"><div class="n num">02</div><h3>You see running software weekly</h3><p>Work happens in your repository from day one, in your conventions and through your review process. Every week you get something you can run, not a status update.</p></div>
+      <div class="step reveal" style="--d:.2s"><div class="n num">03</div><h3>We hand it over deployed</h3><p>Delivery means live in your environment: tests passing, infrastructure defined in code, documentation written, dashboards in place. Your team can change it without us.</p></div>
+      <div class="step reveal" style="--d:.3s"><div class="n num">04</div><h3>Thirty days are already included</h3><p>Every fixed-price package covers a month of fixes and questions after launch. Move to a retainer if you want us to stay. Nothing renews automatically.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="wrap faq-grid">
+    <div class="sec-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h-section">Questions before you start.</h2>
+    </div>
+    <div class="faq reveal" style="--d:.08s">
+      <details><summary>Do you work in our repository?<span class="pm" aria-hidden="true"></span></summary><div class="a">Yes. Work happens in your repository from the first commit, following your branching model, conventions and review process, so your team reviews every change and owns the code outright.</div></details>
+      <details><summary>Do you build in Java or TypeScript?<span class="pm" aria-hidden="true"></span></summary><div class="a">Both. We build in Spring Boot with Java 17 or in NestJS with TypeScript, usually matching what your team already runs so they can maintain it after handover.</div></details>
+      <details><summary>What if we need ongoing backend help?<span class="pm" aria-hidden="true"></span></summary><div class="a">The engineering retainer gives you 25 hours of senior backend capacity a month for €1,500, with same-day responses in CET business hours and a monthly report of everything shipped.</div></details>
+      <details><summary>How does fixed pricing actually work?<span class="pm" aria-hidden="true"></span></summary><div class="a">Send a brief and you get back a one-page scope covering deliverables, price and timeline. Work starts on a 50% deposit and the balance is due on delivery. Anything outside that written scope is quoted separately before it is built, so the final invoice matches the number you agreed.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="section dark contact">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <p class="eyebrow">Contact</p>
+      <h2 class="h-section">Tell us what is slow, missing or manual.</h2>
+      <p class="lead">Two sentences is enough to start. Your brief goes to the engineers who would build it.</p>
+      <ul class="ck">
+        <li>A reply within one business day</li>
+        <li>A written, fixed-price proposal within 48 hours</li>
+        <li>No obligation, and no call unless you ask for one</li>
+      </ul>
+    </div>
+    <div class="cta-side reveal" style="--d:.1s">
+      <a class="btn btn-light" href="/?service=API+or+microservice#contact">Get a fixed-price proposal <span class="chev" aria-hidden="true"></span></a>
+      <span class="note">Reply within one business day.</span>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">More services</p>
+      <h2 class="h-section">Other ways we can help.</h2>
+    </div>
+    <div class="rel-grid">
+      <a data-tone="web" class="rel reveal" href="/web-design/"><b>Websites and web applications</b><span><span><span class="from">from</span>€500</span><span class="chev" aria-hidden="true"></span></span></a>
+      <a data-tone="brand" class="rel reveal" href="/logo-design/"><b>Logos and brand identity</b><span><span><span class="from">from</span>€100</span><span class="chev" aria-hidden="true"></span></span></a>
+      <a data-tone="shop" class="rel reveal" href="/online-stores/"><b>E-commerce built to sell</b><span><span><span class="from">from</span>€4,800</span><span class="chev" aria-hidden="true"></span></span></a>
+      <a data-tone="search" class="rel reveal" href="/elasticsearch/"><b>Search that ranks on intent</b><span><span><span class="from">from</span>€450</span><span class="chev" aria-hidden="true"></span></span></a>
+      <a data-tone="ai" class="rel reveal" href="/ai-assistants/"><b>AI assistants grounded in your own content</b><span><span><span class="from">from</span>€2,400</span><span class="chev" aria-hidden="true"></span></span></a>
+      <a data-tone="ops" class="rel reveal" href="/deployment/"><b>Deployment you don't have to think about</b><span><span><span class="from">from</span>€1,200</span><span class="chev" aria-hidden="true"></span></span></a>
+      <a data-tone="review" class="rel reveal" href="/ai-review/"><b>AI production review</b><span><span><span class="from">from</span>€1,400</span><span class="chev" aria-hidden="true"></span></span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="/"><span class="mark">Scavelo<i>.</i></span></a>
+        <p>An engineering studio building websites, online stores, backend, search and applied AI systems for product teams in Europe and the US.</p>
+      </div>
+      <div><h4>Build</h4><ul><li><a href="/web-design/">Websites and web apps</a></li><li><a href="/logo-design/">Logo design</a></li><li><a href="/online-stores/">E-commerce</a></li><li><a href="/elasticsearch/">Search and Elasticsearch</a></li><li><a href="/api-development/">APIs and services</a></li><li><a href="/ai-assistants/">AI assistants</a></li><li><a href="/deployment/">Deployment</a></li><li><a href="/ai-review/">AI production review</a></li></ul></div>
+      <div><h4>Studio</h4><ul><li><a href="/#pricing">Pricing</a></li><li><a href="/#process">How we work</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="/#contact">Send a brief</a></li><li>Tirana, Albania</li><li>United Kingdom</li><li>Central European Time</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2027 Scavelo. All rights reserved.</span>
+      <span><a href="/privacy.html">Privacy notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/i18n/i18n.js"></script>
+<script src="/assets/page.js"></script>
+</body>
+</html>
